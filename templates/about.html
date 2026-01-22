@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="rts-wrapper">
+    <div class="rts-wrapper-inner">
+        <!-- header area start -->
+        {% include 'partials/header/header-one.html' %}
+        <!-- header area end -->
+
+        <!-- Breadcrumb area start -->
+        {% with class="service" current="About" title="About Prela Automobile AG" %}
+        {% include 'partials/elements/breadcrumb.html' %}
+        {% endwith %}
+        <!-- Breadcrumb area end -->
+
+        <!-- Mission & Vision Section Start -->
+        <section class="rts-about-area rts-section-gap">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="about-content-area">
+                            <div class="section-title-area">
+                                <p class="sub-title">Our Mission</p>
+                                <h2 class="section-title">Empowering Your <span>Mobility</span></h2>
+                            </div>
+                            <p class="desc">At Prela Automobile AG, our mission is to provide the highest quality
+                                automotive services in Switzerland. We strive to simplify the process of buying,
+                                selling, and exporting vehicles, ensuring transparency and trust in every transaction.
+                                We are dedicated to delivering exceptional value and a seamless experience to every
+                                client who walks through our doors.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content-area">
+                            <div class="section-title-area">
+                                <p class="sub-title">Our Vision</p>
+                                <h2 class="section-title">The Standard of <span>Excellence</span></h2>
+                            </div>
+                            <p class="desc">Our vision is to become the leading automotive partner in Switzerland,
+                                recognized for our commitment to excellence, innovation, and customer satisfaction. We
+                                aim to set new standards in the industry by continuously improving our services and
+                                expanding our reach, making Prela Automobile AG the first choice for premium vehicle
+                                solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Mission & Vision Section End -->
+
+        <!-- Value Proposition Start -->
+        <section class="rts-service-area rts-section-gap bg-light">
+            <div class="container">
+                <div class="section-title-area text-center">
+                    <p class="sub-title">Why Choose Us</p>
+                    <h2 class="section-title">Our Value <span>Proposition</span></h2>
+                </div>
+                <div class="row g-5 mt--20">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-wrapper text-center">
+                            <div class="icon mb--20">
+                                <img src="{% static 'images/why-choose/icon-01.svg' %}" alt="" width="60">
+                            </div>
+                            <h5 class="title">Fair Valuation</h5>
+                            <p class="desc">We use real-time market data to ensure you get the best and fairest price
+                                for your vehicle, whether you are selling or trading in.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-wrapper text-center">
+                            <div class="icon mb--20">
+                                <img src="{% static 'images/why-choose/icon-02.svg' %}" alt="" width="60">
+                            </div>
+                            <h5 class="title">Expert Exporting</h5>
+                            <p class="desc">With years of experience in international logistics, we handle all the
+                                paperwork and transport for exporting your car hassle-free.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-wrapper text-center">
+                            <div class="icon mb--20">
+                                <img src="{% static 'images/why-choose/icon-03.svg' %}" alt="" width="60">
+                            </div>
+                            <h5 class="title">Certified Quality</h5>
+                            <p class="desc">Every vehicle in our collection undergoes a rigorous multi-point inspection
+                                to guarantee the highest safety and performance standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Value Proposition End -->
+
+        <!-- History of Owners Start -->
+        <section class="rts-about-area rts-section-gap">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="about-image-area">
+                            <img src="{% static 'images/about/03.webp' %}" alt="Owners of Prela Automobile AG"
+                                class="radius-10">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="about-content-area">
+                            <div class="section-title-area">
+                                <p class="sub-title">Our History</p>
+                                <h2 class="section-title">A Legacy of <span>Passion</span></h2>
+                            </div>
+                            <p class="desc">Founded by the Prela family, our company began as a small boutique garage in
+                                Sursee with a deep passion for precision engineering and luxury automobiles. Over the
+                                decades, we have grown into Prela Automobile AG, a cornerstone of the Swiss automotive
+                                market.</p>
+                            <p class="desc">The owners, with their extensive background in mechanical engineering and
+                                international trade, have always prioritized personal relationships with clients. Today,
+                                that same family-driven passion continues to guide our operations, ensuring that Prela
+                                Automobile AG remains a name synonymous with trust and quality.</p>
+                            <p class="desc"><strong>We are uniquely positioned because we have years of experience in
+                                    reputable car repairs and auto handling, a legacy of technical expertise that sets
+                                    us apart in the Swiss market.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- History of Owners End -->
+
+        <div class="rts-cta-area area-2">
+            <div class="container">
+                <div class="cta-inner">
+                    <h2 class="title">Ready to Experience the Prela Difference?</h2>
+                    <div class="contact">
+                        <a href="callto:+41419213634">
+                            <img src="{% static 'images/cta/call.svg' %}" alt="">
+                            +41 41 921 36 34</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'partials/footer/footer-one.html' %}
+{% endblock content %}

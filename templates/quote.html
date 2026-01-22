@@ -1,0 +1,423 @@
+{% load static %}
+{% include 'partials/style.html' %}
+
+<body class="quote-page">
+    <!-- Minimal Header -->
+    <div class="quote-header">
+        <div class="container">
+            <div class="quote-header-inner">
+                <a href="{% url 'index' %}" class="logo">
+                    <img src="{% static 'images/logo/prela_logo.png' %}" alt="Prela Automobile AG">
+                </a>
+                <a href="{% url 'index' %}" class="close-btn" aria-label="Close">
+                    <i class="fa-light fa-times"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Form Section -->
+    <div class="quote-main-section">
+        <div class="container">
+            <div class="quote-content">
+                <div class="quote-intro">
+                    <span class="pre-title">FREE VALUATION</span>
+                    <h1>Get Your Car's Value in <span class="highlight">24 Hours</span></h1>
+                    <p class="subtitle">Fill out our simple form and receive a competitive offer from our experts. No
+                        obligations, completely free.</p>
+                </div>
+
+                <div class="quote-form-wrapper">
+                    <form class="quote-form" method="post" action="#" id="quote-form">
+                        {% csrf_token %}
+
+                        <div class="form-section">
+                            <h3 class="section-title">Vehicle Information</h3>
+
+                            <div class="form-group">
+                                <label for="make_model">Make & Model *</label>
+                                <input type="text" id="make_model" name="make_model" placeholder="e.g., BMW 3 Series"
+                                    required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="year">Year *</label>
+                                    <input type="number" id="year" name="year" placeholder="2020" min="1900" max="2026"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mileage">Mileage (km) *</label>
+                                    <input type="number" id="mileage" name="mileage" placeholder="50000" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="condition">Condition *</label>
+                                <select id="condition" name="condition" required>
+                                    <option value="">Select condition</option>
+                                    <option value="excellent">Excellent - Like new</option>
+                                    <option value="good">Good - Well maintained</option>
+                                    <option value="fair">Fair - Some wear and tear</option>
+                                    <option value="poor">Poor - Needs repairs</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">Your Contact Information</h3>
+
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notes">Additional Notes (Optional)</label>
+                                <textarea id="notes" name="notes" rows="4"
+                                    placeholder="Any additional information about your vehicle..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Get My Free Valuation</span>
+                            <i class="fa-light fa-arrow-right"></i>
+                        </button>
+
+                        <p class="form-disclaimer">
+                            <i class="fa-light fa-shield-check"></i>
+                            Your information is secure and will only be used to provide you with a valuation.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include WhatsApp Button -->
+    {% include 'partials/elements/whatsapp-button.html' %}
+
+    {% include 'partials/scripts.html' %}
+
+    <style>
+        /* Quote Page Specific Styles */
+        .quote-page {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        .quote-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .quote-header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quote-header .logo img {
+            height: 50px;
+        }
+
+        .quote-header .close-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .quote-header .close-btn:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .quote-main-section {
+            padding: 60px 0 80px;
+        }
+
+        .quote-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .quote-intro .pre-title {
+            display: inline-block;
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .quote-intro h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .quote-intro h1 .highlight {
+            color: var(--color-primary);
+            position: relative;
+        }
+
+        .quote-intro .subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .quote-form-wrapper {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .form-section:last-of-type {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #333;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-group select {
+            height: auto;
+            min-height: 54px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 12px;
+            padding-right: 45px;
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            padding: 10px 15px;
+            font-size: 16px;
+            line-height: 1.5;
+            background: white;
+            color: #333;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(5, 83, 154, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px 40px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #043d7a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(5, 83, 154, 0.3);
+        }
+
+        .submit-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .form-disclaimer {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .form-disclaimer i {
+            color: #25D366;
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .quote-form-wrapper {
+                padding: 30px 20px;
+                border-radius: 15px;
+            }
+
+            .quote-intro h1 {
+                font-size: 32px;
+            }
+
+            .quote-intro .subtitle {
+                font-size: 16px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+                padding: 16px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quote-main-section {
+                padding: 30px 0 50px;
+            }
+
+            .quote-intro {
+                margin-bottom: 30px;
+            }
+
+            .quote-intro h1 {
+                font-size: 28px;
+            }
+        }
+
+        /* Fix for nice-select truncation and width */
+        .nice-select {
+            width: 100% !important;
+            display: block !important;
+            height: auto !important;
+            min-height: 54px !important;
+            line-height: 24px !important;
+            padding-top: 13px !important;
+            padding-bottom: 13px !important;
+            float: none !important;
+        }
+
+        .nice-select .list {
+            width: 100% !important;
+            max-width: none !important;
+        }
+
+        .nice-select .option {
+            padding-right: 20px !important;
+            white-space: normal !important;
+            line-height: 1.4 !important;
+            height: auto !important;
+            min-height: 40px;
+        }
+
+        /* Ensure footer is not fixed on this page if it's included */
+        .rts-footer-area.dim-fixed {
+            position: static !important;
+        }
+    </style>
+</body>
+
+</html>

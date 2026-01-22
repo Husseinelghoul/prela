@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="rts-wrapper">
+    <div class="rts-wrapper-inner">
+        <!-- header area start -->
+        {% include 'partials/header/header-one.html' %}
+        <!-- header area end -->
+
+        <!-- Breadcrumb area start -->
+        {% with class="service" current="Selling Tips" title="Selling Your Car" %}
+        {% include 'partials/elements/breadcrumb.html' %}
+        {% endwith %}
+        <!-- Breadcrumb area end -->
+
+        <section class="rts-service-area rts-section-gap">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-image-area">
+                            <img src="{% static 'images/blog/01.webp' %}" alt="Selling a car" class="radius-10">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content-area">
+                            <div class="section-title-area">
+                                <p class="sub-title">Expert Advice</p>
+                                <h2 class="section-title">What to look for when <span>selling</span> a car</h2>
+                            </div>
+                            <p class="desc">Selling your car in Switzerland requires careful preparation to ensure you
+                                get the best value and comply with legal requirements. Here are our top tips:</p>
+                            <ul class="feature-list mt--20">
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>Complete Documentation:</strong>
+                                    Ensure you have the service book (Serviceheft) and the vehicle registration document
+                                    (Fahrzeugausweis).</li>
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>Clean & Professional:</strong> A
+                                    professional cleaning can increase the resale value significantly.</li>
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>Recent MFK:</strong> A recent
+                                    "Motorfahrzeugkontrolle" (MFK) makes your car much more attractive to private
+                                    buyers.</li>
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>Fair Pricing:</strong> Use market
+                                    tools to set a competitive price based on mileage and condition.</li>
+                            </ul>
+                            <div class="button-area mt--30">
+                                <a href="{% url 'contact' %}" class="rts-btn btn-primary">Get a Free Valuation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% include 'partials/footer/footer-one.html' %}
+{% endblock content %}

@@ -1,0 +1,400 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="rts-wrapper">
+    <div class="rts-wrapper-inner">
+        <!-- header area start -->
+        {% include 'partials/header/header-one.html' %}
+        <!-- header area end -->
+
+        <!-- Banner area start -->
+        <section class="rts-banner-area bg_image_one jarallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="banner-area-one bg_image">
+                            <div class="banner-content-area text-center">
+                                <div class="pre-title wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s">
+                                    <span>Premium Automotive Excellence</span>
+                                </div>
+                                <h1 class="title wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1s">Prela
+                                    Automobile AG: Your Trusted Partner in <span>Switzerland</span></h1>
+                                <div class="wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1s">
+                                    <a href="{% url 'quote' %}" class="rts-btn radius-big icon btn-primary">
+                                        Get a Free Quote
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Banner area end -->
+
+        <!-- About Area Start -->
+        <section class="rts-about-area rts-section-gap">
+            <div class="container">
+                <div class="section-inner">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="about-image-area">
+                                <div class="image-main">
+                                    <img class="wow scaleIn" data-wow-delay=".5s" data-wow-duration="1.5s"
+                                        src="{% static 'images/about/03.webp' %}" width="371" alt="" loading="lazy">
+                                    <div class="counter-area">
+                                        <div class="inner wow zoomIn" data-wow-delay=".9s" data-wow-duration="1s">
+                                            <h2 class="title text-white"><span class="counter">2000</span><span>+</span>
+                                            </h2>
+                                            <p class="desc text-white">Cars Bought</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="{% static 'images/about/01.webp' %}" alt="" width="223"
+                                    class="floating-img-01 wow scaleIn" data-wow-delay=".5s" data-wow-duration="1.5s"
+                                    loading="lazy">
+                                <img src="{% static 'images/about/02.webp' %}" alt="" width="266"
+                                    class="floating-img-02 wow scaleIn" data-wow-delay=".5s" data-wow-duration="1.5s"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="about-content-area pl--40">
+                                <div class="section-title-area">
+                                    <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">About
+                                        Prela Automobile AG</p>
+                                    <h2 class="section-title wow move-right">Driven by Excellence: Your Trusted Partner
+                                        for <span>Premium Vehicles</span></h2>
+                                </div>
+                                <p class="desc">Welcome to Prela Automobile AG, where innovation and passion drive every
+                                    journey. With decades of experience in the Swiss automotive market, we specialize in
+                                    providing high-quality vehicle solutions tailored to your needs.</p>
+                                <p class="desc"><strong>We are uniquely positioned because we have years of experience
+                                        in reputable car repairs and auto handling, ensuring your vehicle is always in
+                                        expert hands.</strong></p>
+                                <a href="{% url 'about' %}" class="rts-btn btn-primary radius-big">Discover Our
+                                    Story</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Area End -->
+
+        <!-- Counter Area Start -->
+        <section class="rts-counter-area jarallax">
+            <div class="container">
+                <div class="counter-inner">
+                    <div class="inner wow zoomIn" data-wow-delay=".2s" data-wow-duration="1s">
+                        <div class="icon">
+                            <img src="{% static 'images/counter/icon-01.svg' %}" width="74" alt="" loading="lazy">
+                        </div>
+                        <div class="text">
+                            <h3 class="title cw"><span class="counter">25</span><span>+</span></h3>
+                            <p class="desc">Years of Experience</p>
+                        </div>
+                    </div>
+                    <div class="inner wow zoomIn" data-wow-delay=".4s" data-wow-duration="1s">
+                        <div class="icon">
+                            <img src="{% static 'images/counter/icon-02.svg' %}" alt="" loading="lazy">
+                        </div>
+                        <div class="text">
+                            <h3 class="title cw"><span class="counter">1500</span><span>+</span></h3>
+                            <p class="desc">Satisfied Customers</p>
+                        </div>
+                    </div>
+                    <div class="inner wow zoomIn" data-wow-delay=".6s" data-wow-duration="1s">
+                        <div class="icon">
+                            <img src="{% static 'images/counter/icon-03.svg' %}" alt="" loading="lazy">
+                        </div>
+                        <div class="text">
+                            <h3 class="title cw"><span class="counter">5000</span><span>+</span></h3>
+                            <p class="desc">Projects Completed</p>
+                        </div>
+                    </div>
+                    <div class="inner wow zoomIn" data-wow-delay=".8s" data-wow-duration="1s">
+                        <div class="icon">
+                            <img src="{% static 'images/counter/icon-04.svg' %}" alt="" loading="lazy">
+                        </div>
+                        <div class="text">
+                            <h3 class="title cw"><span class="counter">10</span><span>M</span></h3>
+                            <p class="desc">Visitors Per Year</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Counter Area End -->
+
+        <!-- Brand Area Start -->
+        <section class="rts-brand-area rts-section-gap">
+            <div class="container">
+                <div class="section-title-area2">
+                    <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration="1s">Car Brand</p>
+                    <h2 class="section-title wow move-right">Our Premium <span>Brands</span></h2>
+                </div>
+                <div class="section-inner mt--80">
+                    <ul>
+                        <li class="wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><img
+                                src="{% static 'images/brand/01-w.svg' %}" alt="" loading="lazy"></li>
+                        <li class="wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1s"><img
+                                src="{% static 'images/brand/02.svg' %}" alt="" loading="lazy"></li>
+                        <li class="wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1s"><img
+                                src="{% static 'images/brand/03.svg' %}" alt="" loading="lazy"></li>
+                        <li class="wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1s"><img
+                                src="{% static 'images/brand/04.svg' %}" alt="" loading="lazy"></li>
+                        <li class="wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s"><img
+                                src="{% static 'images/brand/05.svg' %}" alt="" loading="lazy"></li>
+                        <li class="wow fadeInUp" data-wow-delay="1.2s" data-wow-duration="1s"><img
+                                src="{% static 'images/brand/06.svg' %}" alt="" loading="lazy"></li>
+                        <li class="wow fadeInUp" data-wow-delay="1.4s" data-wow-duration="1s"><img
+                                src="{% static 'images/brand/07.svg' %}" alt="" loading="lazy"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Brand Area End -->
+
+        <!-- Why Choose Us Area -->
+        <section class="rts-why-choose-us rts-section-gap">
+            <div class="right-image jarallax jara-mask-1">
+                <img src="{% static 'images/about/why-choose-bg.webp' %}" width="886" class="jarallax-img" alt=""
+                    loading="lazy">
+            </div>
+            <div class="container">
+                <div class="section-inner">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-6">
+                            <div class="content-area">
+                                <div class="section-title-area">
+                                    <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">Why
+                                        Choose Us</p>
+                                    <h2 class="section-title cw wow move-right">Why Choose
+                                        <span>Us</span>
+                                    </h2>
+                                </div>
+                                <ul class="why-choose-feature-list mt--60">
+                                    <li class="wow fadeInUp" data-wow-delay=".1s" data-wow-duration="1s">
+                                        <div class="icon"><img src="{% static 'images/why-choose/icon-01.svg' %}" alt=""
+                                                loading="lazy"></div>
+                                        <div class="content">
+                                            <h6 class="title cw">We buy cars anytime and in any condition!</h6>
+                                            <p class="desc">Do you want to get the best value for your car? Look no
+                                                further! We offer the highest prices on the market for your car.</p>
+                                        </div>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s">
+                                        <div class="icon"><img src="{% static 'images/why-choose/icon-02.svg' %}" alt=""
+                                                loading="lazy"></div>
+                                        <div class="content">
+                                            <h6 class="title cw">Get top dollars for your car today!</h6>
+                                            <p class="desc">Do you want to get the best value for your car? Look no
+                                                further! We offer the highest prices on the market.</p>
+                                        </div>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                                        <div class="icon"><img src="{% static 'images/why-choose/icon-03.svg' %}" alt=""
+                                                loading="lazy"></div>
+                                        <div class="content">
+                                            <h6 class="title cw">Hassle-Free Car Sales</h6>
+                                            <p class="desc">Leave the paperwork to us! We'll take care of deregistering
+                                                and re-registering your car hassle-free.</p>
+                                        </div>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1s">
+                                        <div class="icon"><img src="{% static 'images/why-choose/icon-04.svg' %}" alt=""
+                                                loading="lazy"></div>
+                                        <div class="content">
+                                            <h6 class="title cw">Sell your car with ease!</h6>
+                                            <p class="desc">Say goodbye to the stress and hassle of selling your car!
+                                                Let us take care of everything for you.</p>
+                                        </div>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                                        <div class="icon"><img src="{% static 'images/why-choose/icon-01.svg' %}" alt=""
+                                                loading="lazy"></div>
+                                        <div class="content">
+                                            <h6 class="title cw">Experience the global trade!</h6>
+                                            <p class="desc">Do you want to import or export a car to Switzerland? We've
+                                                got you covered with expert logistics.</p>
+                                        </div>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1s">
+                                        <div class="icon"><img src="{% static 'images/why-choose/icon-02.svg' %}" alt=""
+                                                loading="lazy"></div>
+                                        <div class="content">
+                                            <h6 class="title cw">Don't let an accident stop you!</h6>
+                                            <p class="desc">Accidents happen. If your car has been involved in an
+                                                accident, we will buy it without asking questions.</p>
+                                        </div>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                                        <div class="icon"><img src="{% static 'images/why-choose/icon-03.svg' %}" alt=""
+                                                loading="lazy"></div>
+                                        <div class="content">
+                                            <h6 class="title cw">Drive your dream car today!</h6>
+                                            <p class="desc">We sell high-quality cars and offer test drives so you can
+                                                find the perfect vehicle for you.</p>
+                                        </div>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1s">
+                                        <div class="icon"><img src="{% static 'images/why-choose/icon-04.svg' %}" alt=""
+                                                loading="lazy"></div>
+                                        <div class="content">
+                                            <h6 class="title cw">We'll come to you!</h6>
+                                            <p class="desc">Don't worry about transporting your car. We'll take care of
+                                                the pickup and make the process even easier.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Why Choose Us Area End -->
+
+        <!-- Testimonials Area Start -->
+        <section class="rts-testimonials-area rts-section-gap">
+            <div class="container">
+                <div class="section-title-area text-center">
+                    <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">Testimonial (4.7
+                        Google Reviews)</p>
+                    <h2 class="section-title wow move-right">What Our <span>Clients</span> Say
+                    </h2>
+                </div>
+                <div class="section-inner mt--80">
+                    <div class="row align-items-center justify-content-end">
+                        <div class="col-xl-5 col-lg-6 wow fadeIn" data-wow-delay=".2s" data-wow-duration="1s">
+                            <div class="left-side-image text-end">
+                                <img src="{% static 'images/testimonials/02.webp' %}" width="423" alt=""
+                                    class="main-image wow scaleIn" data-wow-delay=".5s" data-wow-duration="1.5s"
+                                    loading="lazy">
+                                <img src="{% static 'images/testimonials/01.webp' %}" width="373" alt=""
+                                    class="floating-img wow scaleIn" data-wow-delay=".5s" data-wow-duration="1.5s"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-6">
+                            <div class="slider-inner">
+                                <div class="swiper testimonialSlider">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="review-wrapper">
+                                                <ul class="star-rating">
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star-sharp-half-stroke"></i></li>
+                                                </ul>
+                                                <p class="desc">
+                                                    "Wir hatten eine hervorragende Erfahrung mit der Prela Garage in
+                                                    Sursee, insbesondere dank der Professionalität von Herrn Valentin
+                                                    Prela. Alles war transparent, fair, effizient und über den
+                                                    Erwartungen. Wir empfehlen die Prela Garage wärmstens weiter!"
+                                                </p>
+                                                <div class="author-area">
+                                                    <img src="{% static 'images/testimonials/placeholder-user.png' %}"
+                                                        alt=""
+                                                        style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; margin-bottom: 15px;">
+                                                    <h6 class="title">Anca Muresan</h6>
+                                                    <p class="designation">Local Google Guide</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="review-wrapper">
+                                                <ul class="star-rating">
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                </ul>
+                                                <p class="desc">
+                                                    "I switched to Prela Garage and can say with a clear conscience: my
+                                                    car was professionally repaired here. The workshop crew has
+                                                    excellent expertise, works with great precision, and is always
+                                                    friendly. The Alfa is now back in A+ condition."
+                                                </p>
+                                                <div class="author-area">
+                                                    <img src="{% static 'images/testimonials/placeholder-user.png' %}"
+                                                        alt=""
+                                                        style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; margin-bottom: 15px;">
+                                                    <h6 class="title">Efstathios Efstathiou</h6>
+                                                    <p class="designation">Alfa Romeo Specialist Client</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="review-wrapper">
+                                                <ul class="star-rating">
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                </ul>
+                                                <p class="desc">
+                                                    "Une très bonne expérience avec le garage Prela. Je suis tombé en
+                                                    panne sur l'autoroute et ils m'ont changé une pompe à eau la matinée
+                                                    suivante. Service rapide et prix raisonnable. Je recommande
+                                                    complètement !"
+                                                </p>
+                                                <div class="author-area">
+                                                    <img src="{% static 'images/testimonials/placeholder-user.png' %}"
+                                                        alt=""
+                                                        style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; margin-bottom: 15px;">
+                                                    <h6 class="title">Clement Petit</h6>
+                                                    <p class="designation">Local Guide</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="review-wrapper">
+                                                <ul class="star-rating">
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                    <li><i class="rt-icon-star"></i></li>
+                                                </ul>
+                                                <p class="desc">
+                                                    "Ich bin absolut begeistert von der Prela Garage in Sursee! Die
+                                                    Arbeit ist einfach top – hohe Qualität zu einem wirklich fairen und
+                                                    günstigen Preis. Das Personal ist super zuvorkommend, freundlich und
+                                                    kompetent."
+                                                </p>
+                                                <div class="author-area">
+                                                    <img src="{% static 'images/testimonials/placeholder-user.png' %}"
+                                                        alt=""
+                                                        style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; margin-bottom: 15px;">
+                                                    <h6 class="title">Rene Stoffel</h6>
+                                                    <p class="designation">Satisfied Customer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-shape-area">
+                <img src="{% static 'images/category/shape/shape-01.svg' %}" alt="" loading="lazy">
+            </div>
+        </section>
+        <!-- Testimonials Area End -->
+
+        <!-- FAQ Section -->
+        {% include 'partials/elements/faq-section.html' %}
+
+
+
+        {% include 'partials/footer/footer-one.html' %}
+        {% endblock content %}

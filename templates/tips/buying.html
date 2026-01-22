@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="rts-wrapper">
+    <div class="rts-wrapper-inner">
+        <!-- header area start -->
+        {% include 'partials/header/header-one.html' %}
+        <!-- header area end -->
+
+        <!-- Breadcrumb area start -->
+        {% with class="service" current="Buying Tips" title="Buying Your Dream Car" %}
+        {% include 'partials/elements/breadcrumb.html' %}
+        {% endwith %}
+        <!-- Breadcrumb area end -->
+
+        <section class="rts-service-area rts-section-gap">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="about-image-area">
+                            <img src="{% static 'images/blog/02.webp' %}" alt="Buying a car" class="radius-10">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="about-content-area">
+                            <div class="section-title-area">
+                                <p class="sub-title">Expert Advice</p>
+                                <h2 class="section-title">What to look for when <span>buying</span> a car</h2>
+                            </div>
+                            <p class="desc">Purchasing a vehicle is a major investment. To protect yourself and your
+                                wallet, keep these key factors in mind:</p>
+                            <ul class="feature-list mt--20">
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>Service History:</strong> Check
+                                    if the car has been regularly maintained at authorized dealers.</li>
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>Body Condition:</strong> Look for
+                                    inconsistencies in paint or gaps in body panels which may indicate previous
+                                    accidents.</li>
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>Test Drive:</strong> Listen for
+                                    unusual noises and check the responsiveness of brakes and transmission.</li>
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>Warranty:</strong> Whenever
+                                    possible, buy from dealers like us who offer a comprehensive warranty.</li>
+                            </ul>
+                            <div class="button-area mt--30">
+                                <a href="{% url 'contact' %}" class="rts-btn btn-primary">Browse Our Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% include 'partials/footer/footer-one.html' %}
+{% endblock content %}

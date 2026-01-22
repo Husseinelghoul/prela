@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: autovolt
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn autovolt.wsgi
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        generateValue: true

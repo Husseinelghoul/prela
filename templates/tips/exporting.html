@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="rts-wrapper">
+    <div class="rts-wrapper-inner">
+        <!-- header area start -->
+        {% include 'partials/header/header-one.html' %}
+        <!-- header area end -->
+
+        <!-- Breadcrumb area start -->
+        {% with class="service" current="Exporting Tips" title="Exporting Vehicles" %}
+        {% include 'partials/elements/breadcrumb.html' %}
+        {% endwith %}
+        <!-- Breadcrumb area end -->
+
+        <section class="rts-service-area rts-section-gap">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-image-area">
+                            <img src="{% static 'images/blog/03.webp' %}" alt="Exporting a car" class="radius-10">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content-area">
+                            <div class="section-title-area">
+                                <p class="sub-title">Expert Advice</p>
+                                <h2 class="section-title">What to look for when <span>exporting</span> a car</h2>
+                            </div>
+                            <p class="desc">Exporting a vehicle from Switzerland involves customs and logistics
+                                expertise. Here is how to navigate the process:</p>
+                            <ul class="feature-list mt--20">
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>EUR.1 Document:</strong> This
+                                    document is crucial for preferential customs treatment in many countries.</li>
+                                <li><i class="fa-regular fa-circle-check"></i> <strong>VAT Refund:</strong> If you are
+                                    exporting a vehicle for commercial use, you may be eligible for a VAT refund.</li>
+                                <li><i class="fa-regular fa-car"></i> <strong>Export Plates:</strong> You will need
+                                    temporary export plates (Zollschilder) if you plan to drive the car out of the
+                                    country.</li>
+                                <li><i class="fa-regular fa-ship"></i> <strong>Logistics Partner:</strong> Choose a
+                                    partner with experience in container or RoRo shipping.</li>
+                            </ul>
+                            <div class="button-area mt--30">
+                                <a href="{% url 'contact' %}" class="rts-btn btn-primary">Inquire About Exporting</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% include 'partials/footer/footer-one.html' %}
+{% endblock content %}

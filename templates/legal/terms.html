@@ -1,0 +1,169 @@
+{% load static %}
+{% include 'partials/style.html' %}
+
+<body>
+    {% include 'partials/header/header-one.html' %}
+
+    <!-- Breadcrumb Area -->
+    <div class="rts-breadcrumb-area bg-breadcrumb bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-inner text-center">
+                        <h1 class="title">Terms & Conditions</h1>
+                        <ul class="page-list">
+                            <li class="rts-breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="rts-breadcrumb-item active">Terms & Conditions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Content -->
+    <div class="rts-terms-area rts-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="terms-content">
+                        <h2>Terms & Conditions</h2>
+                        <p class="last-updated">Last Updated: January 2026</p>
+
+                        <div class="policy-section">
+                            <h3>1. Acceptance of Terms</h3>
+                            <p>By accessing and using the Prela Automobile AG website, you accept and agree to be bound
+                                by the terms and provision of this agreement.</p>
+                        </div>
+
+                        <div class="policy-section">
+                            <h3>2. Use of Services</h3>
+                            <p>Our services are provided for the purpose of vehicle valuation, buying, selling, and
+                                exporting. You agree to use our services only for lawful purposes and in accordance with
+                                these Terms.</p>
+                        </div>
+
+                        <div class="policy-section">
+                            <h3>3. Vehicle Valuations</h3>
+                            <p>All valuations provided by Prela Automobile AG are estimates based on the information you
+                                provide. Final offers may vary based on physical inspection of the vehicle. We reserve
+                                the right to adjust our offer after inspection.</p>
+                        </div>
+
+                        <div class="policy-section">
+                            <h3>4. Accuracy of Information</h3>
+                            <p>You agree to provide accurate and complete information about your vehicle.
+                                Misrepresentation of vehicle condition, mileage, or other details may result in
+                                adjustment or withdrawal of our offer.</p>
+                        </div>
+
+                        <div class="policy-section">
+                            <h3>5. Intellectual Property</h3>
+                            <p>The content, organization, graphics, design, and other matters related to our website are
+                                protected under applicable copyrights and other proprietary laws. Copying,
+                                redistribution, or publication of any such matters is strictly prohibited.</p>
+                        </div>
+
+                        <div class="policy-section">
+                            <h3>6. Limitation of Liability</h3>
+                            <p>Prela Automobile AG shall not be liable for any indirect, incidental, special,
+                                consequential, or punitive damages resulting from your use of or inability to use our
+                                services.</p>
+                        </div>
+
+                        <div class="policy-section">
+                            <h3>7. Governing Law</h3>
+                            <p>These Terms shall be governed by and construed in accordance with the laws of
+                                Switzerland, without regard to its conflict of law provisions.</p>
+                        </div>
+
+                        <div class="policy-section">
+                            <h3>8. Changes to Terms</h3>
+                            <p>We reserve the right to modify these Terms at any time. We will notify users of any
+                                material changes by posting the new Terms on our website.</p>
+                        </div>
+
+                        <div class="policy-section">
+                            <h3>9. Contact Information</h3>
+                            <p>For questions about these Terms, please contact us at:</p>
+                            <p>
+                                <strong>Prela Automobile AG</strong><br>
+                                Allmendstrasse 10<br>
+                                6210 Sursee, Switzerland<br>
+                                Email: <a href="mailto:info@prela.ch">info@prela.ch</a><br>
+                                Phone: <a href="tel:+41419213634">+41 41 921 36 34</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'partials/footer/footer-one.html' %}
+    {% include 'partials/elements/whatsapp-button.html' %}
+    {% include 'partials/scripts.html' %}
+
+    <style>
+        .terms-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .terms-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .policy-section {
+            margin-bottom: 35px;
+        }
+
+        .policy-section h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .policy-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .policy-section ul {
+            list-style: disc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .policy-section ul li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .policy-section a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .policy-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</body>
+
+</html>

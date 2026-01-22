@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js" {% if theme %} data-theme="{{theme}}" {% endif %} {% if dir %} dir="{{dir}}" {% endif %}>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/fav.svg' %}">
+    <title>Prela Automobile AG - {{title}}</title>
+    <meta name="description"
+        content="Prela Automobile AG - Your trusted partner for premium vehicles in Switzerland. Expert services in buying, selling, and exporting cars with Swiss quality and transparency.">
+    <link rel="stylesheet" href="{% static 'css/plugins/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/magnifying-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/rt-icon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3.1">
+</head>
