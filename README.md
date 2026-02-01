@@ -1,46 +1,54 @@
-# Prela Automobile AG - Informational Site (Swiss)
+# Prela Automobile AG - Astro Version
 
-This is a clean, modern informational website for **Prela Automobile AG**, a car dealership in Switzerland. The site is optimized for lead generation and provides essential information for buyers, sellers, and exporters.
+This is the modern, static version of the Prela Automobile AG website, rewritten using [Astro](https://astro.build/).
 
-## Core Features
-- **New Branding**: Rebranded as "Prela Automobile AG" with a custom logo.
-- **Sell Your Carvaluation Form**: Integrated lead collection form on the homepage.
-- **Tips & Tricks**: Dedicated sections for Selling, Buying, and Exporting vehicles in Switzerland.
-- **Detailed About Us**: Includes Mission, Vision, Value Proposition, and Family History.
-- **Minimalist Contact Page**: Focused contact form with integrated Google Maps and contact details.
+## Features
+- **Modern Tech Stack**: Built with Astro for superior performance and developer experience.
+- **Static Site Generation (SSG)**: Lightning-fast page loads and improved SEO.
+- **Component-Based Architecture**: Reusable UI components (Header, Footer, FAQ, Breadcrumbs).
+- **Fully Responsive**: Optimized for all devices.
+- **Lead Generation**: Integrated forms for car valuation and contact.
 
-## How to Run the Project
+## Prerequisites
+- **Node.js**: Version 18.17.1 or higher.
+- **npm**: Package manager (comes with Node.js).
 
-This project is built with **Django**. Follow these steps to run it locally:
+## How to Run Locally
 
-### 1. Prerequisites
-- Python 3.10 or higher installed.
-- `pip` (Python package manager).
-
-### 2. Installation
-1. Navigate to the project directory.
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### 3. Running the Server
-Start the Django development server:
+### 1. Installation
+Navigate to the project directory and install dependencies:
 ```bash
-python manage.py runserver
+npm install
 ```
 
-### 4. Viewing the Site
-Open your web browser and go to:
-[http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+### 2. Development Server
+Start the development server:
+```bash
+npm run dev
+```
+Open your browser at [http://localhost:4321/](http://localhost:4321/) to view the site.
+
+### 3. Build for Production
+Generate the static site:
+```bash
+npm run build
+```
+The output will be in the `dist/` directory.
+
+### 4. Preview Production Build
+Preview the generated static site locally:
+```bash
+npm run preview
+```
 
 ## Project Structure
-- **Homepage**: `/`
-- **About Us**: `/about`
-- **Tips & Tricks**:
-    - Selling: `/tips/selling`
-    - Buying: `/tips/buying`
-    - Exporting: `/tips/exporting`
-- **Contact**: `/contact`
+- `src/layouts/`: Base layout for all pages.
+- `src/components/`: Reusable UI components.
+- `src/pages/`: Website pages (Astro's file-based routing).
+- `public/`: Static assets (CSS, JS, Images, Fonts).
 
-*Note: The project has been fully cleaned of all blog modules, database files, and unused templates to ensure maximum performance and focus.*
+## Deployment
+This project is ready for deployment to any static hosting provider like Netlify, Vercel, or GitHub Pages. Simply upload the contents of the `dist/` directory after running `npm run build`.
+
+---
+*Note: This project was migrated from a Django-based implementation to provide better performance and easier maintenance.*
