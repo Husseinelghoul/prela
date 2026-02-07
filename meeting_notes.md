@@ -4,11 +4,6 @@
 - Change pictures to get pictures from facebook
 - Whatsapp button make it bigger on laptop and add a message to it
 - Remove get free quote button from message main
-- Car Brands on the phone make them bel 3ared w 3am y2albo
-    - german brands first volsvavagon, skoda, seat, audi, marsedis, BM, porche
-    - then french brnad reno, peagjo, opel
-    - japanese toyota honda nisan mazda
-    Whenever the client clicks on one they go to a formula with the audi or other already
 - Ebroz aktar eno we buy all types in any condition
 
 
@@ -23,3 +18,8 @@ Progress
 - Remove socials links
 - Address should be leutsern but not Switzerland
 - Put the formula right under the Welcome
+- Car Brands on the phone make them bel 3ared w 3am y2albo
+    - german brands first volsvavagon, skoda, seat, audi, marsedis, BM, porche
+    - then french brnad reno, peagjo, opel
+    - japanese toyota honda nisan mazda
+- Whenever the client clicks on one they go to a formula with the audi or other already

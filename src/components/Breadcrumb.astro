@@ -1,8 +1,8 @@
 ---
 interface Props {
-  title: string;
-  current: string;
-  className?: string;
+    title: string;
+    current: string;
+    className?: string;
 }
 
 const { title, current, className = "" } = Astro.props;
@@ -13,10 +13,6 @@ const { title, current, className = "" } = Astro.props;
     <div class="container">
         <div class="breadcrumb-area-wrapper">
             <h1 class="title">{title}</h1>
-            <div class="nav-bread-crumb">
-                <a href="/">Home</a>
-                <a href="#" class="current">{current}</a>
-            </div>
         </div>
     </div>
 </div>

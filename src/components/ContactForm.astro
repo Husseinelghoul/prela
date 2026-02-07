@@ -1,9 +1,13 @@
 ---
+
 ---
+
 <div class="premium-contact-form">
     <div class="form-header text-center">
         <h3 class="title">Detailed Valuation Request</h3>
-        <p class="subtitle">Get a professional valuation for your vehicle within 24 hours.</p>
+        <p class="subtitle">
+            Get a professional valuation for your vehicle within 24 hours.
+        </p>
     </div>
     <form class="form__content" method="post" action="#" id="contact-form">
         <div class="form-section">
@@ -12,29 +16,52 @@
                 <div class="col-md-6">
                     <div class="form__control">
                         <label for="make_type">Marke & Typ *</label>
-                        <input type="text" id="make_type" class="input-form" name="make_type"
-                            placeholder="e.g. BMW M4" required>
+                        <input
+                            type="text"
+                            id="make_type"
+                            class="input-form"
+                            name="make_type"
+                            placeholder="e.g. BMW M4"
+                            required
+                        />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
                         <label for="registration">1. Inverkehrsetzung *</label>
-                        <input type="text" id="registration" class="input-form" name="registration"
-                            placeholder="MM.YYYY" required>
+                        <input
+                            type="text"
+                            id="registration"
+                            class="input-form"
+                            name="registration"
+                            placeholder="MM.YYYY"
+                            required
+                        />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
                         <label for="mileage">Kilometerstand *</label>
-                        <input type="text" id="mileage" class="input-form" name="mileage"
-                            placeholder="e.g. 45'000" required>
+                        <input
+                            type="text"
+                            id="mileage"
+                            class="input-form"
+                            name="mileage"
+                            placeholder="e.g. 45'000"
+                            required
+                        />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
                         <label for="price">Preisvorstellung</label>
-                        <input type="text" id="price" class="input-form" name="price"
-                            placeholder="CHF">
+                        <input
+                            type="text"
+                            id="price"
+                            class="input-form"
+                            name="price"
+                            placeholder="CHF"
+                        />
                     </div>
                 </div>
             </div>
@@ -46,36 +73,65 @@
                 <div class="col-md-6">
                     <div class="form__control">
                         <label for="last_name">Name *</label>
-                        <input type="text" id="last_name" class="input-form" name="last_name" placeholder="Doe"
-                            required>
+                        <input
+                            type="text"
+                            id="last_name"
+                            class="input-form"
+                            name="last_name"
+                            placeholder="Doe"
+                            required
+                        />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
                         <label for="first_name">Vorname *</label>
-                        <input type="text" id="first_name" class="input-form" name="first_name"
-                            placeholder="John" required>
+                        <input
+                            type="text"
+                            id="first_name"
+                            class="input-form"
+                            name="first_name"
+                            placeholder="John"
+                            required
+                        />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
                         <label for="phone">Telefon *</label>
-                        <input type="text" id="phone_form" class="input-form" name="phone" placeholder="+41 79 000 00 00"
-                            required>
+                        <input
+                            type="text"
+                            id="phone_form"
+                            class="input-form"
+                            name="phone"
+                            placeholder="+41 79 000 00 00"
+                            required
+                        />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
                         <label for="email">E-Mail *</label>
-                        <input type="email" id="email_form" class="input-form" name="email" placeholder="john@example.com"
-                            required>
+                        <input
+                            type="email"
+                            id="email_form"
+                            class="input-form"
+                            name="email"
+                            placeholder="john@example.com"
+                            required
+                        />
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form__control">
                         <label for="message">Bemerkungen</label>
-                        <textarea name="message" id="message_form" cols="30" rows="4"
-                            placeholder="Describe your vehicle's condition, equipment, etc."></textarea>
+                        <textarea
+                            name="message"
+                            id="message_form"
+                            cols="30"
+                            rows="4"
+                            placeholder="Describe your vehicle's condition, equipment, etc."
+                        ></textarea>
                     </div>
                 </div>
             </div>
@@ -85,7 +141,11 @@
                 <span>Submit Valuation Request</span>
                 <i class="rt-icon-arrow-right"></i>
             </button>
-            <p class="privacy-note">Your data is handled according to our <a href="/privacy-policy">Privacy Policy</a>.</p>
+            <p class="privacy-note">
+                Your data is handled according to our <a href="/privacy-policy"
+                    >Privacy Policy</a
+                >.
+            </p>
         </div>
     </form>
     <div id="form-messages"></div>
@@ -142,7 +202,8 @@
         margin-bottom: 8px;
     }
 
-    .input-form, textarea {
+    .input-form,
+    textarea {
         width: 100%;
         padding: 12px 20px;
         border: 1px solid #e0e0e0;
@@ -152,7 +213,8 @@
         transition: all 0.3s ease;
     }
 
-    .input-form:focus, textarea:focus {
+    .input-form:focus,
+    textarea:focus {
         border-color: #05539a;
         background: #fff;
         box-shadow: 0 0 0 4px rgba(5, 83, 154, 0.1);
@@ -200,7 +262,7 @@
         .premium-contact-form {
             padding: 30px 20px;
         }
-        
+
         .form-header .title {
             font-size: 24px;
         }

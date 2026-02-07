@@ -1,9 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FAQSection from '../components/FAQSection.astro';
-import ContactForm from '../components/ContactForm.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FAQSection from "../components/FAQSection.astro";
+import ContactForm from "../components/ContactForm.astro";
+import BrandSlider from "../components/BrandSlider.astro";
 ---
 
 <BaseLayout title="Premium Automotive Excellence">
@@ -20,16 +21,39 @@ import ContactForm from '../components/ContactForm.astro';
                         <div class="col-lg-12">
                             <div class="banner-area-one bg_image">
                                 <div class="banner-content-area text-center">
-                                    <div class="pre-title wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s">
-                                        <span>Premium Automotive Excellence</span>
+                                    <div
+                                        class="pre-title wow fadeInUp"
+                                        data-wow-delay=".2s"
+                                        data-wow-duration="1s"
+                                    >
+                                        <span
+                                            >Premium Automotive Excellence</span
+                                        >
                                     </div>
-                                    <h1 class="title wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1s">Prela
-                                        Automobile AG</h1>
-                                    <p class="desc wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1s" style="color: white; font-size: 20px; font-weight: 500;">
+                                    <h1
+                                        class="title wow fadeInUp"
+                                        data-wow-delay=".4s"
+                                        data-wow-duration="1s"
+                                    >
+                                        Prela Automobile AG
+                                    </h1>
+                                    <p
+                                        class="desc wow fadeInUp"
+                                        data-wow-delay=".6s"
+                                        data-wow-duration="1s"
+                                        style="color: white; font-size: 20px; font-weight: 500;"
+                                    >
                                         Premium Automotive Excellence Since 2004
                                     </p>
-                                    <div class="wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1s">
-                                        <a href="/quote" class="rts-btn radius-big icon btn-primary">
+                                    <div
+                                        class="wow fadeInUp mobile-banner-btn"
+                                        data-wow-delay=".8s"
+                                        data-wow-duration="1s"
+                                    >
+                                        <a
+                                            href="/quote"
+                                            class="rts-btn radius-big icon btn-primary"
+                                        >
                                             Get a Free Quote
                                         </a>
                                     </div>
@@ -46,7 +70,7 @@ import ContactForm from '../components/ContactForm.astro';
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2">
-                             <ContactForm />
+                            <ContactForm />
                         </div>
                     </div>
                 </div>
@@ -60,40 +84,94 @@ import ContactForm from '../components/ContactForm.astro';
                             <div class="col-lg-5">
                                 <div class="about-image-area">
                                     <div class="image-main">
-                                        <img class="wow scaleIn" data-wow-delay=".5s" data-wow-duration="1.5s"
-                                            src="/images/about/03.webp" width="371" alt="Classic luxury car showcase" loading="lazy">
+                                        <img
+                                            class="wow scaleIn"
+                                            data-wow-delay=".5s"
+                                            data-wow-duration="1.5s"
+                                            src="/images/about/03.webp"
+                                            width="371"
+                                            alt="Classic luxury car showcase"
+                                            loading="lazy"
+                                        />
                                         <div class="counter-area">
-                                            <div class="inner wow zoomIn" data-wow-delay=".9s" data-wow-duration="1s">
-                                                <h2 class="title text-white"><span class="counter">2000</span><span>+</span>
+                                            <div
+                                                class="inner wow zoomIn"
+                                                data-wow-delay=".9s"
+                                                data-wow-duration="1s"
+                                            >
+                                                <h2 class="title text-blue">
+                                                    <span class="counter"
+                                                        >2000</span
+                                                    ><span>+</span>
                                                 </h2>
-                                                <p class="desc text-white">Cars Bought</p>
+                                                <p class="desc text-blue">
+                                                    Cars Bought
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="/images/about/01.webp" alt="Automotive repair expert at work" width="223"
-                                        class="floating-img-01 wow scaleIn" data-wow-delay=".5s" data-wow-duration="1.5s"
-                                        loading="lazy">
-                                    <img src="/images/about/02.webp" alt="High-end vehicle interior" width="266"
-                                        class="floating-img-02 wow scaleIn" data-wow-delay=".5s" data-wow-duration="1.5s"
-                                        loading="lazy">
+                                    <img
+                                        src="/images/about/01.webp"
+                                        alt="Automotive repair expert at work"
+                                        width="223"
+                                        class="floating-img-01 wow scaleIn"
+                                        data-wow-delay=".5s"
+                                        data-wow-duration="1.5s"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="/images/about/02.webp"
+                                        alt="High-end vehicle interior"
+                                        width="266"
+                                        class="floating-img-02 wow scaleIn"
+                                        data-wow-delay=".5s"
+                                        data-wow-duration="1.5s"
+                                        loading="lazy"
+                                    />
                                 </div>
                             </div>
                             <div class="col-lg-7">
                                 <div class="about-content-area pl--40">
                                     <div class="section-title-area">
-                                        <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">About
-                                            Prela Automobile AG</p>
-                                        <h2 class="section-title wow move-right">Driven by Excellence: Your Trusted Partner
-                                            for <span>Premium Vehicles</span></h2>
+                                        <p
+                                            class="sub-title wow fadeInUp"
+                                            data-wow-delay=".1s"
+                                            data-wow-duration=".8s"
+                                        >
+                                            About Prela Automobile AG
+                                        </p>
+                                        <h2
+                                            class="section-title wow move-right"
+                                        >
+                                            Driven by Excellence: Your Trusted
+                                            Partner for <span
+                                                >Premium Vehicles</span
+                                            >
+                                        </h2>
                                     </div>
-                                    <p class="desc">Welcome to Prela Automobile AG, where innovation and passion drive every
-                                        journey. With decades of experience in the Swiss automotive market, we specialize in
-                                        providing high-quality vehicle solutions tailored to your needs.</p>
-                                    <p class="desc"><strong>We are uniquely positioned because we have years of experience
-                                            in reputable car repairs and auto handling, ensuring your vehicle is always in
-                                            expert hands.</strong></p>
-                                    <a href="/about" class="rts-btn btn-primary radius-big">Discover Our
-                                        Story</a>
+                                    <p class="desc">
+                                        Welcome to Prela Automobile AG, where
+                                        innovation and passion drive every
+                                        journey. With decades of experience in
+                                        the Swiss automotive market, we
+                                        specialize in providing high-quality
+                                        vehicle solutions tailored to your
+                                        needs.
+                                    </p>
+                                    <p class="desc">
+                                        <strong
+                                            >We are uniquely positioned because
+                                            we have years of experience in
+                                            reputable car repairs and auto
+                                            handling, ensuring your vehicle is
+                                            always in expert hands.</strong
+                                        >
+                                    </p>
+                                    <a
+                                        href="/about"
+                                        class="rts-btn btn-primary radius-big"
+                                        >Discover Our Story</a
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -106,30 +184,66 @@ import ContactForm from '../components/ContactForm.astro';
             <section class="rts-counter-area jarallax">
                 <div class="container">
                     <div class="counter-inner">
-                        <div class="inner wow zoomIn" data-wow-delay=".2s" data-wow-duration="1s">
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".2s"
+                            data-wow-duration="1s"
+                        >
                             <div class="icon">
-                                <img src="/images/counter/icon-01.svg" width="74" alt="" loading="lazy">
+                                <img
+                                    src="/images/counter/icon-01.svg"
+                                    width="74"
+                                    alt=""
+                                    loading="lazy"
+                                />
                             </div>
                             <div class="text">
-                                <h3 class="title cw"><span class="counter">25</span><span>+</span></h3>
+                                <h3 class="title cw">
+                                    <span class="counter">25</span><span>+</span
+                                    >
+                                </h3>
                                 <p class="desc">Years of Experience</p>
                             </div>
                         </div>
-                        <div class="inner wow zoomIn" data-wow-delay=".4s" data-wow-duration="1s">
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".4s"
+                            data-wow-duration="1s"
+                        >
                             <div class="icon">
-                                <img src="/images/counter/icon-02.svg" alt="" loading="lazy">
+                                <img
+                                    src="/images/counter/icon-02.svg"
+                                    alt=""
+                                    loading="lazy"
+                                />
                             </div>
                             <div class="text">
-                                <h3 class="title cw"><span class="counter">1500</span><span>+</span></h3>
+                                <h3 class="title cw">
+                                    <span class="counter">1500</span><span
+                                        >+</span
+                                    >
+                                </h3>
                                 <p class="desc">Satisfied Customers</p>
                             </div>
                         </div>
-                        <div class="inner wow zoomIn" data-wow-delay=".6s" data-wow-duration="1s">
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".6s"
+                            data-wow-duration="1s"
+                        >
                             <div class="icon">
-                                <img src="/images/counter/icon-03.svg" alt="" loading="lazy">
+                                <img
+                                    src="/images/counter/icon-03.svg"
+                                    alt=""
+                                    loading="lazy"
+                                />
                             </div>
                             <div class="text">
-                                <h3 class="title cw"><span class="counter">5000</span><span>+</span></h3>
+                                <h3 class="title cw">
+                                    <span class="counter">5000</span><span
+                                        >+</span
+                                    >
+                                </h3>
                                 <p class="desc">Projects Completed</p>
                             </div>
                         </div>
@@ -139,29 +253,22 @@ import ContactForm from '../components/ContactForm.astro';
             <!-- Counter Area End -->
 
             <!-- Brand Area Start -->
-            <section class="rts-brand-area rts-section-gap">
+            <section class="rts-brand-area pt--40 pb--20">
                 <div class="container">
                     <div class="section-title-area2">
-                        <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration="1s">Car Brand</p>
-                        <h2 class="section-title wow move-right">Our Premium <span>Brands</span></h2>
+                        <p
+                            class="sub-title wow fadeInUp"
+                            data-wow-delay=".1s"
+                            data-wow-duration="1s"
+                        >
+                            Car Brand
+                        </p>
+                        <h2 class="section-title wow move-right">
+                            Our Premium <span>Brands</span>
+                        </h2>
                     </div>
-                    <div class="section-inner mt--80">
-                        <ul>
-                            <li class="wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s"><img
-                                    src="/images/brand/01-w.svg" alt="" loading="lazy"></li>
-                            <li class="wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1s"><img
-                                    src="/images/brand/02.svg" alt="" loading="lazy"></li>
-                            <li class="wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1s"><img
-                                    src="/images/brand/03.svg" alt="" loading="lazy"></li>
-                            <li class="wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1s"><img
-                                    src="/images/brand/04.svg" alt="" loading="lazy"></li>
-                            <li class="wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s"><img
-                                    src="/images/brand/05.svg" alt="" loading="lazy"></li>
-                            <li class="wow fadeInUp" data-wow-delay="1.2s" data-wow-duration="1s"><img
-                                    src="/images/brand/06.svg" alt="" loading="lazy"></li>
-                            <li class="wow fadeInUp" data-wow-delay="1.4s" data-wow-duration="1s"><img
-                                    src="/images/brand/07.svg" alt="" loading="lazy"></li>
-                        </ul>
+                    <div class="section-inner mt--40">
+                        <BrandSlider />
                     </div>
                 </div>
             </section>
@@ -170,8 +277,13 @@ import ContactForm from '../components/ContactForm.astro';
             <!-- Why Choose Us Area -->
             <section class="rts-why-choose-us rts-section-gap">
                 <div class="right-image jarallax jara-mask-1">
-                    <img src="/images/about/why-choose-bg.webp" width="886" class="jarallax-img" alt=""
-                        loading="lazy">
+                    <img
+                        src="/images/about/why-choose-us.jpg"
+                        width="886"
+                        class="jarallax-img"
+                        alt=""
+                        loading="lazy"
+                    />
                 </div>
                 <div class="container">
                     <div class="section-inner">
@@ -179,83 +291,218 @@ import ContactForm from '../components/ContactForm.astro';
                             <div class="col-lg-6">
                                 <div class="content-area">
                                     <div class="section-title-area">
-                                        <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">Why
-                                            Choose Us</p>
-                                        <h2 class="section-title cw wow move-right">Why Choose
+                                        <p
+                                            class="sub-title wow fadeInUp"
+                                            data-wow-delay=".1s"
+                                            data-wow-duration=".8s"
+                                        >
+                                            Why Choose Us
+                                        </p>
+                                        <h2
+                                            class="section-title cw wow move-right"
+                                        >
+                                            Why Choose
                                             <span>Us</span>
                                         </h2>
                                     </div>
                                     <ul class="why-choose-feature-list mt--60">
-                                        <li class="wow fadeInUp" data-wow-delay=".1s" data-wow-duration="1s">
-                                            <div class="icon"><img src="/images/why-choose/icon-01.svg" alt=""
-                                                    loading="lazy"></div>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".1s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-01.svg"
+                                                    alt=""
+                                                    loading="lazy"
+                                                />
+                                            </div>
                                             <div class="content">
-                                                <h6 class="title cw">We buy cars anytime and in any condition!</h6>
-                                                <p class="desc">Do you want to get the best value for your car? Look no
-                                                    further! We offer the highest prices on the market for your car.</p>
+                                                <h6 class="title cw">
+                                                    We buy cars anytime and in
+                                                    any condition!
+                                                </h6>
+                                                <p class="desc">
+                                                    Do you want to get the best
+                                                    value for your car? Look no
+                                                    further! We offer the
+                                                    highest prices on the market
+                                                    for your car.
+                                                </p>
                                             </div>
                                         </li>
-                                        <li class="wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s">
-                                            <div class="icon"><img src="/images/why-choose/icon-02.svg" alt=""
-                                                    loading="lazy"></div>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".2s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-02.svg"
+                                                    alt=""
+                                                    loading="lazy"
+                                                />
+                                            </div>
                                             <div class="content">
-                                                <h6 class="title cw">Get top dollars for your car today!</h6>
-                                                <p class="desc">Do you want to get the best value for your car? Look no
-                                                    further! We offer the highest prices on the market.</p>
+                                                <h6 class="title cw">
+                                                    Get top dollars for your car
+                                                    today!
+                                                </h6>
+                                                <p class="desc">
+                                                    Do you want to get the best
+                                                    value for your car? Look no
+                                                    further! We offer the
+                                                    highest prices on the
+                                                    market.
+                                                </p>
                                             </div>
                                         </li>
-                                        <li class="wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                                            <div class="icon"><img src="/images/why-choose/icon-03.svg" alt=""
-                                                    loading="lazy"></div>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".3s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-03.svg"
+                                                    alt=""
+                                                    loading="lazy"
+                                                />
+                                            </div>
                                             <div class="content">
-                                                <h6 class="title cw">Hassle-Free Car Sales</h6>
-                                                <p class="desc">Leave the paperwork to us! We'll take care of deregistering
-                                                    and re-registering your car hassle-free.</p>
+                                                <h6 class="title cw">
+                                                    Hassle-Free Car Sales
+                                                </h6>
+                                                <p class="desc">
+                                                    Leave the paperwork to us!
+                                                    We'll take care of
+                                                    deregistering and
+                                                    re-registering your car
+                                                    hassle-free.
+                                                </p>
                                             </div>
                                         </li>
-                                        <li class="wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1s">
-                                            <div class="icon"><img src="/images/why-choose/icon-04.svg" alt=""
-                                                    loading="lazy"></div>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".4s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-04.svg"
+                                                    alt=""
+                                                    loading="lazy"
+                                                />
+                                            </div>
                                             <div class="content">
-                                                <h6 class="title cw">Sell your car with ease!</h6>
-                                                <p class="desc">Say goodbye to the stress and hassle of selling your car!
-                                                    Let us take care of everything for you.</p>
+                                                <h6 class="title cw">
+                                                    Sell your car with ease!
+                                                </h6>
+                                                <p class="desc">
+                                                    Say goodbye to the stress
+                                                    and hassle of selling your
+                                                    car! Let us take care of
+                                                    everything for you.
+                                                </p>
                                             </div>
                                         </li>
-                                        <li class="wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                                            <div class="icon"><img src="/images/why-choose/icon-01.svg" alt=""
-                                                    loading="lazy"></div>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".5s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-01.svg"
+                                                    alt=""
+                                                    loading="lazy"
+                                                />
+                                            </div>
                                             <div class="content">
-                                                <h6 class="title cw">Experience the global trade!</h6>
-                                                <p class="desc">Do you want to import or export a car to Switzerland? We've
-                                                    got you covered with expert logistics.</p>
+                                                <h6 class="title cw">
+                                                    Experience the global trade!
+                                                </h6>
+                                                <p class="desc">
+                                                    Do you want to import or
+                                                    export a car to Switzerland?
+                                                    We've got you covered with
+                                                    expert logistics.
+                                                </p>
                                             </div>
                                         </li>
-                                        <li class="wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1s">
-                                            <div class="icon"><img src="/images/why-choose/icon-02.svg" alt=""
-                                                    loading="lazy"></div>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".6s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-02.svg"
+                                                    alt=""
+                                                    loading="lazy"
+                                                />
+                                            </div>
                                             <div class="content">
-                                                <h6 class="title cw">Don't let an accident stop you!</h6>
-                                                <p class="desc">Accidents happen. If your car has been involved in an
-                                                    accident, we will buy it without asking questions.</p>
+                                                <h6 class="title cw">
+                                                    Don't let an accident stop
+                                                    you!
+                                                </h6>
+                                                <p class="desc">
+                                                    Accidents happen. If your
+                                                    car has been involved in an
+                                                    accident, we will buy it
+                                                    without asking questions.
+                                                </p>
                                             </div>
                                         </li>
-                                        <li class="wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                                            <div class="icon"><img src="/images/why-choose/icon-03.svg" alt=""
-                                                    loading="lazy"></div>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".7s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-03.svg"
+                                                    alt=""
+                                                    loading="lazy"
+                                                />
+                                            </div>
                                             <div class="content">
-                                                <h6 class="title cw">Drive your dream car today!</h6>
-                                                <p class="desc">We sell high-quality cars and offer test drives so you can
-                                                    find the perfect vehicle for you.</p>
+                                                <h6 class="title cw">
+                                                    Drive your dream car today!
+                                                </h6>
+                                                <p class="desc">
+                                                    We sell high-quality cars
+                                                    and offer test drives so you
+                                                    can find the perfect vehicle
+                                                    for you.
+                                                </p>
                                             </div>
                                         </li>
-                                        <li class="wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1s">
-                                            <div class="icon"><img src="/images/why-choose/icon-04.svg" alt=""
-                                                    loading="lazy"></div>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".8s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-04.svg"
+                                                    alt=""
+                                                    loading="lazy"
+                                                />
+                                            </div>
                                             <div class="content">
-                                                <h6 class="title cw">We'll come to you!</h6>
-                                                <p class="desc">Don't worry about transporting your car. We'll take care of
-                                                    the pickup and make the process even easier.</p>
+                                                <h6 class="title cw">
+                                                    We'll come to you!
+                                                </h6>
+                                                <p class="desc">
+                                                    Don't worry about
+                                                    transporting your car. We'll
+                                                    take care of the pickup and
+                                                    make the process even
+                                                    easier.
+                                                </p>
                                             </div>
                                         </li>
                                     </ul>
@@ -271,9 +518,15 @@ import ContactForm from '../components/ContactForm.astro';
             <section class="rts-testimonials-area rts-section-gap">
                 <div class="container">
                     <div class="section-title-area text-center">
-                        <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">Testimonial (4.7
-                            Google Reviews)</p>
-                        <h2 class="section-title wow move-right">What Our <span>Clients</span> Say
+                        <p
+                            class="sub-title wow fadeInUp"
+                            data-wow-delay=".1s"
+                            data-wow-duration=".8s"
+                        >
+                            Testimonial (4.7 Google Reviews)
+                        </p>
+                        <h2 class="section-title wow move-right">
+                            What Our <span>Clients</span> Say
                         </h2>
                     </div>
                     <div class="section-inner mt--80">
@@ -283,86 +536,274 @@ import ContactForm from '../components/ContactForm.astro';
                                     <div class="swiper testimonialSlider">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <div class="review-wrapper" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                                                    <ul class="star-rating" style="justify-content: center; font-size: 30px; margin-bottom: 20px;">
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star-sharp-half-stroke"></i></li>
+                                                <div
+                                                    class="review-wrapper"
+                                                    style="text-align: center; max-width: 800px; margin: 0 auto;"
+                                                >
+                                                    <ul
+                                                        class="star-rating"
+                                                        style="justify-content: center; font-size: 30px; margin-bottom: 20px;"
+                                                    >
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star-sharp-half-stroke"
+                                                            ></i>
+                                                        </li>
                                                     </ul>
-                                                    <p class="desc" style="font-size: 20px; line-height: 1.6;">
-                                                        "Wir hatten eine hervorragende Erfahrung mit der Prela Garage in
-                                                        Sursee, insbesondere dank der Professionalität von Herrn Valentin
-                                                        Prela. Alles war transparent, fair, effizient und über den
-                                                        Erwartungen. Wir empfehlen die Prela Garage wärmstens weiter!"
+                                                    <p
+                                                        class="desc"
+                                                        style="font-size: 20px; line-height: 1.6;"
+                                                    >
+                                                        "Wir hatten eine
+                                                        hervorragende Erfahrung
+                                                        mit der Prela Garage in
+                                                        Sursee, insbesondere
+                                                        dank der
+                                                        Professionalität von
+                                                        Herrn Valentin Prela.
+                                                        Alles war transparent,
+                                                        fair, effizient und über
+                                                        den Erwartungen. Wir
+                                                        empfehlen die Prela
+                                                        Garage wärmstens
+                                                        weiter!"
                                                     </p>
-                                                    <div class="author-area" style="justify-content: center; margin-top: 30px;">
-                                                        <h6 class="title" style="margin-bottom: 0;">Anca Muresan</h6>
-                                                        <p class="designation">Local Google Guide</p>
+                                                    <div
+                                                        class="author-area"
+                                                        style="justify-content: center; margin-top: 30px;"
+                                                    >
+                                                        <h6
+                                                            class="title"
+                                                            style="margin-bottom: 0;"
+                                                        >
+                                                            Anca Muresan
+                                                        </h6>
+                                                        <p class="designation">
+                                                            Local Google Guide
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="swiper-slide">
-                                                <div class="review-wrapper" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                                                    <ul class="star-rating" style="justify-content: center; font-size: 30px; margin-bottom: 20px;">
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
+                                                <div
+                                                    class="review-wrapper"
+                                                    style="text-align: center; max-width: 800px; margin: 0 auto;"
+                                                >
+                                                    <ul
+                                                        class="star-rating"
+                                                        style="justify-content: center; font-size: 30px; margin-bottom: 20px;"
+                                                    >
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
                                                     </ul>
-                                                    <p class="desc" style="font-size: 20px; line-height: 1.6;">
-                                                        "I switched to Prela Garage and can say with a clear conscience: my
-                                                        car was professionally repaired here. The workshop crew has
-                                                        excellent expertise, works with great precision, and is always
-                                                        friendly. The Alfa is now back in A+ condition."
+                                                    <p
+                                                        class="desc"
+                                                        style="font-size: 20px; line-height: 1.6;"
+                                                    >
+                                                        "I switched to Prela
+                                                        Garage and can say with
+                                                        a clear conscience: my
+                                                        car was professionally
+                                                        repaired here. The
+                                                        workshop crew has
+                                                        excellent expertise,
+                                                        works with great
+                                                        precision, and is always
+                                                        friendly. The Alfa is
+                                                        now back in A+
+                                                        condition."
                                                     </p>
-                                                    <div class="author-area" style="justify-content: center; margin-top: 30px;">
-                                                        <h6 class="title" style="margin-bottom: 0;">Efstathios Efstathiou</h6>
-                                                        <p class="designation">Alfa Romeo Specialist Client</p>
+                                                    <div
+                                                        class="author-area"
+                                                        style="justify-content: center; margin-top: 30px;"
+                                                    >
+                                                        <h6
+                                                            class="title"
+                                                            style="margin-bottom: 0;"
+                                                        >
+                                                            Efstathios
+                                                            Efstathiou
+                                                        </h6>
+                                                        <p class="designation">
+                                                            Alfa Romeo
+                                                            Specialist Client
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="swiper-slide">
-                                                <div class="review-wrapper" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                                                    <ul class="star-rating" style="justify-content: center; font-size: 30px; margin-bottom: 20px;">
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
+                                                <div
+                                                    class="review-wrapper"
+                                                    style="text-align: center; max-width: 800px; margin: 0 auto;"
+                                                >
+                                                    <ul
+                                                        class="star-rating"
+                                                        style="justify-content: center; font-size: 30px; margin-bottom: 20px;"
+                                                    >
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
                                                     </ul>
-                                                    <p class="desc" style="font-size: 20px; line-height: 1.6;">
-                                                        "Une très bonne expérience avec le garage Prela. Je suis tombé en
-                                                        panne sur l'autoroute et ils m'ont changé une pompe à eau la matinée
-                                                        suivante. Service rapide et prix raisonnable. Je recommande
-                                                        complètement !"
+                                                    <p
+                                                        class="desc"
+                                                        style="font-size: 20px; line-height: 1.6;"
+                                                    >
+                                                        "Une très bonne
+                                                        expérience avec le
+                                                        garage Prela. Je suis
+                                                        tombé en panne sur
+                                                        l'autoroute et ils m'ont
+                                                        changé une pompe à eau
+                                                        la matinée suivante.
+                                                        Service rapide et prix
+                                                        raisonnable. Je
+                                                        recommande complètement
+                                                        !"
                                                     </p>
-                                                    <div class="author-area" style="justify-content: center; margin-top: 30px;">
-                                                        <h6 class="title" style="margin-bottom: 0;">Clement Petit</h6>
-                                                        <p class="designation">Local Guide</p>
+                                                    <div
+                                                        class="author-area"
+                                                        style="justify-content: center; margin-top: 30px;"
+                                                    >
+                                                        <h6
+                                                            class="title"
+                                                            style="margin-bottom: 0;"
+                                                        >
+                                                            Clement Petit
+                                                        </h6>
+                                                        <p class="designation">
+                                                            Local Guide
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="swiper-slide">
-                                                <div class="review-wrapper" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                                                    <ul class="star-rating" style="justify-content: center; font-size: 30px; margin-bottom: 20px;">
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
-                                                        <li><i class="rt-icon-star"></i></li>
+                                                <div
+                                                    class="review-wrapper"
+                                                    style="text-align: center; max-width: 800px; margin: 0 auto;"
+                                                >
+                                                    <ul
+                                                        class="star-rating"
+                                                        style="justify-content: center; font-size: 30px; margin-bottom: 20px;"
+                                                    >
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
+                                                        <li>
+                                                            <i
+                                                                class="rt-icon-star"
+                                                            ></i>
+                                                        </li>
                                                     </ul>
-                                                    <p class="desc" style="font-size: 20px; line-height: 1.6;">
-                                                        "Ich bin absolut begeistert von der Prela Garage in Sursee! Die
-                                                        Arbeit ist einfach top – hohe Qualität zu einem wirklich fairen und
-                                                        günstigen Preis. Das Personal ist super zuvorkommend, freundlich und
-                                                        kompetent."
+                                                    <p
+                                                        class="desc"
+                                                        style="font-size: 20px; line-height: 1.6;"
+                                                    >
+                                                        "Ich bin absolut
+                                                        begeistert von der Prela
+                                                        Garage in Sursee! Die
+                                                        Arbeit ist einfach top –
+                                                        hohe Qualität zu einem
+                                                        wirklich fairen und
+                                                        günstigen Preis. Das
+                                                        Personal ist super
+                                                        zuvorkommend, freundlich
+                                                        und kompetent."
                                                     </p>
-                                                    <div class="author-area" style="justify-content: center; margin-top: 30px;">
-                                                        <h6 class="title" style="margin-bottom: 0;">Rene Stoffel</h6>
-                                                        <p class="designation">Satisfied Customer</p>
+                                                    <div
+                                                        class="author-area"
+                                                        style="justify-content: center; margin-top: 30px;"
+                                                    >
+                                                        <h6
+                                                            class="title"
+                                                            style="margin-bottom: 0;"
+                                                        >
+                                                            Rene Stoffel
+                                                        </h6>
+                                                        <p class="designation">
+                                                            Satisfied Customer
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -375,7 +816,11 @@ import ContactForm from '../components/ContactForm.astro';
                     </div>
                 </div>
                 <div class="bg-shape-area">
-                    <img src="/images/category/shape/shape-01.svg" alt="" loading="lazy">
+                    <img
+                        src="/images/category/shape/shape-01.svg"
+                        alt=""
+                        loading="lazy"
+                    />
                 </div>
             </section>
             <!-- Testimonials Area End -->
@@ -388,7 +833,7 @@ import ContactForm from '../components/ContactForm.astro';
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2">
-                             <ContactForm />
+                            <ContactForm />
                         </div>
                     </div>
                 </div>

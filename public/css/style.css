@@ -15944,33 +15944,46 @@ header.header-three .sub-dropdown .submenu.third-lvl.base {
 }
 
 .rts-banner-area {
-  padding: 260px 0 270px;
+  padding: 190px 0 200px;
   position: relative;
   z-index: 1;
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-  height: 850px;
+  height: 750px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+.mobile-banner-btn {
+  display: none;
+}
+
+.rts-banner-area .banner-area-one {
+  width: 100%;
+}
+
 .rts-banner-area .banner-area-one .banner-content-area {
   text-align: center;
+  padding: 40px 20px;
 }
 
 .rts-banner-area .banner-area-one .banner-content-area .pre-title {
   font-size: 20px;
   color: var(--color-white);
   font-family: var(--font-primary);
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .rts-banner-area .banner-area-one .banner-content-area .title {
   max-width: 747px;
   margin: auto;
   font-weight: 600;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   color: var(--color-white);
+}
+
+.rts-banner-area .banner-area-one .banner-content-area .desc {
+  margin-bottom: 32px;
 }
 
 .rts-banner-area .banner-area-one .banner-content-area .title span {
@@ -16500,7 +16513,7 @@ header.header-three .sub-dropdown .submenu.third-lvl.base {
 }
 
 .bg_image_one {
-  background: url(../images/banner/banner-bg-01.webp);
+  background: url(../images/banner/banner-lambo-01.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -17863,7 +17876,7 @@ header.header-three .sub-dropdown .submenu.third-lvl.base {
   position: relative;
   overflow: hidden;
   display: block;
-  background: url(../images/banner/banner-bg-01.webp);
+  background: url(../images/banner/repear.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -25035,7 +25048,7 @@ li.has-dropdown:hover .submenu {
 }
 
 .rts-breadcrumb-area.service {
-  background: url(../images/banner/banner-bg-01.webp);
+  background: url(../images/banner/repear.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -27479,8 +27492,15 @@ li.has-dropdown:hover .submenu {
 
   .rts-banner-area {
     clip-path: none;
+    min-height: 100vh;
     height: auto;
-    padding: 180px 0;
+  }
+
+  .mobile-banner-btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
   }
 
   .rts-category-area {
