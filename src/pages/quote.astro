@@ -13,7 +13,7 @@ import Footer from "../components/Footer.astro";
                 <div class="quote-header-inner">
                     <a href="/" class="logo">
                         <img
-                            src="/images/logo/prela_logo.png"
+                            src="/images/logo/prela_logo.webp"
                             alt="Prela Automobile AG"
                         />
                     </a>
@@ -42,153 +42,7 @@ import Footer from "../components/Footer.astro";
                         </p>
                     </div>
 
-                    <div class="quote-form-wrapper">
-                        <form
-                            class="quote-form"
-                            method="post"
-                            action="#"
-                            id="quote-form"
-                        >
-                            <div class="form-section">
-                                <h3 class="section-title">
-                                    Vehicle Information
-                                </h3>
-
-                                <div class="form-group">
-                                    <label for="make_model"
-                                        >Make & Model *</label
-                                    >
-                                    <input
-                                        type="text"
-                                        id="make_model"
-                                        name="make_model"
-                                        placeholder="e.g., BMW 3 Series"
-                                        required
-                                    />
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="year">Year *</label>
-                                        <input
-                                            type="number"
-                                            id="year"
-                                            name="year"
-                                            placeholder="2020"
-                                            min="1900"
-                                            max="2026"
-                                            required
-                                        />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="mileage"
-                                            >Mileage (km) *</label
-                                        >
-                                        <input
-                                            type="number"
-                                            id="mileage"
-                                            name="mileage"
-                                            placeholder="50000"
-                                            required
-                                        />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="condition">Condition *</label>
-                                    <select
-                                        id="condition"
-                                        name="condition"
-                                        required
-                                    >
-                                        <option value=""
-                                            >Select condition</option
-                                        >
-                                        <option value="excellent"
-                                            >Excellent - Like new</option
-                                        >
-                                        <option value="good"
-                                            >Good - Well maintained</option
-                                        >
-                                        <option value="fair"
-                                            >Fair - Some wear and tear</option
-                                        >
-                                        <option value="poor"
-                                            >Poor - Needs repairs</option
-                                        >
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-section">
-                                <h3 class="section-title">
-                                    Your Contact Information
-                                </h3>
-
-                                <div class="form-group">
-                                    <label for="name">Full Name *</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        placeholder="John Doe"
-                                        required
-                                    />
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number *</label
-                                        >
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            name="phone"
-                                            placeholder="+41 79 123 45 67"
-                                            required
-                                        />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="email"
-                                            >Email Address *</label
-                                        >
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            placeholder="john@example.com"
-                                            required
-                                        />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="notes"
-                                        >Additional Notes (Optional)</label
-                                    >
-                                    <textarea
-                                        id="notes"
-                                        name="notes"
-                                        rows="4"
-                                        placeholder="Any additional information about your vehicle..."
-                                    ></textarea>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="submit-btn">
-                                <span>Get My Free Valuation</span>
-                                <i class="fa-light fa-arrow-right"></i>
-                            </button>
-
-                            <p class="form-disclaimer">
-                                <i class="fa-light fa-shield-check"></i>
-                                Your information is secure and will only be used to
-                                provide you with a valuation.
-                            </p>
-                        </form>
-                    </div>
+                    <ContactForm />
                 </div>
             </div>
         </div>
@@ -203,6 +57,7 @@ import Footer from "../components/Footer.astro";
         const urlParams = new URLSearchParams(window.location.search);
         const brand = urlParams.get("brand");
         if (brand) {
+            // Target the input ID from ContactForm component
             const makeModelInput = document.getElementById("make_model");
             if (makeModelInput) {
                 // Capitalize the first letter for better presentation
@@ -211,8 +66,8 @@ import Footer from "../components/Footer.astro";
                 makeModelInput.value = capitalizedBrand;
                 // Focus the input to show it was pre-filled
                 makeModelInput.focus();
-                // Optionally scroll to the form if the brand is set
-                const formElement = document.getElementById("quote-form");
+                // Scroll to the form if the brand is set
+                const formElement = document.getElementById("valuation-form");
                 if (formElement) {
                     formElement.scrollIntoView({
                         behavior: "smooth",
