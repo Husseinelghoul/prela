@@ -17876,7 +17876,7 @@ header.header-three .sub-dropdown .submenu.third-lvl.base {
   position: relative;
   overflow: hidden;
   display: block;
-  background: url(../images/banner/repear.jpg);
+  background: url(../images/banner/repear.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -25048,7 +25048,7 @@ li.has-dropdown:hover .submenu {
 }
 
 .rts-breadcrumb-area.service {
-  background: url(../images/banner/repear.jpg);
+  background: url(../images/banner/repear.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

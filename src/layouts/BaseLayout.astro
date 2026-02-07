@@ -1,95 +1,261 @@
 ---
 interface Props {
-  title?: string;
+    title?: string;
 }
 
 const { title = "Premium Automotive Excellence" } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="/images/fav.svg">
-    <title>Prela Automobile AG - {title}</title>
-    <meta name="description"
-        content="Prela Automobile AG - Your trusted partner for premium vehicles in Switzerland. Expert services in buying, selling, and exporting cars with Swiss quality and transparency.">
-    <link rel="stylesheet" href="/css/plugins/plugins.css">
-    <link rel="stylesheet" href="/css/plugins/magnifying-popup.css">
-    <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="/fonts/rt-icon.css">
-    <link rel="stylesheet" href="/css/style.css?v=3.1">
-</head>
-<body>
-    <!-- Loader -->
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-    <div class="search-input-area">
-        <div class="container">
-            <div class="search-input-inner">
-                <div class="input-div">
-                    <input class="search-input autocomplete" type="text" placeholder="Search by keyword or #">
-                    <button><i class="far fa-search"></i></button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+
+        <!-- Primary Meta Tags -->
+        <title>Prela Automobile AG - {title}</title>
+        <meta name="title" content="Prela Automobile AG - {title}" />
+        <meta
+            name="description"
+            content="Prela Automobile AG - Ihr vertrauenswürdiger Partner für Premium-Fahrzeuge in der Schweiz. Expertendienste für Kauf, Verkauf und Export von Autos mit Schweizer Qualität und Transparenz. Your trusted partner for premium vehicles in Switzerland."
+        />
+        <meta
+            name="keywords"
+            content="Auto kaufen Schweiz, Auto verkaufen Schweiz, Autoexport, Prela Automobile, Gebrauchtwagen Schweiz, car dealer Switzerland, acheter voiture Suisse, vendre voiture Suisse"
+        />
+        <meta name="author" content="Prela Automobile AG" />
+        <meta
+            name="robots"
+            content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+        <link
+            rel="canonical"
+            href={`https://prelaauto.ch${Astro.url.pathname}`}
+        />
+
+        <!-- Language Alternates (hreflang) -->
+        <link
+            rel="alternate"
+            hreflang="de-CH"
+            href={`https://prelaauto.ch${Astro.url.pathname}`}
+        />
+        <link
+            rel="alternate"
+            hreflang="fr-CH"
+            href={`https://prelaauto.ch${Astro.url.pathname}`}
+        />
+        <link
+            rel="alternate"
+            hreflang="en-CH"
+            href={`https://prelaauto.ch${Astro.url.pathname}`}
+        />
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href={`https://prelaauto.ch${Astro.url.pathname}`}
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content={`https://prelaauto.ch${Astro.url.pathname}`}
+        />
+        <meta property="og:title" content={`Prela Automobile AG - ${title}`} />
+        <meta
+            property="og:description"
+            content="Premium Automotive Excellence in Switzerland. Expert services for buying, selling, and exporting vehicles with Swiss quality."
+        />
+        <meta
+            property="og:image"
+            content="https://prelaauto.ch/images/about/03.webp"
+        />
+        <meta property="og:locale" content="de_CH" />
+        <meta property="og:locale:alternate" content="fr_CH" />
+        <meta property="og:locale:alternate" content="en_CH" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content={`https://prelaauto.ch${Astro.url.pathname}`}
+        />
+        <meta
+            property="twitter:title"
+            content={`Prela Automobile AG - ${title}`}
+        />
+        <meta
+            property="twitter:description"
+            content="Premium Automotive Excellence in Switzerland. Expert services for buying, selling, and exporting vehicles."
+        />
+        <meta
+            property="twitter:image"
+            content="https://prelaauto.ch/images/about/03.webp"
+        />
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="/images/fav.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <!-- Preconnect to external domains for performance -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://wa.me" />
+
+        <!-- Preload critical assets -->
+        <link rel="preload" href="/fonts/rt-icon.css" as="style" />
+        <link rel="preload" href="/css/style.css?v=3.1" as="style" />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/css/plugins/plugins.css" />
+        <link rel="stylesheet" href="/css/plugins/magnifying-popup.css" />
+        <link rel="stylesheet" href="/css/vendor/bootstrap.min.css" />
+        <link rel="stylesheet" href="/fonts/rt-icon.css" />
+        <link rel="stylesheet" href="/css/style.css?v=3.1" />
+
+        <!-- Structured Data (JSON-LD) for Local Business -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "AutoDealer",
+                "name": "Prela Automobile AG",
+                "image": "https://prelaauto.ch/images/about/03.webp",
+                "description": "Premium automotive dealer in Switzerland specializing in buying, selling, and exporting high-quality vehicles.",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Sursee",
+                    "addressLocality": "Sursee",
+                    "addressRegion": "Lucerne",
+                    "addressCountry": "CH"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 47.1719,
+                    "longitude": 8.1092
+                },
+                "url": "https://prelaauto.ch",
+                "telephone": "+41-76-024-4494",
+                "priceRange": "$$",
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday"
+                        ],
+                        "opens": "08:00",
+                        "closes": "18:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Saturday",
+                        "opens": "09:00",
+                        "closes": "16:00"
+                    }
+                ],
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.7",
+                    "reviewCount": "50",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "sameAs": ["https://wa.me/96176024494"]
+            }
+        </script>
+    </head>
+
+    <body>
+        <!-- Loader -->
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+        <div class="search-input-area">
+            <div class="container">
+                <div class="search-input-inner">
+                    <div class="input-div">
+                        <input
+                            class="search-input autocomplete"
+                            type="text"
+                            placeholder="Search by keyword or #"
+                        />
+                        <button><i class="far fa-search"></i></button>
+                    </div>
                 </div>
             </div>
+            <div id="close" class="search-close-icon">
+                <i class="far fa-times"></i>
+            </div>
         </div>
-        <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
-    </div>
-    <div id="anywhere-home"></div>
+        <div id="anywhere-home"></div>
 
-    <!-- Main Content -->
-    <slot />
+        <!-- Main Content -->
+        <slot />
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/96176024494" target="_blank" class="whatsapp-float" aria-label="Contact us on WhatsApp">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor"
-                d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.957 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62c0 7.51-6.11 13.62-13.62 13.62zM21.305 19.26c-0.346-0.174-2.049-1.007-2.366-1.123-0.316-0.117-0.547-0.174-0.776 0.174s-0.892 1.123-1.094 1.347c-0.201 0.224-0.402 0.251-0.748 0.076-0.346-0.174-1.461-0.539-2.785-1.722-1.031-0.922-1.727-2.061-1.929-2.407-0.201-0.346-0.022-0.533 0.152-0.707 0.156-0.155 0.346-0.402 0.518-0.603 0.174-0.201 0.231-0.346 0.346-0.571 0.117-0.224 0.058-0.427-0.028-0.603-0.087-0.174-0.776-1.87-1.063-2.565-0.28-0.672-0.56-0.58-0.776-0.591-0.2-0.008-0.428-0.010-0.656-0.010s-0.603 0.087-0.92 0.427c-0.316 0.346-1.206 1.179-1.206 2.873s1.235 3.333 1.406 3.561c0.174 0.224 2.425 3.732 5.872 5.234 0.821 0.354 1.462 0.566 1.962 0.724 0.825 0.262 1.577 0.225 2.168 0.137 0.662-0.099 2.049-0.835 2.335-1.642 0.288-0.807 0.288-1.501 0.201-1.642-0.086-0.14-0.316-0.224-0.662-0.398z" />
-        </svg>
-    </a>
+        <!-- WhatsApp Button -->
+        <a
+            href="https://wa.me/96176024494"
+            target="_blank"
+            class="whatsapp-float"
+            aria-label="Contact us on WhatsApp"
+        >
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    fill="currentColor"
+                    d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.957 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62c0 7.51-6.11 13.62-13.62 13.62zM21.305 19.26c-0.346-0.174-2.049-1.007-2.366-1.123-0.316-0.117-0.547-0.174-0.776 0.174s-0.892 1.123-1.094 1.347c-0.201 0.224-0.402 0.251-0.748 0.076-0.346-0.174-1.461-0.539-2.785-1.722-1.031-0.922-1.727-2.061-1.929-2.407-0.201-0.346-0.022-0.533 0.152-0.707 0.156-0.155 0.346-0.402 0.518-0.603 0.174-0.201 0.231-0.346 0.346-0.571 0.117-0.224 0.058-0.427-0.028-0.603-0.087-0.174-0.776-1.87-1.063-2.565-0.28-0.672-0.56-0.58-0.776-0.591-0.2-0.008-0.428-0.010-0.656-0.010s-0.603 0.087-0.92 0.427c-0.316 0.346-1.206 1.179-1.206 2.873s1.235 3.333 1.406 3.561c0.174 0.224 2.425 3.732 5.872 5.234 0.821 0.354 1.462 0.566 1.962 0.724 0.825 0.262 1.577 0.225 2.168 0.137 0.662-0.099 2.049-0.835 2.335-1.642 0.288-0.807 0.288-1.501 0.201-1.642-0.086-0.14-0.316-0.224-0.662-0.398z"
+                ></path>
+            </svg>
+        </a>
 
-    <!-- Mobile Sidebar -->
-    <div id="side-bar" class="side-bar header-two">
-        <button class="close-icon-menu">X</button>
-        <div class="mobile-menu-main">
-            <nav class="nav-main mainmenu-nav mt--30">
-                <ul class="mainmenu metismenu" id="mobile-menu-active">
-                    <li><a href="/" class="main">Home</a></li>
-                    <li><a href="/about" class="main">About Us</a></li>
-                    <li class="has-droupdown">
-                        <a href="#" class="main">Tips & Tricks</a>
-                        <ul class="submenu">
-                            <li><a href="/tips/selling">Selling a Car</a></li>
-                            <li><a href="/tips/buying">Buying a Car</a></li>
-                            <li><a href="/tips/exporting">Exporting a Car</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/contact" class="main">Contact</a></li>
-                </ul>
-            </nav>
-
+        <!-- Mobile Sidebar -->
+        <div id="side-bar" class="side-bar header-two">
+            <button class="close-icon-menu">X</button>
+            <div class="mobile-menu-main">
+                <nav class="nav-main mainmenu-nav mt--30">
+                    <ul class="mainmenu metismenu" id="mobile-menu-active">
+                        <li><a href="/" class="main">Home</a></li>
+                        <li><a href="/about" class="main">About Us</a></li>
+                        <li class="has-droupdown">
+                            <a href="#" class="main">Tips & Tricks</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/tips/selling">Selling a Car</a>
+                                </li>
+                                <li><a href="/tips/buying">Buying a Car</a></li>
+                                <li>
+                                    <a href="/tips/exporting">Exporting a Car</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/contact" class="main">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
 
-    <!-- Scripts -->
-    <script is:inline src="/js/plugins/jquery.js"></script>
-    <script is:inline src="/js/plugins/jquery-ui.js"></script>
-    <script is:inline src="/js/vendor/waw.js"></script>
-    <script is:inline src="/js/plugins/counter-up.js"></script>
-    <script is:inline src="/js/plugins/contact-form.js"></script>
-    <script is:inline src="/js/plugins/swiper.js"></script>
-    <script is:inline src="/js/plugins/metismenu.js"></script>
-    <script is:inline src="/js/vendor/jarallax.js"></script>
-    <script is:inline src="/js/plugins/smooth-scroll.js"></script>
-    <script is:inline src="/js/plugins/magnifying-popup.js"></script>
-    <script is:inline src="/js/vendor/bootstrap.min.js"></script>
-    <script is:inline src="/js/vendor/waypoint.js"></script>
-    <script is:inline src="/js/main.js?v=1.0.1"></script>
-</body>
+        <!-- Scripts - Optimized loading order -->
+        <script is:inline src="/js/plugins/jquery.js"></script>
+        <script is:inline src="/js/plugins/jquery-ui.js" defer></script>
+        <script is:inline src="/js/vendor/waw.js" defer></script>
+        <script is:inline src="/js/plugins/counter-up.js" defer></script>
+        <script is:inline src="/js/plugins/contact-form.js" defer></script>
+        <script is:inline src="/js/plugins/swiper.js" defer></script>
+        <script is:inline src="/js/plugins/metismenu.js" defer></script>
+        <script is:inline src="/js/vendor/jarallax.js" defer></script>
+        <script is:inline src="/js/plugins/smooth-scroll.js" defer></script>
+        <script is:inline src="/js/plugins/magnifying-popup.js" defer></script>
+        <script is:inline src="/js/vendor/bootstrap.min.js" defer></script>
+        <script is:inline src="/js/vendor/waypoint.js" defer></script>
+        <script is:inline src="/js/main.js?v=1.0.2" defer></script>
+    </body>
 </html>
 
 <style>
@@ -99,8 +265,8 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
         height: 60px;
         bottom: 30px;
         right: 30px;
-        background-color: #25D366;
-        color: #FFF;
+        background-color: #25d366;
+        color: #fff;
         border-radius: 50px;
         text-align: center;
         font-size: 30px;
@@ -113,7 +279,7 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
     }
 
     .whatsapp-float:hover {
-        background-color: #128C7E;
+        background-color: #128c7e;
         transform: scale(1.1);
         box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
     }

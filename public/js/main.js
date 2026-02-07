@@ -22,6 +22,22 @@
 (function ($) {
   'use strict';
 
+  // Performance optimization: Debounce function to limit scroll event frequency
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Detect mobile devices for performance optimization
+  const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   var rtsJs = {
     m: function (e) {
       rtsJs.d();
@@ -560,16 +576,29 @@
 
     },
     wowActive: function () {
-      new WOW().init();
+      // Reduce animation complexity on mobile for better performance
+      if (isMobile) {
+        new WOW({
+          mobile: false, // Disable on mobile to improve scroll performance
+          live: false
+        }).init();
+      } else {
+        new WOW({
+          live: false // Disable live checking for better performance
+        }).init();
+      }
     },
     stickyHeader: function (e) {
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 150) {
+      // Optimized with debounce and passive listener
+      const handleScroll = debounce(function () {
+        if ($(window).scrollTop() > 150) {
           $('.header--sticky').addClass('sticky')
         } else {
           $('.header--sticky').removeClass('sticky')
         }
-      })
+      }, 10);
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
     },
     backToTopInit: function () {
       $(document).ready(function () {
@@ -589,16 +618,20 @@
           progressPath.style.strokeDashoffset = progress;
         }
         updateProgress();
-        $(window).scroll(updateProgress);
+        // Optimized with debounce and passive listener
+        const debouncedUpdate = debounce(updateProgress, 10);
+        window.addEventListener('scroll', debouncedUpdate, { passive: true });
         var offset = 50;
         var duration = 550;
-        jQuery(window).on('scroll', function () {
-          if (jQuery(this).scrollTop() > offset) {
+        // Optimized with debounce and passive listener
+        const handleProgressScroll = debounce(function () {
+          if (jQuery(window).scrollTop() > offset) {
             jQuery('.progress-wrap').addClass('active-progress');
           } else {
             jQuery('.progress-wrap').removeClass('active-progress');
           }
-        });
+        }, 10);
+        window.addEventListener('scroll', handleProgressScroll, { passive: true });
         jQuery('.progress-wrap').on('click', function (event) {
           event.preventDefault();
           jQuery('html, body').animate({ scrollTop: 0 }, duration);
@@ -793,7 +826,7 @@
       //   }); //Document Ready function end
       // }
     },
-  
+
     // search popup
     searchOption: function () {
       $(document).on('click', '.search', function () {

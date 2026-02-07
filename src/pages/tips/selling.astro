@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
-import Footer from '../../components/Footer.astro';
-import ContactForm from '../../components/ContactForm.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import Footer from "../../components/Footer.astro";
+import ContactForm from "../../components/ContactForm.astro";
 ---
 
 <BaseLayout title="Selling Your Car - Tips">
@@ -11,10 +11,10 @@ import ContactForm from '../../components/ContactForm.astro';
         <div class="rts-wrapper-inner">
             <Header />
 
-            <Breadcrumb 
-                title="Selling Your Car" 
-                current="Selling Tips" 
-                className="service" 
+            <Breadcrumb
+                title="Selling Your Car"
+                current="Selling Tips"
+                className="service"
             />
 
             <section class="rts-service-area rts-section-gap">
@@ -22,31 +22,66 @@ import ContactForm from '../../components/ContactForm.astro';
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="about-image-area">
-                                <img src="/images/blog/01.jpg" alt="Selling a car" class="radius-10">
+                                <img
+                                    src="/images/blog/01.webp"
+                                    alt="Selling a car"
+                                    class="radius-10"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="about-content-area">
                                 <div class="section-title-area">
                                     <p class="sub-title">Expert Advice</p>
-                                    <h2 class="section-title">What to look for when <span>selling</span> a car</h2>
+                                    <h2 class="section-title">
+                                        What to look for when <span
+                                            >selling</span
+                                        > a car
+                                    </h2>
                                 </div>
-                                <p class="desc">Selling your car in Switzerland requires careful preparation to ensure you
-                                    get the best value and comply with legal requirements. Here are our top tips:</p>
+                                <p class="desc">
+                                    Selling your car in Switzerland requires
+                                    careful preparation to ensure you get the
+                                    best value and comply with legal
+                                    requirements. Here are our top tips:
+                                </p>
                                 <ul class="feature-list mt--20">
-                                    <li><i class="fa-regular fa-circle-check"></i> <strong>Complete Documentation:</strong>
-                                        Ensure you have the service book (Serviceheft) and the vehicle registration document
-                                        (Fahrzeugausweis).</li>
-                                    <li><i class="fa-regular fa-circle-check"></i> <strong>Clean & Professional:</strong> A
-                                        professional cleaning can increase the resale value significantly.</li>
-                                    <li><i class="fa-regular fa-circle-check"></i> <strong>Recent MFK:</strong> A recent
-                                        "Motorfahrzeugkontrolle" (MFK) makes your car much more attractive to private
-                                        buyers.</li>
-                                    <li><i class="fa-regular fa-circle-check"></i> <strong>Fair Pricing:</strong> Use market
-                                        tools to set a competitive price based on mileage and condition.</li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"
+                                        ></i>
+                                        <strong>Complete Documentation:</strong>
+                                        Ensure you have the service book (Serviceheft)
+                                        and the vehicle registration document (Fahrzeugausweis).
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"
+                                        ></i>
+                                        <strong>Clean & Professional:</strong> A professional
+                                        cleaning can increase the resale value significantly.
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"
+                                        ></i>
+                                        <strong>Recent MFK:</strong> A recent "Motorfahrzeugkontrolle"
+                                        (MFK) makes your car much more attractive
+                                        to private buyers.
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-circle-check"
+                                        ></i>
+                                        <strong>Fair Pricing:</strong> Use market
+                                        tools to set a competitive price based on
+                                        mileage and condition.
+                                    </li>
                                 </ul>
                                 <div class="button-area mt--30">
-                                    <a href="/contact" class="rts-btn btn-primary">Get a Free Valuation</a>
+                                    <a
+                                        href="/contact"
+                                        class="rts-btn btn-primary"
+                                        >Get a Free Valuation</a
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -59,7 +94,7 @@ import ContactForm from '../../components/ContactForm.astro';
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2">
-                             <ContactForm />
+                            <ContactForm />
                         </div>
                     </div>
                 </div>
