@@ -15937,6 +15937,12 @@ header.header-three .sub-dropdown .submenu.third-lvl.base {
   -moz-border-radius: 30px !important;
 }
 
+.radius-pill {
+  border-radius: 50px !important;
+  -webkit-border-radius: 50px !important;
+  -moz-border-radius: 50px !important;
+}
+
 .radius-small {
   border-radius: 6px !important;
   -webkit-border-radius: 6px !important;
@@ -26079,6 +26085,15 @@ li.has-dropdown:hover .submenu {
     flex-wrap: wrap;
   }
 
+  .rts-testimonials-area .left-side-image {
+    display: none !important;
+  }
+  .rts-testimonials-area .left-side-image img {
+    display: none !important;
+  }
+  .rts-testimonials-area .left-side-image .floating-img {
+    display: none !important;
+  }
   .rts-testimonials-area .left-side-image img {
     max-width: 300px;
   }
@@ -26858,13 +26873,11 @@ li.has-dropdown:hover .submenu {
   }
 
   .rts-testimonials-area .left-side-image {
-    display: flex;
-    margin-bottom: 40px;
+    display: none !important;
   }
 
   .rts-testimonials-area .left-side-image .floating-img {
-    position: unset;
-    order: -1;
+    display: none !important;
   }
 
   .cta-inner,
@@ -28009,7 +28022,30 @@ li.has-dropdown:hover .submenu {
 
   .rts-about-area .about-image-area .floating-img-01,
   .rts-about-area .about-image-area .floating-img-02 {
-    display: none;
+    display: block !important;
+    position: relative !important;
+    width: 30% !important;
+    height: auto !important;
+    margin: 10px 1.5% !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+  .rts-about-area .about-image-area {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+  }
+  .rts-about-area .about-image-area .image-main {
+    width: 30% !important;
+    margin: 10px 1.5% !important;
+  }
+  .rts-about-area .about-image-area .image-main img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .rts-about-area .about-image-area .image-main .counter-area {
+    display: none !important;
   }
 
   .rts-about-area .about-content-area .desc {
