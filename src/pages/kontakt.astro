@@ -6,14 +6,17 @@ import Footer from "../components/Footer.astro";
 import ContactForm from "../components/ContactForm.astro";
 ---
 
-<BaseLayout title="Get In Touch">
+<BaseLayout
+    title="Kontakt – Autohändler in Luzern"
+    description="Kontaktieren Sie Prela Automobile AG in Luzern. Autoankauf, Autobewertung und Autoexport – rufen Sie uns an oder besuchen Sie uns an der Allmendstrasse 10, 6210 Luzern."
+>
     <div class="rts-wrapper">
         <div class="rts-wrapper-inner">
             <Header />
 
             <Breadcrumb
-                title="Get In Touch"
-                current="Contact"
+                title="Kontakt aufnehmen"
+                current="Kontakt"
                 className="service"
             />
 
@@ -27,12 +30,12 @@ import ContactForm from "../components/ContactForm.astro";
                                 <div class="icon">
                                     <img
                                         src="/images/contact/01.svg"
-                                        alt="Location Icon"
+                                        alt="Standort Icon – Prela Automobile Luzern"
                                         loading="lazy"
                                         decoding="async"
                                     />
                                 </div>
-                                <h5 class="title">Our Location</h5>
+                                <h5 class="title">Unser Standort</h5>
                                 <p class="desc">
                                     <a
                                         href="https://www.google.com/maps/search/Allmendstrasse+10,+6210+Luzern"
@@ -49,15 +52,15 @@ import ContactForm from "../components/ContactForm.astro";
                                 <div class="icon">
                                     <img
                                         src="/images/contact/02.svg"
-                                        alt="Email Icon"
+                                        alt="E-Mail Icon – Prela Automobile kontaktieren"
                                         loading="lazy"
                                         decoding="async"
                                     />
                                 </div>
-                                <h5 class="title">Email Us</h5>
+                                <h5 class="title">E-Mail</h5>
                                 <p class="desc">
-                                    <a href="mailto:info@prela.ch"
-                                        >info@prela.ch</a
+                                    <a href="mailto:info@prela-automobile.ch"
+                                        >info@prela-automobile.ch</a
                                     >
                                 </p>
                             </div>
@@ -68,12 +71,12 @@ import ContactForm from "../components/ContactForm.astro";
                                 <div class="icon">
                                     <img
                                         src="/images/contact/03.svg"
-                                        alt="Phone Icon"
+                                        alt="Telefon Icon – Prela Automobile anrufen"
                                         loading="lazy"
                                         decoding="async"
                                     />
                                 </div>
-                                <h5 class="title">Call Us</h5>
+                                <h5 class="title">Anrufen</h5>
                                 <p class="desc">
                                     <a href="callto:+41793088000"
                                         >+41 79 308 80 00</a
@@ -100,11 +103,12 @@ import ContactForm from "../components/ContactForm.astro";
             <div class="contact-map-area-fluid">
                 <iframe
                     class="contact-map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.123456789!2d8.1065!3d47.1721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ff0f8a8a8a8a8%3A0x123456789abcdef!2sAllmendstrasse%2010%2C%206210+Luzern!5e0!3m2!1sen!2sch!4v1663151706353!5m2!1sen!2sch"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.123456789!2d8.1065!3d47.1721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ff0f8a8a8a8a8%3A0x123456789abcdef!2sAllmendstrasse%2010%2C%206210+Luzern!5e0!3m2!1sde!2sch!4v1663151706353!5m2!1sde!2sch"
                     style="border:0;"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
+                    title="Prela Automobile AG Standort auf Google Maps"
                 >
                 </iframe>
             </div>
@@ -201,7 +205,7 @@ import ContactForm from "../components/ContactForm.astro";
                                 <img
                                     src="/images/counter/icon-01.svg"
                                     width="74"
-                                    alt=""
+                                    alt="Jahre Erfahrung Icon"
                                     loading="lazy"
                                     decoding="async"
                                 />
@@ -211,7 +215,7 @@ import ContactForm from "../components/ContactForm.astro";
                                     <span class="counter">25</span><span>+</span
                                     >
                                 </h3>
-                                <p class="desc">Years of Experience</p>
+                                <p class="desc">Jahre Erfahrung</p>
                             </div>
                         </div>
                         <div
@@ -222,7 +226,7 @@ import ContactForm from "../components/ContactForm.astro";
                             <div class="icon">
                                 <img
                                     src="/images/counter/icon-02.svg"
-                                    alt=""
+                                    alt="Zufriedene Kunden Icon"
                                     loading="lazy"
                                     decoding="async"
                                 />
@@ -233,7 +237,7 @@ import ContactForm from "../components/ContactForm.astro";
                                         >+</span
                                     >
                                 </h3>
-                                <p class="desc">Satisfied Customers</p>
+                                <p class="desc">Zufriedene Kunden</p>
                             </div>
                         </div>
                         <div
@@ -244,7 +248,7 @@ import ContactForm from "../components/ContactForm.astro";
                             <div class="icon">
                                 <img
                                     src="/images/counter/icon-03.svg"
-                                    alt=""
+                                    alt="Fahrzeuge bearbeitet Icon"
                                     loading="lazy"
                                     decoding="async"
                                 />
@@ -255,7 +259,7 @@ import ContactForm from "../components/ContactForm.astro";
                                         >+</span
                                     >
                                 </h3>
-                                <p class="desc">Projects Completed</p>
+                                <p class="desc">Fahrzeuge bearbeitet</p>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@ Allow: /
 # Disallow: /admin/
 
 # Sitemap location
-Sitemap: https://prelaauto.ch/sitemap.xml
+Sitemap: https://prela-automobile.ch/sitemap.xml
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1

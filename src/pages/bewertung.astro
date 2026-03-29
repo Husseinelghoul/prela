@@ -5,7 +5,10 @@ import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<BaseLayout title="Get Your Car's Value">
+<BaseLayout
+    title="Kostenlose Autobewertung – Wert in 24 Stunden"
+    description="Kostenlose Autobewertung in 24 Stunden. Füllen Sie unser Formular aus und erhalten Sie ein faires Angebot von Prela Automobile AG. Kein Risiko, keine Verpflichtung."
+>
     <div class="quote-page">
         <!-- Minimal Header -->
         <div class="quote-header">
@@ -14,10 +17,10 @@ import Footer from "../components/Footer.astro";
                     <a href="/" class="logo">
                         <img
                             src="/images/logo/prela_logo.webp"
-                            alt="Prela Automobile AG"
+                            alt="Prela Automobile AG – Kostenlose Autobewertung"
                         />
                     </a>
-                    <a href="/" class="close-btn" aria-label="Close">
+                    <a href="/" class="close-btn" aria-label="Schliessen">
                         <i class="fa-light fa-times"></i>
                     </a>
                 </div>
@@ -29,16 +32,16 @@ import Footer from "../components/Footer.astro";
             <div class="container">
                 <div class="quote-content">
                     <div class="quote-intro">
-                        <span class="pre-title">FREE VALUATION</span>
+                        <span class="pre-title">GRATIS BEWERTUNG</span>
                         <h1>
-                            Get Your Car's Value in <span class="highlight"
-                                >24 Hours</span
+                            Auto bewerten lassen – Wert in <span class="highlight"
+                                >24 Stunden</span
                             >
                         </h1>
                         <p class="subtitle">
-                            Fill out our simple form and receive a competitive
-                            offer from our experts. No obligations, completely
-                            free.
+                            Füllen Sie unser einfaches Formular aus und erhalten Sie
+                            ein faires Angebot von unseren Experten. Keine Verpflichtung,
+                            komplett kostenlos.
                         </p>
                     </div>
 
@@ -57,16 +60,12 @@ import Footer from "../components/Footer.astro";
         const urlParams = new URLSearchParams(window.location.search);
         const brand = urlParams.get("brand");
         if (brand) {
-            // Target the input ID from ContactForm component
             const makeModelInput = document.getElementById("make_model");
             if (makeModelInput) {
-                // Capitalize the first letter for better presentation
                 const capitalizedBrand =
                     brand.charAt(0).toUpperCase() + brand.slice(1);
                 makeModelInput.value = capitalizedBrand;
-                // Focus the input to show it was pre-filled
                 makeModelInput.focus();
-                // Scroll to the form if the brand is set
                 const formElement = document.getElementById("valuation-form");
                 if (formElement) {
                     formElement.scrollIntoView({
@@ -383,5 +382,13 @@ import Footer from "../components/Footer.astro";
     /* Ensure footer is not fixed on this page if it's included */
     .rts-footer-area.dim-fixed {
         position: static !important;
+    }
+</style>
+
+<style is:global>
+    .quote-page .premium-submit-btn {
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
     }
 </style>

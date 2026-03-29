@@ -6,14 +6,17 @@ import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<BaseLayout title="About Prela Automobile AG">
+<BaseLayout
+    title="Über Prela Automobile AG – Autohändler in Sursee"
+    description="Lernen Sie Prela Automobile AG kennen – Ihr Autohändler in Sursee, Luzern. Familienbetrieb mit über 25 Jahren Erfahrung im Autoankauf, Autoverkauf und Autoexport. Faire Preise, persönlicher Service."
+>
     <div class="rts-wrapper">
         <div class="rts-wrapper-inner">
             <Header />
 
             <Breadcrumb
-                title="About Prela Automobile AG"
-                current="About"
+                title="Über Prela Automobile AG"
+                current="Über Uns"
                 className="service"
             />
 
@@ -24,42 +27,33 @@ import Footer from "../components/Footer.astro";
                         <div class="col-lg-6">
                             <div class="about-content-area">
                                 <div class="section-title-area">
-                                    <p class="sub-title">Our Mission</p>
+                                    <p class="sub-title">Unsere Mission</p>
                                     <h2 class="section-title">
-                                        Empowering Your <span>Mobility</span>
+                                        Ihr <span>Autoverkauf</span> – einfach gemacht
                                     </h2>
                                 </div>
                                 <p class="desc">
-                                    At Prela Automobile AG, our mission is to
-                                    provide the highest quality automotive
-                                    services in Switzerland. We strive to
-                                    simplify the process of buying, selling, and
-                                    exporting vehicles, ensuring transparency
-                                    and trust in every transaction. We are
-                                    dedicated to delivering exceptional value
-                                    and a seamless experience to every client
-                                    who walks through our doors.
+                                    Bei Prela Automobile AG wollen wir den Autohandel in der Schweiz
+                                    so einfach wie möglich machen. Ob Sie Ihr <a href="/bewertung">Auto verkaufen</a>,
+                                    ein Fahrzeug kaufen oder exportieren möchten – wir sorgen für
+                                    Transparenz und Vertrauen bei jedem Geschäft. Unser Ziel ist es,
+                                    Ihnen den besten Wert und einen reibungslosen Ablauf zu bieten.
                                 </p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="about-content-area">
                                 <div class="section-title-area">
-                                    <p class="sub-title">Our Vision</p>
+                                    <p class="sub-title">Unsere Vision</p>
                                     <h2 class="section-title">
-                                        The Standard of <span>Excellence</span>
+                                        Der Massstab für <span>Qualität</span>
                                     </h2>
                                 </div>
                                 <p class="desc">
-                                    Our vision is to become the leading
-                                    automotive partner in Switzerland,
-                                    recognized for our commitment to excellence,
-                                    innovation, and customer satisfaction. We
-                                    aim to set new standards in the industry by
-                                    continuously improving our services and
-                                    expanding our reach, making Prela Automobile
-                                    AG the first choice for premium vehicle
-                                    solutions.
+                                    Unsere Vision ist es, der führende Autohändler in der Schweiz zu werden.
+                                    Wir setzen auf ständige Verbesserung unserer Dienstleistungen und möchten,
+                                    dass Prela Automobile AG die erste Wahl für alle ist, die ein
+                                    <a href="/tipps/auto-kaufen">Auto kaufen</a> oder verkaufen möchten.
                                 </p>
                             </div>
                         </div>
@@ -72,9 +66,9 @@ import Footer from "../components/Footer.astro";
             <section class="rts-service-area rts-section-gap bg-light">
                 <div class="container">
                     <div class="section-title-area text-center">
-                        <p class="sub-title">Why Choose Us</p>
+                        <p class="sub-title">Warum Prela?</p>
                         <h2 class="section-title">
-                            Our Value <span>Proposition</span>
+                            Unsere <span>Vorteile</span>
                         </h2>
                     </div>
                     <div class="row g-5 mt--20">
@@ -83,18 +77,18 @@ import Footer from "../components/Footer.astro";
                                 <div class="icon mb--20">
                                     <img
                                         src="/images/why-choose/icon-01.svg"
-                                        alt=""
+                                        alt="Faire Autobewertung Icon"
                                         width="60"
                                         loading="lazy"
                                         decoding="async"
                                     />
                                 </div>
-                                <h5 class="title">Fair Valuation</h5>
+                                <h5 class="title">Faire Bewertung</h5>
                                 <p class="desc">
-                                    We use real-time market data to ensure you
-                                    get the best and fairest price for your
-                                    vehicle, whether you are selling or trading
-                                    in.
+                                    Wir nutzen aktuelle Marktdaten, um Ihnen den
+                                    besten und fairsten Preis für Ihr Fahrzeug zu
+                                    bieten. Egal ob Verkauf oder Inzahlungnahme –
+                                    bei uns stimmt der Preis.
                                 </p>
                             </div>
                         </div>
@@ -103,18 +97,18 @@ import Footer from "../components/Footer.astro";
                                 <div class="icon mb--20">
                                     <img
                                         src="/images/why-choose/icon-02.svg"
-                                        alt=""
+                                        alt="Professioneller Autoexport Icon"
                                         width="60"
                                         loading="lazy"
                                         decoding="async"
                                     />
                                 </div>
-                                <h5 class="title">Expert Exporting</h5>
+                                <h5 class="title">Professioneller Export</h5>
                                 <p class="desc">
-                                    With years of experience in international
-                                    logistics, we handle all the paperwork and
-                                    transport for exporting your car
-                                    hassle-free.
+                                    Mit jahrelanger Erfahrung in der internationalen
+                                    Logistik wickeln wir den
+                                    <a href="/tipps/auto-exportieren">Autoexport</a>
+                                    komplett für Sie ab – Papierkram und Transport inklusive.
                                 </p>
                             </div>
                         </div>
@@ -123,18 +117,17 @@ import Footer from "../components/Footer.astro";
                                 <div class="icon mb--20">
                                     <img
                                         src="/images/why-choose/icon-03.svg"
-                                        alt=""
+                                        alt="Geprüfte Qualität Icon"
                                         width="60"
                                         loading="lazy"
                                         decoding="async"
                                     />
                                 </div>
-                                <h5 class="title">Certified Quality</h5>
+                                <h5 class="title">Geprüfte Qualität</h5>
                                 <p class="desc">
-                                    Every vehicle in our collection undergoes a
-                                    rigorous multi-point inspection to guarantee
-                                    the highest safety and performance
-                                    standards.
+                                    Jedes Fahrzeug in unserem Bestand wird gründlich
+                                    geprüft. So garantieren wir höchste Sicherheits-
+                                    und Qualitätsstandards.
                                 </p>
                             </div>
                         </div>
@@ -151,7 +144,7 @@ import Footer from "../components/Footer.astro";
                             <div class="about-image-area">
                                 <img
                                     src="/images/about/03.webp"
-                                    alt="Owners of Prela Automobile AG"
+                                    alt="Prela Familie – Gründer von Prela Automobile AG Sursee"
                                     class="radius-10"
                                     loading="lazy"
                                     decoding="async"
@@ -161,37 +154,32 @@ import Footer from "../components/Footer.astro";
                         <div class="col-lg-7">
                             <div class="about-content-area">
                                 <div class="section-title-area">
-                                    <p class="sub-title">Our History</p>
+                                    <p class="sub-title">Unsere Geschichte</p>
                                     <h2 class="section-title">
-                                        A Legacy of <span>Passion</span>
+                                        Über 25 Jahre <span>Leidenschaft</span>
                                     </h2>
                                 </div>
                                 <p class="desc">
-                                    Founded by the Prela family, our company
-                                    began as a small boutique garage in Sursee
-                                    with a deep passion for precision
-                                    engineering and luxury automobiles. Over the
-                                    decades, we have grown into Prela Automobile
-                                    AG, a cornerstone of the Swiss automotive
-                                    market.
+                                    Gegründet von der Familie Prela, begann unser
+                                    Unternehmen als kleine Garage in Sursee – mit
+                                    grosser Leidenschaft für Autos und Technik.
+                                    Über die Jahre sind wir zur Prela Automobile AG
+                                    gewachsen, einem festen Teil des Schweizer Automarkts.
                                 </p>
                                 <p class="desc">
-                                    The owners, with their extensive background
-                                    in mechanical engineering and international
-                                    trade, have always prioritized personal
-                                    relationships with clients. Today, that same
-                                    family-driven passion continues to guide our
-                                    operations, ensuring that Prela Automobile
-                                    AG remains a name synonymous with trust and
-                                    quality.
+                                    Die Gründer bringen umfangreiche Erfahrung in
+                                    Mechanik und internationalem Handel mit. Persönliche
+                                    Kundenbeziehungen standen immer an erster Stelle.
+                                    Heute führt dieselbe familiengetriebene Leidenschaft
+                                    unsere Arbeit – damit Prela Automobile AG für
+                                    Vertrauen und Qualität steht.
                                 </p>
                                 <p class="desc">
                                     <strong
-                                        >We are uniquely positioned because we
-                                        have years of experience in reputable
-                                        car repairs and auto handling, a legacy
-                                        of technical expertise that sets us
-                                        apart in the Swiss market.</strong>
+                                        >Unser Vorteil: Wir kommen aus der professionellen
+                                        Autowerkstatt. Diese technische Expertise macht
+                                        uns zu einem einzigartigen Autohändler in der
+                                        Schweiz.</strong>
                                 </p>
                             </div>
                         </div>
@@ -204,16 +192,16 @@ import Footer from "../components/Footer.astro";
                 <div class="container">
                     <div class="cta-inner">
                         <h2 class="title">
-                            Ready to Experience the Prela Difference?
+                            Bereit, den Prela-Unterschied zu erleben?
                         </h2>
                         <div class="contact">
                             <a href="callto:+41793088000">
                                 <img
                                     src="/images/cta/call.svg"
-                                    alt=""
+                                    alt="Telefon Icon"
                                     loading="lazy"
                                 />
-                                +41 79 3088 000</a
+                                +41 79 308 80 00</a
                             >
                         </div>
                     </div>

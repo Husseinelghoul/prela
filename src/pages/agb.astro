@@ -1,0 +1,457 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const lastMonth = new Date();
+lastMonth.setMonth(lastMonth.getMonth() - 1);
+const formattedDate = lastMonth.toLocaleString("de-CH", {
+    month: "long",
+    year: "numeric",
+});
+---
+
+<BaseLayout
+    title="AGB – Allgemeine Geschäftsbedingungen"
+    description="Allgemeine Geschäftsbedingungen von Prela Automobile AG. Erfahren Sie mehr über unsere Nutzungsbedingungen, Fahrzeugbewertungen und Haftungsausschluss."
+>
+    <div class="rts-wrapper">
+        <div class="rts-wrapper-inner">
+            <Header />
+
+            <!-- Hero Section -->
+            <div class="legal-hero">
+                <div class="container">
+                    <div class="legal-hero-inner">
+                        <div class="legal-icon">
+                            <i class="fa-light fa-file-contract"></i>
+                        </div>
+                        <h1>Allgemeine Geschäftsbedingungen</h1>
+                        <p class="legal-subtitle">
+                            Transparenz und Fairness sind die Grundlage unserer Geschäftsbeziehung.
+                        </p>
+                        <div class="legal-meta">
+                            <span class="meta-item">
+                                <i class="fa-light fa-calendar"></i>
+                                Letzte Aktualisierung: {formattedDate}
+                            </span>
+                            <span class="meta-item">
+                                <i class="fa-light fa-clock"></i>
+                                Lesezeit: ca. 5 Minuten
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terms Content -->
+            <div class="legal-content-area rts-section-gap">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="legal-content">
+
+                                <!-- TOC -->
+                                <div class="legal-toc">
+                                    <h4><i class="fa-light fa-list"></i> Inhaltsverzeichnis</h4>
+                                    <ol>
+                                        <li><a href="#geltungsbereich">Geltungsbereich</a></li>
+                                        <li><a href="#nutzung">Nutzung unserer Dienste</a></li>
+                                        <li><a href="#bewertungen">Fahrzeugbewertungen</a></li>
+                                        <li><a href="#angaben">Richtigkeit der Angaben</a></li>
+                                        <li><a href="#eigentum">Geistiges Eigentum</a></li>
+                                        <li><a href="#haftung">Haftungsbeschränkung</a></li>
+                                        <li><a href="#recht">Anwendbares Recht</a></li>
+                                        <li><a href="#aenderungen">Änderungen der AGB</a></li>
+                                        <li><a href="#kontakt-agb">Kontakt</a></li>
+                                    </ol>
+                                </div>
+
+                                <div class="legal-section" id="geltungsbereich">
+                                    <div class="section-number">01</div>
+                                    <h2>Geltungsbereich</h2>
+                                    <p>
+                                        Durch den Zugang zu und die Nutzung der Website von Prela
+                                        Automobile AG erklären Sie sich mit diesen Allgemeinen
+                                        Geschäftsbedingungen einverstanden. Diese AGB gelten für
+                                        alle Dienstleistungen, die über unsere Website angeboten
+                                        werden, einschliesslich Fahrzeugbewertungen, Ankauf,
+                                        Verkauf und Export.
+                                    </p>
+                                </div>
+
+                                <div class="legal-section" id="nutzung">
+                                    <div class="section-number">02</div>
+                                    <h2>Nutzung unserer Dienste</h2>
+                                    <p>
+                                        Unsere Dienstleistungen umfassen die Bewertung, den Ankauf,
+                                        den Verkauf und den Export von Fahrzeugen. Sie verpflichten
+                                        sich, unsere Dienste ausschliesslich für rechtmässige Zwecke
+                                        und in Übereinstimmung mit diesen Bedingungen zu nutzen.
+                                    </p>
+                                    <div class="highlight-box">
+                                        <i class="fa-light fa-shield-check"></i>
+                                        <p>
+                                            Alle Transaktionen werden gemäss dem schweizerischen
+                                            Obligationenrecht (OR) abgewickelt.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="legal-section" id="bewertungen">
+                                    <div class="section-number">03</div>
+                                    <h2>Fahrzeugbewertungen</h2>
+                                    <p>
+                                        Alle von Prela Automobile AG erstellten Bewertungen sind
+                                        Schätzungen auf Grundlage der von Ihnen bereitgestellten
+                                        Informationen und aktuellen Marktdaten. Das endgültige Angebot
+                                        kann nach einer physischen Inspektion des Fahrzeugs abweichen.
+                                    </p>
+                                    <ul class="legal-list">
+                                        <li>Bewertungen sind unverbindlich und kostenlos</li>
+                                        <li>Das endgültige Angebot wird nach Besichtigung erstellt</li>
+                                        <li>Wir behalten uns das Recht vor, unser Angebot nach der Inspektion anzupassen</li>
+                                        <li>Angebote haben eine Gültigkeit von 7 Werktagen</li>
+                                    </ul>
+                                </div>
+
+                                <div class="legal-section" id="angaben">
+                                    <div class="section-number">04</div>
+                                    <h2>Richtigkeit der Angaben</h2>
+                                    <p>
+                                        Sie verpflichten sich, genaue und vollständige Angaben
+                                        zu Ihrem Fahrzeug zu machen. Falsche Angaben zum Zustand,
+                                        Kilometerstand oder anderen relevanten Details können zur
+                                        Anpassung oder zum Widerruf unseres Angebots führen.
+                                    </p>
+                                </div>
+
+                                <div class="legal-section" id="eigentum">
+                                    <div class="section-number">05</div>
+                                    <h2>Geistiges Eigentum</h2>
+                                    <p>
+                                        Sämtliche Inhalte, Gestaltungen, Grafiken und sonstige
+                                        Materialien auf unserer Website sind urheberrechtlich
+                                        geschützt. Das Kopieren, Verbreiten oder Veröffentlichen
+                                        dieser Inhalte ist ohne unsere ausdrückliche schriftliche
+                                        Genehmigung nicht gestattet.
+                                    </p>
+                                </div>
+
+                                <div class="legal-section" id="haftung">
+                                    <div class="section-number">06</div>
+                                    <h2>Haftungsbeschränkung</h2>
+                                    <p>
+                                        Prela Automobile AG haftet nicht für indirekte, zufällige,
+                                        besondere oder Folgeschäden, die sich aus der Nutzung oder
+                                        der Unmöglichkeit der Nutzung unserer Dienste ergeben. Die
+                                        Haftung ist in jedem Fall auf den Betrag des jeweiligen
+                                        Geschäftsvorgangs beschränkt.
+                                    </p>
+                                </div>
+
+                                <div class="legal-section" id="recht">
+                                    <div class="section-number">07</div>
+                                    <h2>Anwendbares Recht</h2>
+                                    <p>
+                                        Diese AGB unterliegen dem schweizerischen Recht. Gerichtsstand
+                                        ist Sursee, Kanton Luzern, Schweiz. Alle Streitigkeiten werden
+                                        zunächst auf dem Verhandlungsweg beigelegt.
+                                    </p>
+                                </div>
+
+                                <div class="legal-section" id="aenderungen">
+                                    <div class="section-number">08</div>
+                                    <h2>Änderungen der AGB</h2>
+                                    <p>
+                                        Wir behalten uns das Recht vor, diese AGB jederzeit zu
+                                        ändern. Wesentliche Änderungen werden auf unserer Website
+                                        veröffentlicht. Die fortgesetzte Nutzung unserer Dienste
+                                        nach einer Änderung gilt als Zustimmung zu den geänderten
+                                        Bedingungen.
+                                    </p>
+                                </div>
+
+                                <div class="legal-section" id="kontakt-agb">
+                                    <div class="section-number">09</div>
+                                    <h2>Kontakt</h2>
+                                    <p>
+                                        Bei Fragen zu diesen AGB erreichen Sie uns unter:
+                                    </p>
+                                    <div class="contact-card">
+                                        <strong>Prela Automobile AG</strong><br />
+                                        Allmendstrasse 10<br />
+                                        6210 Sursee, Schweiz<br />
+                                        E-Mail: <a href="mailto:info@prela-automobile.ch">info@prela-automobile.ch</a><br />
+                                        Telefon: <a href="tel:+41793088000">+41 79 308 80 00</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <Footer />
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    /* Legal Hero */
+    .legal-hero {
+        background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%);
+        padding: 80px 0 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .legal-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+    }
+
+    .legal-hero-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .legal-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        font-size: 36px;
+        color: #4da6ff;
+    }
+
+    .legal-hero h1 {
+        font-size: 38px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 15px;
+    }
+
+    .legal-subtitle {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 500px;
+        margin: 0 auto 25px;
+    }
+
+    .legal-meta {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .meta-item {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* TOC */
+    .legal-toc {
+        background: #f8faff;
+        border-radius: 16px;
+        padding: 30px 35px;
+        margin-bottom: 50px;
+        border: 1px solid #e8eef5;
+    }
+
+    .legal-toc h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .legal-toc h4 i {
+        color: var(--color-primary);
+    }
+
+    .legal-toc ol {
+        list-style: none;
+        counter-reset: toc-counter;
+        padding: 0;
+        margin: 0;
+        columns: 2;
+        column-gap: 30px;
+    }
+
+    .legal-toc li {
+        counter-increment: toc-counter;
+        margin-bottom: 8px;
+        break-inside: avoid;
+    }
+
+    .legal-toc li a {
+        color: #555;
+        text-decoration: none;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.3s ease;
+    }
+
+    .legal-toc li a::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        font-weight: 700;
+        font-size: 12px;
+        color: var(--color-primary);
+        background: rgba(5, 83, 154, 0.08);
+        padding: 2px 8px;
+        border-radius: 6px;
+        min-width: 28px;
+        text-align: center;
+    }
+
+    .legal-toc li a:hover {
+        color: var(--color-primary);
+    }
+
+    /* Content */
+    .legal-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .legal-section {
+        margin-bottom: 45px;
+        position: relative;
+        padding-left: 0;
+    }
+
+    .section-number {
+        font-size: 48px;
+        font-weight: 800;
+        color: rgba(5, 83, 154, 0.06);
+        line-height: 1;
+        margin-bottom: -10px;
+    }
+
+    .legal-section h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    .legal-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .legal-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .legal-list li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #555;
+    }
+
+    .legal-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--color-primary);
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+        border-left: 4px solid var(--color-primary);
+        border-radius: 0 12px 12px 0;
+        padding: 20px 25px;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .highlight-box i {
+        font-size: 24px;
+        color: var(--color-primary);
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+
+    .highlight-box p {
+        margin: 0;
+        font-size: 15px;
+        color: #333;
+    }
+
+    .contact-card {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 25px;
+        border: 1px solid #e9ecef;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #444;
+    }
+
+    .contact-card a {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
+    .contact-card a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .legal-hero h1 {
+            font-size: 28px;
+        }
+
+        .legal-toc ol {
+            columns: 1;
+        }
+
+        .legal-hero {
+            padding: 60px 0 40px;
+        }
+
+        .section-number {
+            font-size: 36px;
+        }
+    }
+</style>

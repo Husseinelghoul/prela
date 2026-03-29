@@ -1,13 +1,19 @@
 ---
 interface Props {
     title?: string;
+    description?: string;
+    ogImage?: string;
 }
 
-const { title = "Premium Automotive Excellence" } = Astro.props;
+const { 
+    title = "Auto verkaufen Schweiz – Bestpreis Garantie", 
+    description = "Prela Automobile AG – Ihr Autohändler in Luzern. Auto verkaufen zum Bestpreis, kostenlose Autobewertung in 24 Stunden, Autoankauf aller Marken. Über 25 Jahre Erfahrung in der Schweiz.",
+    ogImage = "https://prela-automobile.ch/images/about/03.webp"
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="de-CH" class="no-js">
     <head>
         <meta charset="UTF-8" />
         <meta
@@ -16,15 +22,15 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
         />
 
         <!-- Primary Meta Tags -->
-        <title>Prela Automobile AG - {title}</title>
-        <meta name="title" content="Prela Automobile AG - {title}" />
+        <title>Prela Automobile AG – {title}</title>
+        <meta name="title" content={`Prela Automobile AG – ${title}`} />
         <meta
             name="description"
-            content="Prela Automobile AG - Ihr vertrauenswürdiger Partner für Premium-Fahrzeuge in der Schweiz. Expertendienste für Kauf, Verkauf und Export von Autos mit Schweizer Qualität und Transparenz. Your trusted partner for premium vehicles in Switzerland."
+            content={description}
         />
         <meta
             name="keywords"
-            content="Auto kaufen Schweiz, Auto verkaufen Schweiz, Autoexport, Prela Automobile, Gebrauchtwagen Schweiz, car dealer Switzerland, acheter voiture Suisse, vendre voiture Suisse"
+            content="Auto verkaufen Schweiz, Autoankauf Schweiz, kostenlose Autobewertung, Autohändler Luzern, Gebrauchtwagen verkaufen, Auto kaufen Schweiz, Autoexport Schweiz, Autoankauf Luzern, Fahrzeugbewertung, Unfallwagen verkaufen"
         />
         <meta name="author" content="Prela Automobile AG" />
         <meta
@@ -33,67 +39,56 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
         />
         <link
             rel="canonical"
-            href={`https://prelaauto.ch${Astro.url.pathname}`}
+            href={`https://prela-automobile.ch${Astro.url.pathname}`}
         />
 
         <!-- Language Alternates (hreflang) -->
         <link
             rel="alternate"
             hreflang="de-CH"
-            href={`https://prelaauto.ch${Astro.url.pathname}`}
-        />
-        <link
-            rel="alternate"
-            hreflang="fr-CH"
-            href={`https://prelaauto.ch${Astro.url.pathname}`}
-        />
-        <link
-            rel="alternate"
-            hreflang="en-CH"
-            href={`https://prelaauto.ch${Astro.url.pathname}`}
+            href={`https://prela-automobile.ch${Astro.url.pathname}`}
         />
         <link
             rel="alternate"
             hreflang="x-default"
-            href={`https://prelaauto.ch${Astro.url.pathname}`}
+            href={`https://prela-automobile.ch${Astro.url.pathname}`}
         />
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
         <meta
             property="og:url"
-            content={`https://prelaauto.ch${Astro.url.pathname}`}
+            content={`https://prela-automobile.ch${Astro.url.pathname}`}
         />
-        <meta property="og:title" content={`Prela Automobile AG - ${title}`} />
+        <meta property="og:title" content={`Prela Automobile AG – ${title}`} />
         <meta
             property="og:description"
-            content="Premium Automotive Excellence in Switzerland. Expert services for buying, selling, and exporting vehicles with Swiss quality."
+            content={description}
         />
         <meta
             property="og:image"
-            content="https://prelaauto.ch/images/about/03.webp"
+            content={ogImage}
         />
         <meta property="og:locale" content="de_CH" />
-        <meta property="og:locale:alternate" content="fr_CH" />
-        <meta property="og:locale:alternate" content="en_CH" />
+        <meta property="og:site_name" content="Prela Automobile AG" />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta
             property="twitter:url"
-            content={`https://prelaauto.ch${Astro.url.pathname}`}
+            content={`https://prela-automobile.ch${Astro.url.pathname}`}
         />
         <meta
             property="twitter:title"
-            content={`Prela Automobile AG - ${title}`}
+            content={`Prela Automobile AG – ${title}`}
         />
         <meta
             property="twitter:description"
-            content="Premium Automotive Excellence in Switzerland. Expert services for buying, selling, and exporting vehicles."
+            content={description}
         />
         <meta
             property="twitter:image"
-            content="https://prelaauto.ch/images/about/03.webp"
+            content={ogImage}
         />
 
         <!-- Favicon -->
@@ -121,13 +116,14 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
                 "@context": "https://schema.org",
                 "@type": "AutoDealer",
                 "name": "Prela Automobile AG",
-                "image": "https://prelaauto.ch/images/about/03.webp",
-                "description": "Premium automotive dealer in Switzerland specializing in buying, selling, and exporting high-quality vehicles.",
+                "image": "https://prela-automobile.ch/images/about/03.webp",
+                "description": "Ihr Autohändler in Luzern – Auto verkaufen zum Bestpreis, kostenlose Autobewertung, Autoankauf aller Marken und Autoexport. Über 25 Jahre Erfahrung.",
                 "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "Sursee",
+                    "streetAddress": "Allmendstrasse 10",
                     "addressLocality": "Sursee",
                     "addressRegion": "Luzern",
+                    "postalCode": "6210",
                     "addressCountry": "CH"
                 },
                 "geo": {
@@ -135,9 +131,16 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
                     "latitude": 47.1719,
                     "longitude": 8.1092
                 },
-                "url": "https://prelaauto.ch",
-                "telephone": "+41-76-024-4494",
+                "url": "https://prela-automobile.ch",
+                "telephone": "+41-79-308-80-00",
+                "email": "info@prela-automobile.ch",
                 "priceRange": "$$",
+                "currenciesAccepted": "CHF",
+                "paymentAccepted": "Cash, Bank Transfer",
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "Switzerland"
+                },
                 "openingHoursSpecification": [
                     {
                         "@type": "OpeningHoursSpecification",
@@ -165,7 +168,49 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
                     "bestRating": "5",
                     "worstRating": "1"
                 },
-                "sameAs": ["https://wa.me/+41793088000"]
+                "sameAs": ["https://wa.me/+41793088000"],
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Autoankauf & Verkauf Dienstleistungen",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Kostenlose Autobewertung",
+                                "description": "Erhalten Sie eine kostenlose Bewertung Ihres Fahrzeugs innerhalb von 24 Stunden."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Autoankauf",
+                                "description": "Wir kaufen Autos aller Marken und in jedem Zustand zum Bestpreis."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Autoexport",
+                                "description": "Professioneller Autoexport mit kompletter Zollabwicklung."
+                            }
+                        }
+                    ]
+                }
+            }
+        </script>
+
+        <!-- WebSite Schema for Sitelinks Search -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Prela Automobile AG",
+                "url": "https://prela-automobile.ch",
+                "inLanguage": "de-CH",
+                "description": "Autohändler in Luzern – Auto verkaufen, kaufen und exportieren zum Bestpreis."
             }
         </script>
     </head>
@@ -184,7 +229,7 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
                         <input
                             class="search-input autocomplete"
                             type="text"
-                            placeholder="Search by keyword or #"
+                            placeholder="Suche nach Marke oder Modell"
                         />
                         <button><i class="far fa-search"></i></button>
                     </div>
@@ -204,7 +249,7 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
             href="https://wa.me/+41793088000"
             target="_blank"
             class="whatsapp-float"
-            aria-label="Contact us on WhatsApp"
+            aria-label="Kontaktieren Sie uns auf WhatsApp"
         >
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -220,22 +265,21 @@ const { title = "Premium Automotive Excellence" } = Astro.props;
             <div class="mobile-menu-main">
                 <nav class="nav-main mainmenu-nav mt--30">
                     <ul class="mainmenu metismenu" id="mobile-menu-active">
-                        <li><a href="/" class="main">Home</a></li>
-                        <li><a href="/about" class="main">About Us</a></li>
+                        <li><a href="/" class="main">Startseite</a></li>
+                        <li><a href="/ueber-uns" class="main">Über Uns</a></li>
                         <li class="has-droupdown">
-                            <a href="#" class="main">Tips & Tricks</a>
+                            <a href="#" class="main">Tipps & Ratgeber</a>
                             <ul class="submenu">
                                 <li>
-                                    <a href="/tips/selling">Selling a Car</a>
+                                    <a href="/tipps/auto-verkaufen">Auto verkaufen</a>
                                 </li>
-                                <li><a href="/tips/buying">Buying a Car</a></li>
+                                <li><a href="/tipps/auto-kaufen">Auto kaufen</a></li>
                                 <li>
-                                    <a href="/tips/exporting">Exporting a Car</a
-                                    >
+                                    <a href="/tipps/auto-exportieren">Auto exportieren</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/contact" class="main">Contact</a></li>
+                        <li><a href="/kontakt" class="main">Kontakt</a></li>
                     </ul>
                 </nav>
             </div>

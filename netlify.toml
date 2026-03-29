@@ -1,3 +1,84 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Redirects for old English URL slugs → new German slugs
+[[redirects]]
+  from = "/tips/selling"
+  to = "/tipps/auto-verkaufen"
+  status = 301
+
+[[redirects]]
+  from = "/tips/buying"
+  to = "/tipps/auto-kaufen"
+  status = 301
+
+[[redirects]]
+  from = "/tips/exporting"
+  to = "/tipps/auto-exportieren"
+  status = 301
+
+[[redirects]]
+  from = "/tips/*"
+  to = "/tipps/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/ueber-uns"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/kontakt"
+  status = 301
+
+[[redirects]]
+  from = "/quote"
+  to = "/bewertung"
+  status = 301
+
+[[redirects]]
+  from = "/terms"
+  to = "/agb"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/datenschutz"
+  status = 301
+
+[[redirects]]
+  from = "/cookie-policy"
+  to = "/cookie-richtlinie"
+  status = 301
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/danke"
+  status = 301

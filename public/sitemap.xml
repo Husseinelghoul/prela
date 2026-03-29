@@ -2,89 +2,91 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <!-- Homepage -->
+  <!-- Startseite -->
   <url>
-    <loc>https://prelaauto.ch/</loc>
-    <lastmod>2026-02-07</lastmod>
+    <loc>https://prela-automobile.ch/</loc>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prelaauto.ch/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://prelaauto.ch/"/>
-    <xhtml:link rel="alternate" hreflang="en-CH" href="https://prelaauto.ch/"/>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prela-automobile.ch/"/>
   </url>
   
-  <!-- About Page -->
+  <!-- Über Uns -->
   <url>
-    <loc>https://prelaauto.ch/about</loc>
-    <lastmod>2026-02-07</lastmod>
+    <loc>https://prela-automobile.ch/ueber-uns</loc>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prelaauto.ch/about"/>
-    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://prelaauto.ch/about"/>
-    <xhtml:link rel="alternate" hreflang="en-CH" href="https://prelaauto.ch/about"/>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prela-automobile.ch/ueber-uns"/>
   </url>
   
-  <!-- Contact Page -->
+  <!-- Kontakt -->
   <url>
-    <loc>https://prelaauto.ch/contact</loc>
-    <lastmod>2026-02-07</lastmod>
+    <loc>https://prela-automobile.ch/kontakt</loc>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prelaauto.ch/contact"/>
-    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://prelaauto.ch/contact"/>
-    <xhtml:link rel="alternate" hreflang="en-CH" href="https://prelaauto.ch/contact"/>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prela-automobile.ch/kontakt"/>
   </url>
   
-  <!-- Quote Page -->
+  <!-- Kostenlose Autobewertung -->
   <url>
-    <loc>https://prelaauto.ch/quote</loc>
-    <lastmod>2026-02-07</lastmod>
+    <loc>https://prela-automobile.ch/bewertung</loc>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prelaauto.ch/quote"/>
-    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://prelaauto.ch/quote"/>
-    <xhtml:link rel="alternate" hreflang="en-CH" href="https://prelaauto.ch/quote"/>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prela-automobile.ch/bewertung"/>
   </url>
   
-  <!-- Tips - Selling -->
+  <!-- Tipps: Auto verkaufen -->
   <url>
-    <loc>https://prelaauto.ch/tips/selling</loc>
-    <lastmod>2026-02-07</lastmod>
+    <loc>https://prela-automobile.ch/tipps/auto-verkaufen</loc>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prelaauto.ch/tips/selling"/>
-    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://prelaauto.ch/tips/selling"/>
-    <xhtml:link rel="alternate" hreflang="en-CH" href="https://prelaauto.ch/tips/selling"/>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prela-automobile.ch/tipps/auto-verkaufen"/>
   </url>
   
-  <!-- Tips - Buying -->
+  <!-- Tipps: Auto kaufen -->
   <url>
-    <loc>https://prelaauto.ch/tips/buying</loc>
-    <lastmod>2026-02-07</lastmod>
+    <loc>https://prela-automobile.ch/tipps/auto-kaufen</loc>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prelaauto.ch/tips/buying"/>
-    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://prelaauto.ch/tips/buying"/>
-    <xhtml:link rel="alternate" hreflang="en-CH" href="https://prelaauto.ch/tips/buying"/>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prela-automobile.ch/tipps/auto-kaufen"/>
   </url>
   
-  <!-- Tips - Exporting -->
+  <!-- Tipps: Auto exportieren -->
   <url>
-    <loc>https://prelaauto.ch/tips/exporting</loc>
-    <lastmod>2026-02-07</lastmod>
+    <loc>https://prela-automobile.ch/tipps/auto-exportieren</loc>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prelaauto.ch/tips/exporting"/>
-    <xhtml:link rel="alternate" hreflang="fr-CH" href="https://prelaauto.ch/tips/exporting"/>
-    <xhtml:link rel="alternate" hreflang="en-CH" href="https://prelaauto.ch/tips/exporting"/>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://prela-automobile.ch/tipps/auto-exportieren"/>
   </url>
   
-  <!-- Thank You Page -->
+  <!-- AGB -->
   <url>
-    <loc>https://prelaauto.ch/thank-you</loc>
-    <lastmod>2026-02-07</lastmod>
+    <loc>https://prela-automobile.ch/agb</loc>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
+  <!-- Datenschutz -->
+  <url>
+    <loc>https://prela-automobile.ch/datenschutz</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Cookie-Richtlinie -->
+  <url>
+    <loc>https://prela-automobile.ch/cookie-richtlinie</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
