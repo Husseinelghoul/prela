@@ -100,7 +100,7 @@ import ContactForm from "../components/ContactForm.astro";
             </section>
 
             <!-- Map Section -->
-            <div class="contact-map-area-fluid">
+            <div class="contact-map-area-fluid skeleton-frame">
                 <iframe
                     class="contact-map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.123456789!2d8.1065!3d47.1721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ff0f8a8a8a8a8%3A0x123456789abcdef!2sAllmendstrasse%2010%2C%206210+Luzern!5e0!3m2!1sde!2sch!4v1663151706353!5m2!1sde!2sch"
@@ -109,6 +109,7 @@ import ContactForm from "../components/ContactForm.astro";
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
                     title="Prela Automobile AG Standort auf Google Maps"
+                    onload="this.parentElement.classList.add('is-loaded')"
                 >
                 </iframe>
             </div>

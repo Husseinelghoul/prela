@@ -1,0 +1,124 @@
+/* =========================================================================
+   UI Baseline — additive polish layer. Loaded AFTER style.css.
+   Font-weight hierarchy · skeleton loaders · icon sizing · tooltip cursor.
+   Tokens come from style.css :root (--font-primary/secondary, --p-*/--s-*).
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. Consistent font-weight hierarchy
+   Base headings only inherited body weight (400) unless a component set one.
+   Apply a deliberate ladder so headings stay consistent everywhere.
+   ------------------------------------------------------------------------- */
+h1, .h1 { font-weight: var(--s-extra-bold); } /* 800 */
+h2, .h2 { font-weight: var(--s-extra-bold); } /* 800 */
+h3, .h3 { font-weight: var(--s-bold); }        /* 700 */
+h4, .h4 { font-weight: var(--s-bold); }        /* 700 */
+h5, .h5 { font-weight: var(--s-bold); }        /* 700 */
+h6, .h6 { font-weight: var(--s-semi-bold); }   /* 600 */
+
+/* Body / emphasis ladder */
+body { font-weight: var(--p-regular); }        /* 400 */
+strong, b, .fw-emphasis { font-weight: var(--p-semi-bold); } /* 600 */
+
+/* -------------------------------------------------------------------------
+   2. Icon sizing — one pack (Font Awesome 6 Pro), consistent sizes
+   ------------------------------------------------------------------------- */
+/* Header contact icons (swapped from inline SVG → FA): match old 18–20px look */
+.header-one .top .left .map-area i,
+.header-one .top .right .map-area i { font-size: 18px; }
+
+/* -------------------------------------------------------------------------
+   3. Skeleton loaders — one shimmer utility drives them all
+   ------------------------------------------------------------------------- */
+.skeleton {
+  position: relative;
+  background-color: #e9ecf1;
+  background-image: linear-gradient(
+    90deg,
+    rgba(233, 236, 241, 0) 0,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(233, 236, 241, 0) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position: -150% 0;
+  animation: ui-shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--radius, 10px);
+  overflow: hidden;
+}
+
+@keyframes ui-shimmer {
+  0%   { background-position: -150% 0; }
+  100% { background-position:  150% 0; }
+}
+
+/* Reusable content-shaped blocks */
+.skeleton-line   { height: 14px; border-radius: 6px; margin-bottom: 12px; }
+.skeleton-line.sm { width: 40%; }
+.skeleton-line.lg { width: 90%; }
+.skeleton-block  { width: 100%; height: 100%; }
+
+/* Async iframe (e.g. Google Map): show a skeleton until the frame loads.
+   Wrap the iframe in .skeleton-frame; add .is-loaded on the wrapper (or let
+   the iframe's own load event flip it) to reveal the frame. */
+.skeleton-frame { position: relative; }
+.skeleton-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background-color: #e9ecf1;
+  background-image: linear-gradient(
+    90deg,
+    rgba(233, 236, 241, 0) 0,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(233, 236, 241, 0) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position: -150% 0;
+  animation: ui-shimmer 1.4s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+}
+.skeleton-frame.is-loaded::after { opacity: 0; pointer-events: none; }
+
+/* Lazy images: shimmer placeholder until the image finishes loading.
+   Class is toggled by the progressive-enhancement script in BaseLayout, so
+   without JS the image simply loads normally (no broken state). */
+img.ui-img-loading {
+  background-color: #e9ecf1;
+  background-image: linear-gradient(
+    90deg,
+    rgba(233, 236, 241, 0) 0,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(233, 236, 241, 0) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position: -150% 0;
+  animation: ui-shimmer 1.4s ease-in-out infinite;
+  color: transparent;
+}
+img.ui-img-ready { animation: ui-imgfade 0.4s ease both; }
+
+@keyframes ui-imgfade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Respect reduced-motion: keep the placeholder, drop the animation */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton,
+  .skeleton-frame::after,
+  img.ui-img-loading { animation: none; }
+  img.ui-img-ready { animation: none; }
+}
+
+/* -------------------------------------------------------------------------
+   4. Tooltip affordance — icon-only controls with a title get a help cursor
+   ------------------------------------------------------------------------- */
+.whatsapp-float[title],
+#menu-btn[title],
+.search-close-icon[title],
+.search-input-area button[title] { cursor: pointer; }

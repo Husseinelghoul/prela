@@ -97,18 +97,18 @@ const {
 
         <!-- Preconnect to external domains for performance -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preconnect" href="https://wa.me" />
 
         <!-- Preload critical assets -->
-        <link rel="preload" href="/fonts/rt-icon.css" as="style" />
         <link rel="preload" href="/css/style.css?v=3.1" as="style" />
 
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/css/plugins/plugins.css" />
         <link rel="stylesheet" href="/css/plugins/magnifying-popup.css" />
         <link rel="stylesheet" href="/css/vendor/bootstrap.min.css" />
-        <link rel="stylesheet" href="/fonts/rt-icon.css" />
         <link rel="stylesheet" href="/css/style.css?v=3.1" />
+        <link rel="stylesheet" href="/css/ui-baseline.css?v=1.0" />
 
         <!-- Structured Data (JSON-LD) for Local Business -->
         <script type="application/ld+json">
@@ -231,11 +231,20 @@ const {
                             type="text"
                             placeholder="Suche nach Marke oder Modell"
                         />
-                        <button><i class="far fa-search"></i></button>
+                        <button type="submit" title="Suchen" aria-label="Suchen">
+                            <i class="far fa-search"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div id="close" class="search-close-icon">
+            <div
+                id="close"
+                class="search-close-icon"
+                role="button"
+                tabindex="0"
+                title="Suche schliessen"
+                aria-label="Suche schliessen"
+            >
                 <i class="far fa-times"></i>
             </div>
         </div>
@@ -249,6 +258,7 @@ const {
             href="https://wa.me/+41793088000"
             target="_blank"
             class="whatsapp-float"
+            title="Schreiben Sie uns auf WhatsApp"
             aria-label="Kontaktieren Sie uns auf WhatsApp"
         >
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -261,7 +271,11 @@ const {
 
         <!-- Mobile Sidebar -->
         <div id="side-bar" class="side-bar header-two">
-            <button class="close-icon-menu">X</button>
+            <button
+                class="close-icon-menu"
+                title="Menü schliessen"
+                aria-label="Menü schliessen"
+            >X</button>
             <div class="mobile-menu-main">
                 <nav class="nav-main mainmenu-nav mt--30">
                     <ul class="mainmenu metismenu" id="mobile-menu-active">
@@ -284,6 +298,28 @@ const {
                 </nav>
             </div>
         </div>
+
+        <!-- Per-image skeleton loaders (progressive enhancement) -->
+        <script is:inline>
+            (function () {
+                function ready(img) {
+                    img.classList.remove("ui-img-loading");
+                    img.classList.add("ui-img-ready");
+                }
+                document
+                    .querySelectorAll('img[loading="lazy"]')
+                    .forEach(function (img) {
+                        if (img.complete && img.naturalWidth > 0) return;
+                        img.classList.add("ui-img-loading");
+                        img.addEventListener("load", function () {
+                            ready(img);
+                        });
+                        img.addEventListener("error", function () {
+                            img.classList.remove("ui-img-loading");
+                        });
+                    });
+            })();
+        </script>
 
         <!-- Scripts - Optimized loading order -->
         <script is:inline src="/js/plugins/jquery.js"></script>
