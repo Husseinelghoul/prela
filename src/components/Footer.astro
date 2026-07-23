@@ -1,4 +1,18 @@
 ---
+import { useT, type Lang } from '../i18n/ui';
+import { CITIES } from '../data/cities';
+
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = 'de' } = Astro.props;
+const t = useT(lang);
+const isFr = lang === 'fr';
+
+const about = isFr ? '/fr/a-propos' : '/ueber-uns';
+const valuation = isFr ? '/fr/estimation' : '/bewertung';
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -9,40 +23,40 @@ const currentYear = new Date().getFullYear();
             <div class="col-lg-12">
                 <div class="footer-wrapper-style-between">
                     <div class="single-wized">
-                        <h6 class="title">Unternehmen</h6>
+                        <h6 class="title">{t('footer.company')}</h6>
                         <div class="body">
                             <ul class="nav-bottom">
-                                <li><a href="/ueber-uns">Unsere Geschichte</a></li>
-                                <li><a href="/bewertung">Gratis Autobewertung</a></li>
+                                <li><a href={about}>{t('footer.ourStory')}</a></li>
+                                <li><a href={valuation}>{t('footer.freeValuation')}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="single-wized">
-                        <h6 class="title">Tipps & Ratgeber</h6>
+                        <h6 class="title">{t('footer.tips')}</h6>
                         <div class="body">
                             <ul class="nav-bottom">
-                                <li><a href="/tipps/auto-verkaufen">Auto verkaufen Tipps</a></li>
-                                <li><a href="/tipps/auto-kaufen">Auto kaufen Tipps</a></li>
-                                <li><a href="/tipps/auto-exportieren">Auto exportieren</a></li>
+                                <li><a href="/tipps/auto-verkaufen">{t('footer.tips.sell')}</a></li>
+                                <li><a href="/tipps/auto-kaufen">{t('footer.tips.buy')}</a></li>
+                                <li><a href="/tipps/auto-exportieren">{t('footer.tips.export')}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="single-wized">
-                        <h6 class="title">Rechtliches</h6>
+                        <h6 class="title">{t('footer.legal')}</h6>
                         <div class="body">
                             <ul class="nav-bottom">
-                                <li><a href="/agb">AGB & Haftungsausschluss</a></li>
+                                <li><a href="/agb">{t('footer.terms')}</a></li>
                                 <li>
-                                    <a href="/datenschutz">Datenschutz</a>
+                                    <a href="/datenschutz">{t('footer.privacy')}</a>
                                 </li>
                                 <li>
-                                    <a href="/cookie-richtlinie">Cookie-Richtlinie</a>
+                                    <a href="/cookie-richtlinie">{t('footer.cookies')}</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="single-wized">
-                        <h6 class="title">Kontakt</h6>
+                        <h6 class="title">{t('footer.contact')}</h6>
                         <div class="body">
                             <p class="phone d-flex align-items-center">
                                 <i class="fa-light fa-phone-flip"></i>
@@ -59,6 +73,14 @@ const currentYear = new Date().getFullYear();
                 </div>
             </div>
         </div>
+        <div class="footer-regions">
+            <span class="footer-regions-label">{t('footer.regions')}:</span>
+            <ul class="footer-regions-list">
+                {CITIES.map((c) => (
+                    <li><a href={`/autoankauf-${c.slug}`}>{c.name}</a></li>
+                ))}
+            </ul>
+        </div>
     </div>
     <div class="copyright-area">
         <div class="container">
@@ -68,7 +90,7 @@ const currentYear = new Date().getFullYear();
                         class="copyright-area-inner d-flex align-items-center justify-content-between"
                     >
                         <p>
-                            © {currentYear} Prela Automobile AG – Alle Rechte vorbehalten
+                            © {currentYear} Prela Automobile AG – {t('footer.rights')}
                         </p>
                     </div>
                 </div>
@@ -77,3 +99,39 @@ const currentYear = new Date().getFullYear();
     </div>
 </div>
 <!-- rts footer area end -->
+
+<style>
+    .footer-regions {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 16px;
+    }
+    .footer-regions-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        opacity: 0.85;
+    }
+    .footer-regions-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 14px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .footer-regions-list a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .footer-regions-list a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+</style>

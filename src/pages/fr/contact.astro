@@ -1,0 +1,279 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import Footer from "../../components/Footer.astro";
+import ContactForm from "../../components/ContactForm.astro";
+---
+
+<BaseLayout
+    title="Contact – Concessionnaire automobile à Lucerne"
+    description="Contactez Prela Automobile AG à Lucerne. Rachat de voitures, estimation et export automobile – appelez-nous ou rendez-nous visite à l'Allmendstrasse 10, 6210 Lucerne."
+    lang="fr"
+    alternates={[
+        { lang: 'de-CH', href: '/kontakt' },
+        { lang: 'fr-CH', href: '/fr/contact' },
+    ]}
+>
+    <div class="rts-wrapper">
+        <div class="rts-wrapper-inner">
+            <Header lang="fr" altHref="/kontakt" />
+
+            <Breadcrumb
+                title="Nous contacter"
+                current="Contact"
+                className="service"
+            />
+
+            <!-- Contact Info Cards -->
+            <section class="rts-contact-info-area rts-section-gapTop">
+                <div class="container">
+                    <div class="row g-5">
+                        <!-- Location -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="contact-info-card text-center">
+                                <div class="icon">
+                                    <img
+                                        src="/images/contact/01.svg"
+                                        alt="Icône emplacement – Prela Automobile Lucerne"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <h5 class="title">Notre emplacement</h5>
+                                <p class="desc">
+                                    <a
+                                        href="https://www.google.com/maps/search/Allmendstrasse+10,+6210+Luzern"
+                                        target="_blank"
+                                    >
+                                        Allmendstrasse 10<br />6210 Lucerne
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="contact-info-card text-center">
+                                <div class="icon">
+                                    <img
+                                        src="/images/contact/02.svg"
+                                        alt="Icône e-mail – contacter Prela Automobile"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <h5 class="title">E-mail</h5>
+                                <p class="desc">
+                                    <a href="mailto:info@prela-automobile.ch"
+                                        >info@prela-automobile.ch</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="contact-info-card text-center">
+                                <div class="icon">
+                                    <img
+                                        src="/images/contact/03.svg"
+                                        alt="Icône téléphone – appeler Prela Automobile"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <h5 class="title">Appeler</h5>
+                                <p class="desc">
+                                    <a href="callto:+41793088000"
+                                        >+41 79 308 80 00</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section class="rts-contact-form-area rts-section-gap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <ContactForm lang="fr" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Map Section -->
+            <div class="contact-map-area-fluid skeleton-frame">
+                <iframe
+                    class="contact-map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.123456789!2d8.1065!3d47.1721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ff0f8a8a8a8a8%3A0x123456789abcdef!2sAllmendstrasse%2010%2C%206210+Luzern!5e0!3m2!1sde!2sch!4v1663151706353!5m2!1sde!2sch"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Emplacement de Prela Automobile AG sur Google Maps"
+                    onload="this.parentElement.classList.add('is-loaded')"
+                >
+                </iframe>
+            </div>
+
+            <style>
+                .contact-info-card {
+                    background: #ffffff;
+                    padding: 40px 30px;
+                    border-radius: 20px;
+                    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+                    border: 1px solid #f0f0f0;
+                    height: 100%;
+                    transition:
+                        transform 0.3s ease,
+                        box-shadow 0.3s ease;
+                }
+
+                .contact-info-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+                }
+
+                .contact-info-card .icon {
+                    width: 70px;
+                    height: 70px;
+                    background: rgba(0, 123, 255, 0.1);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 25px;
+                    transition: all 0.3s ease;
+                }
+
+                .contact-info-card:hover .icon {
+                    background: #007bff;
+                }
+
+                .contact-info-card:hover .icon img {
+                    filter: brightness(0) invert(1);
+                }
+
+                .contact-info-card .icon img {
+                    width: 32px;
+                    transition: all 0.3s ease;
+                }
+
+                .contact-info-card .title {
+                    font-size: 22px;
+                    font-weight: 700;
+                    margin-bottom: 15px;
+                    color: #1a1a1a;
+                }
+
+                .contact-info-card .desc {
+                    font-size: 16px;
+                    line-height: 1.6;
+                    color: #666;
+                    margin-bottom: 0;
+                }
+
+                .contact-info-card .desc a {
+                    color: #666;
+                    transition: color 0.3s ease;
+                }
+
+                .contact-info-card .desc a:hover {
+                    color: #007bff;
+                }
+
+                .contact-map-area-fluid {
+                    width: 100%;
+                    height: 500px;
+                    position: relative;
+                }
+
+                .contact-map {
+                    width: 100%;
+                    height: 100%;
+                    border: 0;
+                }
+            </style>
+
+            <!-- Counter Area Start -->
+            <section class="rts-counter-area jarallax">
+                <div class="container">
+                    <div class="counter-inner">
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".2s"
+                            data-wow-duration="1s"
+                        >
+                            <div class="icon">
+                                <img
+                                    src="/images/counter/icon-01.svg"
+                                    width="74"
+                                    alt="Icône années d'expérience"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </div>
+                            <div class="text">
+                                <h3 class="title cw">
+                                    <span class="counter">25</span><span>+</span
+                                    >
+                                </h3>
+                                <p class="desc">Années d'expérience</p>
+                            </div>
+                        </div>
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".4s"
+                            data-wow-duration="1s"
+                        >
+                            <div class="icon">
+                                <img
+                                    src="/images/counter/icon-02.svg"
+                                    alt="Icône clients satisfaits"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </div>
+                            <div class="text">
+                                <h3 class="title cw">
+                                    <span class="counter">1500</span><span
+                                        >+</span
+                                    >
+                                </h3>
+                                <p class="desc">Clients satisfaits</p>
+                            </div>
+                        </div>
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".6s"
+                            data-wow-duration="1s"
+                        >
+                            <div class="icon">
+                                <img
+                                    src="/images/counter/icon-03.svg"
+                                    alt="Icône véhicules traités"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </div>
+                            <div class="text">
+                                <h3 class="title cw">
+                                    <span class="counter">5000</span><span
+                                        >+</span
+                                    >
+                                </h3>
+                                <p class="desc">Véhicules traités</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Counter Area End -->
+
+            <Footer lang="fr" />
+        </div>
+    </div>
+</BaseLayout>

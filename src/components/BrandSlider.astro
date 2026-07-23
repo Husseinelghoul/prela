@@ -1,5 +1,16 @@
 ---
 import { Image } from "astro:assets";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = "de" } = Astro.props;
+const isFr = lang === "fr";
+const valuationHref = isFr ? "/fr/estimation" : "/bewertung";
+const tooltip = (name: string) =>
+    isFr ? `Demander une estimation pour ${name}` : `Angebot für ${name} erhalten`;
 
 // Dynamically import all logos from the brands folder
 const images = import.meta.glob("../assets/brands/*.{png,jpg,jpeg,webp,svg}");
@@ -55,9 +66,9 @@ const slidingImages = [...filteredBrands, ...filteredBrands, ...filteredBrands];
         {
             slidingImages.map((brand) => (
                 <a
-                    href={`/bewertung?brand=${brand.name}`}
+                    href={`${valuationHref}?brand=${brand.name}`}
                     class="brand-item"
-                    title={`Get a quote for ${brand.name}`}
+                    title={tooltip(brand.name)}
                 >
                     <div class="brand-card">
                         <Image

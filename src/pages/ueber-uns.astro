@@ -9,10 +9,11 @@ import Footer from "../components/Footer.astro";
 <BaseLayout
     title="Über Prela Automobile AG – Autohändler in Sursee"
     description="Lernen Sie Prela Automobile AG kennen – Ihr Autohändler in Sursee, Luzern. Familienbetrieb mit über 25 Jahren Erfahrung im Autoankauf, Autoverkauf und Autoexport. Faire Preise, persönlicher Service."
+    alternates={[{ lang: 'de-CH', href: '/ueber-uns' }, { lang: 'fr-CH', href: '/fr/a-propos' }]}
 >
     <div class="rts-wrapper">
         <div class="rts-wrapper-inner">
-            <Header />
+            <Header altHref="/fr/a-propos" />
 
             <Breadcrumb
                 title="Über Prela Automobile AG"

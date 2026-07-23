@@ -1,12 +1,59 @@
 ---
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = "de" } = Astro.props;
+const isFr = lang === "fr";
+
+// Locale-dependent hrefs for the four localised core pages.
+// Tips/legal links stay German-only (no FR pages exist).
+const hrefs = isFr
+    ? { home: "/fr/", valuation: "/fr/estimation", about: "/fr/a-propos", contact: "/fr/contact" }
+    : { home: "/", valuation: "/bewertung", about: "/ueber-uns", contact: "/kontakt" };
+
+// Plain-text FAQ pairs for the FAQPage JSON-LD (mirrors the accordion above).
+const faqSchemaItems = isFr
+    ? [
+        ["En combien de temps vais-je recevoir une estimation du véhicule ?", "Nous vous fournissons une estimation gratuite dans les 24 heures. Remplissez simplement notre formulaire d'estimation avec les données du véhicule. Notre équipe d'experts évalue votre voiture sur la base des prix actuels du marché suisse, du kilométrage et de l'état."],
+        ["Achetez-vous les voitures dans tous les états ?", "Oui ! Nous achetons des véhicules dans tous les états – qu'ils soient neufs, entretenus, avec un kilométrage élevé ou même accidentés. Avec plus de 25 ans d'expérience dans le rachat de voiture en Suisse, nous pouvons évaluer chaque véhicule de manière équitable et vous offrir le meilleur prix."],
+        ["De quels documents ai-je besoin pour vendre ma voiture ?", "Vous avez besoin de votre permis de circulation, d'une pièce d'identité valable et d'une preuve de propriété. Le carnet d'entretien et le rapport d'expertise sont utiles, mais pas obligatoires. Nous nous occupons de l'annulation complète de l'immatriculation auprès du service des automobiles."],
+        ["Pouvez-vous m'aider pour l'exportation de voitures ?", "Bien sûr ! Nous sommes spécialistes de l'exportation de voitures depuis la Suisse. Nous nous occupons des documents EUR.1, du remboursement de la TVA, du dédouanement et du transport."],
+        ["Comment se déroule le rachat de voiture ?", "Très simple : (1) Soumettez les données du véhicule via notre formulaire, (2) Recevez une estimation gratuite dans les 24 heures, (3) Inspection chez nous à Sursee ou nous nous déplaçons chez vous, (4) Recevez une offre définitive, (5) Acceptez et recevez un paiement immédiat. Nous nous occupons de toutes les formalités administratives pour vous."],
+        ["Proposez-vous des solutions de financement ?", "Oui, nous collaborons avec des partenaires financiers suisses et proposons des solutions de financement équitables pour l'achat de véhicules. Notre équipe vous aide à trouver les meilleures conditions."],
+        ["Qu'est-ce qui distingue Prela des autres concessionnaires ?", "Nous combinons plus de 25 ans d'expérience dans le commerce automobile avec une expertise professionnelle en atelier automobile. Autrement dit : nous connaissons la vraie valeur de chaque véhicule. De plus, nous sommes une entreprise familiale suisse qui mise sur la transparence, des prix équitables et un service personnalisé."],
+        ["Puis-je reprendre mon ancienne voiture en échange ?", "Oui ! Nous acceptons les reprises et vous proposons une évaluation de marché équitable pour votre véhicule actuel. Nous déduisons le montant directement de votre achat. Nous nous occupons de toutes les formalités administratives."],
+    ]
+    : [
+        ["Wie schnell erhalte ich eine Autobewertung?", "Wir liefern Ihnen eine kostenlose Autobewertung innerhalb von 24 Stunden. Füllen Sie einfach unser Bewertungsformular mit den Fahrzeugdaten aus. Unser Expertenteam bewertet Ihr Auto basierend auf aktuellen Schweizer Marktpreisen, Kilometerstand und Zustand."],
+        ["Kaufen Sie Autos in jedem Zustand?", "Ja! Wir kaufen Fahrzeuge in jedem Zustand – ob neu, gepflegt, mit hohem Kilometerstand oder sogar Unfallwagen. Mit über 25 Jahren Erfahrung im Autoankauf in der Schweiz können wir jedes Fahrzeug fair bewerten und Ihnen den besten Preis bieten."],
+        ["Welche Dokumente brauche ich, um mein Auto zu verkaufen?", "Sie benötigen Ihren Fahrzeugausweis, einen gültigen Ausweis und einen Eigentumsnachweis. Serviceheft und MFK-Prüfbericht sind hilfreich, aber nicht zwingend. Wir kümmern uns um die komplette Abmeldung bei der Motorfahrzeugkontrolle."],
+        ["Können Sie beim Autoexport helfen?", "Selbstverständlich! Wir sind Spezialisten für Autoexport aus der Schweiz. Wir kümmern uns um EUR.1-Dokumente, MWST-Rückerstattung, Zollabwicklung und den Transport."],
+        ["Wie läuft der Autoankauf ab?", "Ganz einfach: (1) Fahrzeugdaten über unser Formular einreichen, (2) Kostenlose Bewertung innerhalb von 24 Stunden erhalten, (3) Besichtigung bei uns in Sursee oder wir kommen zu Ihnen, (4) Endgültiges Angebot erhalten, (5) Zusagen und sofortige Zahlung erhalten. Wir erledigen den ganzen Papierkram für Sie."],
+        ["Bieten Sie Finanzierungslösungen an?", "Ja, wir arbeiten mit Schweizer Finanzpartnern zusammen und bieten faire Finanzierungslösungen für Fahrzeugkäufe an. Unser Team hilft Ihnen, die besten Konditionen zu finden."],
+        ["Was macht Prela anders als andere Autohändler?", "Wir verbinden über 25 Jahre Erfahrung im Autohandel mit professioneller KFZ-Werkstatt-Expertise. Das heisst: Wir kennen den echten Wert jedes Fahrzeugs. Dazu sind wir ein Schweizer Familienbetrieb, der auf Transparenz, faire Preise und persönlichen Service setzt."],
+        ["Kann ich mein altes Auto in Zahlung geben?", "Ja! Wir akzeptieren Inzahlungnahmen und bieten Ihnen eine faire Marktbewertung für Ihr aktuelles Fahrzeug. Den Betrag rechnen wir direkt auf Ihren Kauf an. Wir erledigen den ganzen Papierkram."],
+    ];
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqSchemaItems.map(([name, text]) => ({
+        "@type": "Question",
+        name,
+        acceptedAnswer: { "@type": "Answer", text },
+    })),
+};
 ---
 
 <!-- FAQ Section -->
 <section class="rts-faq-area rts-section-gap bg-light">
     <div class="container">
         <div class="section-title-area text-center">
-            <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">Häufige Fragen</p>
-            <h2 class="section-title wow move-right">Ihre <span>Fragen</span> beantwortet</h2>
+            <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">{isFr ? "Questions fréquentes" : "Häufige Fragen"}</p>
+            <h2 class="section-title wow move-right">{isFr ? (<Fragment>Vos <span>questions</span>, nos réponses</Fragment>) : (<Fragment>Ihre <span>Fragen</span> beantwortet</Fragment>)}</h2>
         </div>
         <div class="row justify-content-center mt--60">
             <div class="col-lg-10">
@@ -18,16 +65,23 @@
                             <h3 class="accordion-header" id="faq1">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                    Wie schnell erhalte ich eine Autobewertung?
+                                    {isFr ? "En combien de temps vais-je recevoir une estimation du véhicule ?" : "Wie schnell erhalte ich eine Autobewertung?"}
                                 </button>
                             </h3>
                             <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="faq1"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Wir liefern Ihnen eine <strong>kostenlose Autobewertung innerhalb von 24 Stunden</strong>.
-                                    Füllen Sie einfach unser <a href="/bewertung">Bewertungsformular</a> mit den Fahrzeugdaten aus.
-                                    Unser Expertenteam bewertet Ihr Auto basierend auf aktuellen Schweizer Marktpreisen,
-                                    Kilometerstand und Zustand.
+                                    {isFr ? (
+                                        <Fragment>Nous vous fournissons une <strong>estimation gratuite dans les 24 heures</strong>.
+                                        Remplissez simplement notre <a href={hrefs.valuation}>formulaire d'estimation</a> avec les données du véhicule.
+                                        Notre équipe d'experts évalue votre voiture sur la base des prix actuels du marché suisse,
+                                        du kilométrage et de l'état.</Fragment>
+                                    ) : (
+                                        <Fragment>Wir liefern Ihnen eine <strong>kostenlose Autobewertung innerhalb von 24 Stunden</strong>.
+                                        Füllen Sie einfach unser <a href={hrefs.valuation}>Bewertungsformular</a> mit den Fahrzeugdaten aus.
+                                        Unser Expertenteam bewertet Ihr Auto basierend auf aktuellen Schweizer Marktpreisen,
+                                        Kilometerstand und Zustand.</Fragment>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -37,16 +91,23 @@
                             <h3 class="accordion-header" id="faq2">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                    Kaufen Sie Autos in jedem Zustand?
+                                    {isFr ? "Achetez-vous les voitures dans tous les états ?" : "Kaufen Sie Autos in jedem Zustand?"}
                                 </button>
                             </h3>
                             <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Ja! Wir kaufen Fahrzeuge in jedem Zustand – ob neu, gepflegt, mit hohem Kilometerstand
-                                    oder sogar <strong>Unfallwagen</strong>. Mit über 25 Jahren Erfahrung im
-                                    <a href="/ueber-uns">Autoankauf in der Schweiz</a> können wir jedes Fahrzeug fair bewerten
-                                    und Ihnen den besten Preis bieten.
+                                    {isFr ? (
+                                        <Fragment>Oui ! Nous achetons des véhicules dans tous les états – qu'ils soient neufs, entretenus, avec un kilométrage élevé
+                                        ou même <strong>accidentés</strong>. Avec plus de 25 ans d'expérience dans le
+                                        <a href={hrefs.about}>rachat de voiture en Suisse</a>, nous pouvons évaluer chaque véhicule de manière équitable
+                                        et vous offrir le meilleur prix.</Fragment>
+                                    ) : (
+                                        <Fragment>Ja! Wir kaufen Fahrzeuge in jedem Zustand – ob neu, gepflegt, mit hohem Kilometerstand
+                                        oder sogar <strong>Unfallwagen</strong>. Mit über 25 Jahren Erfahrung im
+                                        <a href={hrefs.about}>Autoankauf in der Schweiz</a> können wir jedes Fahrzeug fair bewerten
+                                        und Ihnen den besten Preis bieten.</Fragment>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -56,16 +117,23 @@
                             <h3 class="accordion-header" id="faq3">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                    Welche Dokumente brauche ich, um mein Auto zu verkaufen?
+                                    {isFr ? "De quels documents ai-je besoin pour vendre ma voiture ?" : "Welche Dokumente brauche ich, um mein Auto zu verkaufen?"}
                                 </button>
                             </h3>
                             <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Sie benötigen Ihren <strong>Fahrzeugausweis</strong>, einen gültigen Ausweis und einen
-                                    Eigentumsnachweis. Serviceheft und MFK-Prüfbericht sind hilfreich, aber nicht zwingend.
-                                    Wir kümmern uns um die komplette Abmeldung bei der Motorfahrzeugkontrolle.
-                                    Mehr dazu in unseren <a href="/tipps/auto-verkaufen">Tipps zum Auto verkaufen</a>.
+                                    {isFr ? (
+                                        <Fragment>Vous avez besoin de votre <strong>permis de circulation</strong>, d'une pièce d'identité valable et d'une
+                                        preuve de propriété. Le carnet d'entretien et le rapport d'expertise sont utiles, mais pas obligatoires.
+                                        Nous nous occupons de l'annulation complète de l'immatriculation auprès du service des automobiles.
+                                        Plus d'infos dans nos <a href="/tipps/auto-verkaufen">conseils pour vendre votre voiture</a>.</Fragment>
+                                    ) : (
+                                        <Fragment>Sie benötigen Ihren <strong>Fahrzeugausweis</strong>, einen gültigen Ausweis und einen
+                                        Eigentumsnachweis. Serviceheft und MFK-Prüfbericht sind hilfreich, aber nicht zwingend.
+                                        Wir kümmern uns um die komplette Abmeldung bei der Motorfahrzeugkontrolle.
+                                        Mehr dazu in unseren <a href="/tipps/auto-verkaufen">Tipps zum Auto verkaufen</a>.</Fragment>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -75,15 +143,21 @@
                             <h3 class="accordion-header" id="faq4">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                    Können Sie beim Autoexport helfen?
+                                    {isFr ? "Pouvez-vous m'aider pour l'exportation de voitures ?" : "Können Sie beim Autoexport helfen?"}
                                 </button>
                             </h3>
                             <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Selbstverständlich! Wir sind Spezialisten für <strong>Autoexport aus der Schweiz</strong>.
-                                    Wir kümmern uns um EUR.1-Dokumente, MWST-Rückerstattung, Zollabwicklung und den Transport.
-                                    Lesen Sie mehr in unserem <a href="/tipps/auto-exportieren">Ratgeber zum Autoexport</a>.
+                                    {isFr ? (
+                                        <Fragment>Bien sûr ! Nous sommes spécialistes de l'<strong>exportation de voitures depuis la Suisse</strong>.
+                                        Nous nous occupons des documents EUR.1, du remboursement de la TVA, du dédouanement et du transport.
+                                        Lisez-en plus dans notre <a href="/tipps/auto-exportieren">guide sur l'exportation de voitures</a>.</Fragment>
+                                    ) : (
+                                        <Fragment>Selbstverständlich! Wir sind Spezialisten für <strong>Autoexport aus der Schweiz</strong>.
+                                        Wir kümmern uns um EUR.1-Dokumente, MWST-Rückerstattung, Zollabwicklung und den Transport.
+                                        Lesen Sie mehr in unserem <a href="/tipps/auto-exportieren">Ratgeber zum Autoexport</a>.</Fragment>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -93,18 +167,27 @@
                             <h3 class="accordion-header" id="faq5">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                    Wie läuft der Autoankauf ab?
+                                    {isFr ? "Comment se déroule le rachat de voiture ?" : "Wie läuft der Autoankauf ab?"}
                                 </button>
                             </h3>
                             <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Ganz einfach: (1) Fahrzeugdaten über unser <a href="/bewertung">Formular</a> einreichen,
-                                    (2) Kostenlose Bewertung innerhalb von 24 Stunden erhalten,
-                                    (3) Besichtigung bei uns in Sursee oder wir kommen zu Ihnen,
-                                    (4) Endgültiges Angebot erhalten,
-                                    (5) Zusagen und <strong>sofortige Zahlung</strong> erhalten.
-                                    Wir erledigen den ganzen Papierkram für Sie.
+                                    {isFr ? (
+                                        <Fragment>Très simple : (1) Soumettez les données du véhicule via notre <a href={hrefs.valuation}>formulaire</a>,
+                                        (2) Recevez une estimation gratuite dans les 24 heures,
+                                        (3) Inspection chez nous à Sursee ou nous nous déplaçons chez vous,
+                                        (4) Recevez une offre définitive,
+                                        (5) Acceptez et recevez un <strong>paiement immédiat</strong>.
+                                        Nous nous occupons de toutes les formalités administratives pour vous.</Fragment>
+                                    ) : (
+                                        <Fragment>Ganz einfach: (1) Fahrzeugdaten über unser <a href={hrefs.valuation}>Formular</a> einreichen,
+                                        (2) Kostenlose Bewertung innerhalb von 24 Stunden erhalten,
+                                        (3) Besichtigung bei uns in Sursee oder wir kommen zu Ihnen,
+                                        (4) Endgültiges Angebot erhalten,
+                                        (5) Zusagen und <strong>sofortige Zahlung</strong> erhalten.
+                                        Wir erledigen den ganzen Papierkram für Sie.</Fragment>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -114,15 +197,21 @@
                             <h3 class="accordion-header" id="faq6">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                                    Bieten Sie Finanzierungslösungen an?
+                                    {isFr ? "Proposez-vous des solutions de financement ?" : "Bieten Sie Finanzierungslösungen an?"}
                                 </button>
                             </h3>
                             <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="faq6"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Ja, wir arbeiten mit Schweizer Finanzpartnern zusammen und bieten faire
-                                    Finanzierungslösungen für Fahrzeugkäufe an. Unser Team hilft Ihnen, die besten
-                                    Konditionen zu finden. <a href="/kontakt">Kontaktieren Sie uns</a> für eine Beratung.
+                                    {isFr ? (
+                                        <Fragment>Oui, nous collaborons avec des partenaires financiers suisses et proposons des
+                                        solutions de financement équitables pour l'achat de véhicules. Notre équipe vous aide à trouver les meilleures
+                                        conditions. <a href={hrefs.contact}>Contactez-nous</a> pour un conseil.</Fragment>
+                                    ) : (
+                                        <Fragment>Ja, wir arbeiten mit Schweizer Finanzpartnern zusammen und bieten faire
+                                        Finanzierungslösungen für Fahrzeugkäufe an. Unser Team hilft Ihnen, die besten
+                                        Konditionen zu finden. <a href={hrefs.contact}>Kontaktieren Sie uns</a> für eine Beratung.</Fragment>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -132,16 +221,23 @@
                             <h3 class="accordion-header" id="faq7">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
-                                    Was macht Prela anders als andere Autohändler?
+                                    {isFr ? "Qu'est-ce qui distingue Prela des autres concessionnaires ?" : "Was macht Prela anders als andere Autohändler?"}
                                 </button>
                             </h3>
                             <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="faq7"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Wir verbinden <strong>über 25 Jahre Erfahrung</strong> im Autohandel mit professioneller
-                                    KFZ-Werkstatt-Expertise. Das heisst: Wir kennen den echten Wert jedes Fahrzeugs.
-                                    Dazu sind wir ein <strong>Schweizer Familienbetrieb</strong>, der auf Transparenz,
-                                    faire Preise und persönlichen Service setzt.
+                                    {isFr ? (
+                                        <Fragment>Nous combinons <strong>plus de 25 ans d'expérience</strong> dans le commerce automobile avec une
+                                        expertise professionnelle en atelier automobile. Autrement dit : nous connaissons la vraie valeur de chaque véhicule.
+                                        De plus, nous sommes une <strong>entreprise familiale suisse</strong> qui mise sur la transparence,
+                                        des prix équitables et un service personnalisé.</Fragment>
+                                    ) : (
+                                        <Fragment>Wir verbinden <strong>über 25 Jahre Erfahrung</strong> im Autohandel mit professioneller
+                                        KFZ-Werkstatt-Expertise. Das heisst: Wir kennen den echten Wert jedes Fahrzeugs.
+                                        Dazu sind wir ein <strong>Schweizer Familienbetrieb</strong>, der auf Transparenz,
+                                        faire Preise und persönlichen Service setzt.</Fragment>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -151,16 +247,23 @@
                             <h3 class="accordion-header" id="faq8">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                                    Kann ich mein altes Auto in Zahlung geben?
+                                    {isFr ? "Puis-je reprendre mon ancienne voiture en échange ?" : "Kann ich mein altes Auto in Zahlung geben?"}
                                 </button>
                             </h3>
                             <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="faq8"
                                 data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Ja! Wir akzeptieren Inzahlungnahmen und bieten Ihnen eine faire Marktbewertung
-                                    für Ihr aktuelles Fahrzeug. Den Betrag rechnen wir direkt auf Ihren Kauf an.
-                                    Wir erledigen den ganzen Papierkram – sowohl für die Inzahlungnahme als auch
-                                    für Ihr neues Fahrzeug.
+                                    {isFr ? (
+                                        <Fragment>Oui ! Nous acceptons les reprises et vous proposons une évaluation de marché équitable
+                                        pour votre véhicule actuel. Nous déduisons le montant directement de votre achat.
+                                        Nous nous occupons de toutes les formalités administratives – aussi bien pour la reprise que
+                                        pour votre nouveau véhicule.</Fragment>
+                                    ) : (
+                                        <Fragment>Ja! Wir akzeptieren Inzahlungnahmen und bieten Ihnen eine faire Marktbewertung
+                                        für Ihr aktuelles Fahrzeug. Den Betrag rechnen wir direkt auf Ihren Kauf an.
+                                        Wir erledigen den ganzen Papierkram – sowohl für die Inzahlungnahme als auch
+                                        für Ihr neues Fahrzeug.</Fragment>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -173,78 +276,7 @@
 </section>
 
 <!-- FAQ Schema Markup -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "Wie schnell erhalte ich eine Autobewertung?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Wir liefern Ihnen eine kostenlose Autobewertung innerhalb von 24 Stunden. Füllen Sie einfach unser Bewertungsformular mit den Fahrzeugdaten aus. Unser Expertenteam bewertet Ihr Auto basierend auf aktuellen Schweizer Marktpreisen, Kilometerstand und Zustand."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Kaufen Sie Autos in jedem Zustand?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja! Wir kaufen Fahrzeuge in jedem Zustand – ob neu, gepflegt, mit hohem Kilometerstand oder sogar Unfallwagen. Mit über 25 Jahren Erfahrung im Autoankauf in der Schweiz können wir jedes Fahrzeug fair bewerten und Ihnen den besten Preis bieten."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Welche Dokumente brauche ich, um mein Auto zu verkaufen?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sie benötigen Ihren Fahrzeugausweis, einen gültigen Ausweis und einen Eigentumsnachweis. Serviceheft und MFK-Prüfbericht sind hilfreich, aber nicht zwingend. Wir kümmern uns um die komplette Abmeldung bei der Motorfahrzeugkontrolle."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Können Sie beim Autoexport helfen?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Selbstverständlich! Wir sind Spezialisten für Autoexport aus der Schweiz. Wir kümmern uns um EUR.1-Dokumente, MWST-Rückerstattung, Zollabwicklung und den Transport."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Wie läuft der Autoankauf ab?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ganz einfach: (1) Fahrzeugdaten über unser Formular einreichen, (2) Kostenlose Bewertung innerhalb von 24 Stunden erhalten, (3) Besichtigung bei uns in Sursee oder wir kommen zu Ihnen, (4) Endgültiges Angebot erhalten, (5) Zusagen und sofortige Zahlung erhalten. Wir erledigen den ganzen Papierkram für Sie."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Bieten Sie Finanzierungslösungen an?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja, wir arbeiten mit Schweizer Finanzpartnern zusammen und bieten faire Finanzierungslösungen für Fahrzeugkäufe an. Unser Team hilft Ihnen, die besten Konditionen zu finden."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Was macht Prela anders als andere Autohändler?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Wir verbinden über 25 Jahre Erfahrung im Autohandel mit professioneller KFZ-Werkstatt-Expertise. Das heisst: Wir kennen den echten Wert jedes Fahrzeugs. Dazu sind wir ein Schweizer Familienbetrieb, der auf Transparenz, faire Preise und persönlichen Service setzt."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Kann ich mein altes Auto in Zahlung geben?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ja! Wir akzeptieren Inzahlungnahmen und bieten Ihnen eine faire Marktbewertung für Ihr aktuelles Fahrzeug. Den Betrag rechnen wir direkt auf Ihren Kauf an. Wir erledigen den ganzen Papierkram."
-            }
-        }
-    ]
-}
-</script>
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 
 <style>
     .faq-accordion .accordion-item {

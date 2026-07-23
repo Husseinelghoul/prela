@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Cloudflare Pages serves this as the 404 response for any unmatched route
+// (real 404 status → avoids soft-404 SEO issues). Helpful links keep the
+// visitor on-site instead of bouncing.
+const links = [
+    { href: '/', label: 'Startseite' },
+    { href: '/bewertung', label: 'Gratis Autobewertung' },
+    { href: '/ueber-uns', label: 'Über Uns' },
+    { href: '/kontakt', label: 'Kontakt' },
+];
+---
+
+<BaseLayout title="Seite nicht gefunden (404)">
+    <div class="rts-wrapper">
+        <div class="rts-wrapper-inner">
+            <Header />
+            <div class="error-page">
+                <div class="container">
+                    <div class="error-card wow zoomIn" data-wow-duration="1s">
+                        <div class="icon-circle">
+                            <i class="fa-light fa-car" aria-hidden="true"></i>
+                        </div>
+                        <p class="code">404</p>
+                        <h1 class="title">Diese Seite hat eine falsche Abzweigung genommen</h1>
+                        <p class="message">
+                            Die gesuchte Seite existiert nicht oder wurde verschoben.
+                            Kein Problem – hier geht es weiter:
+                        </p>
+
+                        <div class="quick-links">
+                            {links.map((l) => (
+                                <a href={l.href} class="quick-link">
+                                    <span>{l.label}</span>
+                                    <i class="fa-light fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            ))}
+                        </div>
+
+                        <div class="actions">
+                            <a href="/bewertung" class="rts-btn btn-primary radius-big">
+                                Auto jetzt kostenlos bewerten
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Footer />
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .error-page{background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);min-height:70vh;display:flex;align-items:center;justify-content:center;padding:80px 20px}
+    .error-card{background:#fff;border-radius:24px;padding:60px 40px;text-align:center;max-width:640px;margin:0 auto;box-shadow:0 20px 50px rgba(0,0,0,.1)}
+    .icon-circle{width:96px;height:96px;background:rgba(5,83,154,.08);color:#05539a;font-size:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+    .error-card .code{font-size:64px;font-weight:800;line-height:1;color:#05539a;margin:0 0 8px;letter-spacing:2px}
+    .error-card .title{font-size:28px;font-weight:700;color:#1a1a1a;margin-bottom:16px}
+    .error-card .message{font-size:17px;color:#666;margin-bottom:32px;line-height:1.6}
+    .quick-links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px;text-align:left}
+    .quick-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border:1px solid #e6e9ef;border-radius:12px;color:#05539a;font-weight:600;text-decoration:none;transition:background-color .2s ease,border-color .2s ease}
+    .quick-link:hover{background:#f5f8fc;border-color:#05539a}
+    .quick-link i{font-size:14px}
+    .actions .rts-btn{padding:18px 40px;font-size:16px;font-weight:600}
+    @media(max-width:520px){.error-card{padding:40px 22px}.error-card .title{font-size:22px}.quick-links{grid-template-columns:1fr}}
+</style>

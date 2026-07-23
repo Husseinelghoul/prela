@@ -1,0 +1,13 @@
+# Cloudflare Pages headers — mirrors the old netlify.toml cache policy.
+# Long-lived, fingerprint-safe assets are immutable; HTML stays short.
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/css/*
+  Cache-Control: public, max-age=2592000
+/js/*
+  Cache-Control: public, max-age=2592000
+/*.html
+  Cache-Control: public, max-age=3600

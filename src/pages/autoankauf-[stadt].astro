@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Footer from "../components/Footer.astro";
+import { CITIES, getCity } from "../data/cities";
+
+export function getStaticPaths() {
+    return CITIES.map((city) => ({
+        params: { stadt: city.slug },
+        props: { city },
+    }));
+}
+
+const { city } = Astro.props;
+const nearby = city.nearbySlugs
+    .map((s) => getCity(s))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c));
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Autoankauf",
+    name: `Autoankauf ${city.name}`,
+    description: city.description,
+    provider: {
+        "@type": "AutoDealer",
+        name: "Prela Automobile AG",
+        telephone: "+41-79-308-80-00",
+        url: "https://prela-automobile.ch",
+    },
+    areaServed: { "@type": "AdministrativeArea", name: city.name },
+    url: `https://prela-automobile.ch/autoankauf-${city.slug}`,
+};
+
+// How-it-works steps (shared chrome, not indexable body copy).
+const steps = [
+    { icon: "fa-pen", title: "Anfrage senden", text: "Fahrzeugdaten in unser Formular eintragen – in 2 Minuten erledigt." },
+    { icon: "fa-chart-line", title: "Bewertung erhalten", text: "Kostenlose, marktgerechte Bewertung innerhalb von 24 Stunden." },
+    { icon: "fa-car", title: "Vor-Ort-Termin", text: "Wir besichtigen Ihr Auto bei Ihnen – kostenlos in der ganzen Region." },
+    { icon: "fa-check-circle", title: "Sofort bezahlt", text: "Sofortige Bezahlung, Abmeldung inklusive – Sie kümmern sich um nichts." },
+];
+---
+
+<BaseLayout title={city.title} description={city.description}>
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <div class="rts-wrapper">
+        <div class="rts-wrapper-inner">
+            <Header />
+
+            <Breadcrumb title={city.h1} current={city.h1} className="service" />
+
+            <!-- Intro -->
+            <section class="rts-about-area rts-section-gap">
+                <div class="container">
+                    <div class="section-title-area">
+                        <p class="sub-title">Autoankauf {city.regionPhrase}</p>
+                        <h2 class="section-title">{city.lead}</h2>
+                    </div>
+                    <div class="city-intro">
+                        {city.intro.map((p) => <p class="desc" set:html={p} />)}
+                    </div>
+                    <div class="city-cta">
+                        <a href="/bewertung" class="rts-btn btn-primary radius-big">
+                            Auto kostenlos bewerten
+                        </a>
+                        <a href="https://wa.me/+41793088000" target="_blank" rel="noopener" class="rts-btn btn-border radius-big">
+                            Direkt per WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Region-specific angle -->
+            <section class="rts-section-gap city-highlight-area bg-light">
+                <div class="container">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-lg-7">
+                            <div class="section-title-area">
+                                <p class="sub-title">Warum {city.name}?</p>
+                                <h2 class="section-title" set:html={city.highlightTitle} />
+                            </div>
+                            <p class="desc" set:html={city.highlightText} />
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="city-usps">
+                                {city.usps.map((u) => (
+                                    <div class="city-usp">
+                                        <i class={`fa-light ${u.icon}`} aria-hidden="true"></i>
+                                        <div>
+                                            <h3 set:html={u.title} />
+                                            <p set:html={u.text} />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How it works -->
+            <section class="rts-section-gap city-steps-area">
+                <div class="container">
+                    <div class="section-title-area text-center">
+                        <p class="sub-title">So einfach geht's</p>
+                        <h2 class="section-title">In 4 Schritten zum <span>Verkauf</span></h2>
+                    </div>
+                    <div class="city-steps">
+                        {steps.map((s, i) => (
+                            <div class="city-step">
+                                <div class="step-num">{i + 1}</div>
+                                <i class={`fa-light ${s.icon}`} aria-hidden="true"></i>
+                                <h3>{s.title}</h3>
+                                <p>{s.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Areas served -->
+            <section class="rts-section-gap city-areas-area">
+                <div class="container">
+                    <div class="section-title-area">
+                        <p class="sub-title">Unser Einzugsgebiet</p>
+                        <h2 class="section-title">Wir kaufen Ihr Auto in {city.name} und Umgebung</h2>
+                    </div>
+                    <ul class="city-areas">
+                        {city.areas.map((a) => (
+                            <li><i class="fa-light fa-location-dot" aria-hidden="true"></i>{a}</li>
+                        ))}
+                    </ul>
+                    <p class="desc city-abmeldung">
+                        Die Abmeldung beim {city.strassenverkehrsamt} übernehmen wir nach dem
+                        Kauf vollständig für Sie.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Valuation form -->
+            <section class="rts-contact-area rts-section-gap bg-light">
+                <div class="container">
+                    <ContactForm />
+                </div>
+            </section>
+
+            {nearby.length > 0 && (
+                <section class="rts-section-gap city-nearby-area">
+                    <div class="container">
+                        <div class="section-title-area text-center">
+                            <p class="sub-title">Weitere Regionen</p>
+                            <h2 class="section-title">Autoankauf in Ihrer Nähe</h2>
+                        </div>
+                        <div class="city-nearby">
+                            {nearby.map((c) => (
+                                <a href={`/autoankauf-${c.slug}`} class="city-nearby-link">
+                                    <span>Autoankauf {c.name}</span>
+                                    <i class="fa-light fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            <Footer />
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .city-intro .desc { margin-bottom: 20px; }
+    .city-cta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 30px; }
+    .btn-border { border: 2px solid #05539a; color: #05539a; background: transparent; }
+    .btn-border:hover { background: #05539a; color: #fff; }
+
+    .city-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
+    .city-step { position: relative; background: #fff; border: 1px solid #eef1f5; border-radius: 16px; padding: 34px 24px; text-align: center; }
+    .city-step .step-num { position: absolute; top: 16px; right: 18px; font-size: 28px; font-weight: 800; color: #eef1f5; }
+    .city-step i { font-size: 34px; color: #05539a; margin-bottom: 16px; display: inline-block; }
+    .city-step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .city-step p { font-size: 14px; color: #666; line-height: 1.6; }
+
+    .city-areas { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .city-areas li { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #333; }
+    .city-areas li i { color: #05539a; }
+    .city-abmeldung { margin-top: 30px; }
+
+    .city-nearby { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 40px; }
+    .city-nearby-link { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border: 1px solid #e6e9ef; border-radius: 12px; color: #05539a; font-weight: 600; text-decoration: none; transition: background-color .2s ease, border-color .2s ease; }
+    .city-nearby-link:hover { background: #f5f8fc; border-color: #05539a; }
+    .city-nearby-link i { font-size: 13px; }
+
+    .city-usps { display: flex; flex-direction: column; gap: 18px; }
+    .city-usp { display: flex; gap: 16px; background: #fff; border: 1px solid #eef1f5; border-radius: 14px; padding: 22px; }
+    .city-usp i { font-size: 26px; color: #05539a; flex-shrink: 0; margin-top: 2px; }
+    .city-usp h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .city-usp p { font-size: 14px; color: #666; line-height: 1.6; margin: 0; }
+
+    @media (max-width: 991px) {
+        .city-steps, .city-areas { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+        .city-steps, .city-areas { grid-template-columns: 1fr; }
+    }
+</style>

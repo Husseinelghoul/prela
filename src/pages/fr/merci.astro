@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Merci ! – Prela Automobile AG" description="Nous avons bien reçu votre demande. Nos experts examinent déjà les détails de votre véhicule et vous répondront sous 24 heures." lang="fr">
+    <div class="thank-you-page">
+        <div class="thank-you-wrapper">
+            <div class="container">
+                <div class="thank-you-card wow zoomIn" data-wow-duration="1s">
+                    <div class="icon-circle">
+                        <i class="fa-light fa-check-circle"></i>
+                    </div>
+                    <h1 class="title">Merci !</h1>
+                    <p class="message">Votre demande a bien été transmise. Nos experts examinent déjà les détails de votre véhicule.</p>
+
+                    <div class="info-box">
+                        <div class="info-item">
+                            <i class="fa-light fa-clock"></i>
+                            <span>Nous vous répondrons <strong>dans les plus brefs délais</strong>.</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-light fa-calendar-check"></i>
+                            <span>Nous sommes joignables <strong>24 heures sur 24</strong>.</span>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <a href="/fr/" class="rts-btn btn-primary radius-big">
+                            Retour à l'accueil
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .thank-you-page{background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;margin:0;padding:20px}
+    .thank-you-card{background:white;border-radius:24px;padding:60px 40px;text-align:center;max-width:600px;margin:0 auto;box-shadow:0 20px 50px rgba(0,0,0,.1)}
+    .icon-circle{width:100px;height:100px;background:rgba(37,211,102,.1);color:#25D366;font-size:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 30px}
+    .thank-you-card .title{font-size:40px;font-weight:700;color:#1a1a1a;margin-bottom:20px}
+    .thank-you-card .message{font-size:18px;color:#666;margin-bottom:40px;line-height:1.6}
+    .info-box{background:#f8faff;border-radius:16px;padding:25px;margin-bottom:40px;text-align:left}
+    .info-item{display:flex;align-items:center;gap:15px;margin-bottom:15px;color:#333;font-size:16px}
+    .info-item:last-child{margin-bottom:0}
+    .info-item i{font-size:20px;color:var(--color-primary)}
+    .actions .rts-btn{padding:18px 40px;font-size:16px;font-weight:600}
+    @media(max-width:480px){.thank-you-card{padding:40px 20px}.thank-you-card .title{font-size:32px}}
+</style>

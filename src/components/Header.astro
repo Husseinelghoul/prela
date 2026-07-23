@@ -1,5 +1,26 @@
 ---
+import { useT, type Lang } from '../i18n/ui';
+import { CITIES } from '../data/cities';
 
+interface Props {
+    lang?: Lang;
+    /** URL of this page in the other language (drives the DE|FR switcher). */
+    altHref?: string;
+}
+
+const { lang = 'de', altHref } = Astro.props;
+const t = useT(lang);
+
+const isFr = lang === 'fr';
+const home = isFr ? '/fr/' : '/';
+const about = isFr ? '/fr/a-propos' : '/ueber-uns';
+const contact = isFr ? '/fr/contact' : '/kontakt';
+const valuation = isFr ? '/fr/estimation' : '/bewertung';
+
+// Language toggle: a clear segmented DE | FR control. `altHref` is this page's
+// URL in the other language; German-only pages fall back to the other home.
+const deHref = isFr ? (altHref ?? '/') : Astro.url.pathname;
+const frHref = isFr ? Astro.url.pathname : (altHref ?? '/fr/');
 ---
 
 <!-- header area start -->
@@ -9,7 +30,7 @@
             <div class="col-lg-12">
                 <div class="header-wrapper-1">
                     <div class="logo-area-start">
-                        <a href="/" class="logo">
+                        <a href={home} class="logo">
                             <img
                                 src="/images/logo/prela_logo.webp"
                                 alt="Prela Automobile AG Logo – Autohändler Luzern"
@@ -41,6 +62,12 @@
                                     >
                                 </div>
                             </div>
+                            <div class="right d-flex align-items-center">
+                                <div class="lang-toggle" role="group" aria-label="Sprache / Langue">
+                                    <a href={deHref} class={`lang-opt${!isFr ? " active" : ""}`} hreflang="de-CH" aria-current={!isFr ? "true" : undefined}>DE</a>
+                                    <a href={frHref} class={`lang-opt${isFr ? " active" : ""}`} hreflang="fr-CH" aria-current={isFr ? "true" : undefined}>FR</a>
+                                </div>
+                            </div>
                         </div>
                         <div
                             class="bottom d-flex align-items-center justify-content-between"
@@ -50,52 +77,68 @@
                                     <li class="main-nav">
                                         <a
                                             class="main-menu"
-                                            href="/"
-                                            data-astro-prefetch>Startseite</a
+                                            href={home}
+                                            data-astro-prefetch>{t('nav.home')}</a
                                         >
                                     </li>
                                     <li class="main-nav">
                                         <a
                                             class="main-menu"
-                                            href="/ueber-uns"
-                                            data-astro-prefetch>Über Uns</a
+                                            href={about}
+                                            data-astro-prefetch>{t('nav.about')}</a
                                         >
                                     </li>
                                     <li class="main-nav has-dropdown">
                                         <a
                                             class="main-menu"
                                             href="javascript:void(0)"
-                                            >Tipps & Ratgeber</a
+                                            >{t('nav.tips')}</a
                                         >
                                         <ul class="submenu parent-nav">
                                             <li>
                                                 <a
                                                     href="/tipps/auto-verkaufen"
                                                     data-astro-prefetch
-                                                    >Auto verkaufen</a
+                                                    >{t('nav.tips.sell')}</a
                                                 >
                                             </li>
                                             <li>
                                                 <a
                                                     href="/tipps/auto-kaufen"
                                                     data-astro-prefetch
-                                                    >Auto kaufen</a
+                                                    >{t('nav.tips.buy')}</a
                                                 >
                                             </li>
                                             <li>
                                                 <a
                                                     href="/tipps/auto-exportieren"
                                                     data-astro-prefetch
-                                                    >Auto exportieren</a
+                                                    >{t('nav.tips.export')}</a
                                                 >
                                             </li>
+                                        </ul>
+                                    </li>
+                                    <li class="main-nav has-dropdown">
+                                        <a
+                                            class="main-menu"
+                                            href="javascript:void(0)"
+                                            >Regionen</a
+                                        >
+                                        <ul class="submenu parent-nav">
+                                            {CITIES.map((c) => (
+                                                <li>
+                                                    <a href={`/autoankauf-${c.slug}`} data-astro-prefetch
+                                                        >Autoankauf {c.name}</a
+                                                    >
+                                                </li>
+                                            ))}
                                         </ul>
                                     </li>
                                     <li class="main-nav">
                                         <a
                                             class="main-menu"
-                                            href="/kontakt"
-                                            data-astro-prefetch>Kontakt</a
+                                            href={contact}
+                                            data-astro-prefetch>{t('nav.contact')}</a
                                         >
                                     </li>
                                 </ul>
@@ -103,10 +146,10 @@
                             <div class="bottom-right">
                                 <div class="button-area">
                                     <a
-                                        href="/bewertung"
+                                        href={valuation}
                                         class="rts-btn btn-primary radius-big icon"
                                     >
-                                        Gratis Bewertung
+                                        {t('cta.valuation')}
                                     </a>
                                 </div>
                                 <div
@@ -158,3 +201,45 @@
     </div>
 </header>
 <!-- header area end -->
+
+<style>
+    /* Segmented DE | FR language toggle — sits at the top-right of the header. */
+    .header-one .top .right { margin-left: auto; }
+
+    .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px;
+        background: #eef2f7;
+        border-radius: 999px;
+        gap: 2px;
+    }
+
+    .lang-toggle .lang-opt {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        height: 28px;
+        padding: 0 12px;
+        border-radius: 999px;
+        color: #5b6b7d;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 1;
+        letter-spacing: .3px;
+        text-decoration: none;
+        transition: background-color .2s ease, color .2s ease;
+    }
+
+    .lang-toggle .lang-opt:hover {
+        color: #05539a;
+    }
+
+    .lang-toggle .lang-opt.active {
+        background: #05539a;
+        color: #fff;
+        box-shadow: 0 1px 3px rgba(5, 83, 154, .3);
+        pointer-events: none;
+    }
+</style>

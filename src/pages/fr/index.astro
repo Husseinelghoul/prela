@@ -1,0 +1,760 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import BrandSlider from "../../components/BrandSlider.astro";
+---
+
+<BaseLayout
+    title="Vendre votre voiture en Suisse – Meilleur prix immédiat"
+    description="Vendez votre voiture au meilleur prix chez Prela Automobile AG à Lucerne. Estimation gratuite en 24 heures, rachat de voiture toutes marques, paiement immédiat. Plus de 25 ans d'expérience."
+    lang="fr"
+    alternates={[{ lang: 'de-CH', href: '/' }, { lang: 'fr-CH', href: '/fr/' }]}
+>
+    <div class="rts-wrapper">
+        <div class="rts-wrapper-inner">
+            <!-- header area start -->
+            <Header lang="fr" altHref="/" />
+            <!-- header area end -->
+
+            <!-- Banner area start -->
+            <section class="rts-banner-area bg_image_one jarallax">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="banner-area-one bg_image">
+                                <div class="banner-content-area text-center">
+                                    <div
+                                        class="pre-title wow fadeInUp"
+                                        data-wow-delay=".2s"
+                                        data-wow-duration="1s"
+                                    >
+                                        <span
+                                            >Votre concessionnaire automobile à Lucerne</span
+                                        >
+                                    </div>
+                                    <h1
+                                        class="title wow fadeInUp"
+                                        data-wow-delay=".4s"
+                                        data-wow-duration="1s"
+                                    >
+                                        Vendre votre voiture au meilleur prix
+                                    </h1>
+                                    <p
+                                        class="desc wow fadeInUp"
+                                        data-wow-delay=".6s"
+                                        data-wow-duration="1s"
+                                        style="color: white; font-size: 20px; font-weight: 500;"
+                                    >
+                                        Estimation gratuite – Offre immédiate – Plus de 25 ans d'expérience
+                                    </p>
+                                    <div
+                                        class="wow fadeInUp mobile-banner-btn"
+                                        data-wow-delay=".8s"
+                                        data-wow-duration="1s"
+                                    >
+                                        <a
+                                            href="/fr/estimation"
+                                            class="rts-btn radius-big icon btn-primary"
+                                        >
+                                            Obtenir une estimation gratuite
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Banner area end -->
+
+            <!-- Form after Landing -->
+            <section class="rts-contact-area rts-section-gapTop">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <ContactForm lang="fr" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Area Start -->
+            <section class="rts-about-area rts-section-gap">
+                <div class="container">
+                    <div class="section-inner">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5">
+                                <div class="about-image-area">
+                                    <div class="image-main">
+                                        <img
+                                            class="wow scaleIn"
+                                            data-wow-delay=".5s"
+                                            data-wow-duration="1.5s"
+                                            src="/images/about/03.webp"
+                                            width="371"
+                                            height="371"
+                                            alt="Prela Automobile AG – Garage automobile premium à Sursee Lucerne"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                        <div class="counter-area">
+                                            <div
+                                                class="inner wow zoomIn"
+                                                data-wow-delay=".9s"
+                                                data-wow-duration="1s"
+                                            >
+                                                <h2 class="title text-blue">
+                                                    <span class="counter"
+                                                        >2000</span
+                                                    ><span>+</span>
+                                                </h2>
+                                                <p class="desc text-blue">
+                                                    Voitures achetées
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img
+                                        src="/images/about/01.webp"
+                                        alt="Inspection professionnelle de véhicule chez Prela Automobile"
+                                        width="223"
+                                        height="223"
+                                        class="floating-img-01 wow scaleIn"
+                                        data-wow-delay=".5s"
+                                        data-wow-duration="1.5s"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                    <img
+                                        src="/images/about/02.webp"
+                                        alt="Intérieur de véhicule haut de gamme – acheter une voiture d'occasion"
+                                        width="266"
+                                        height="266"
+                                        class="floating-img-02 wow scaleIn"
+                                        data-wow-delay=".5s"
+                                        data-wow-duration="1.5s"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="about-content-area pl--40">
+                                    <div class="section-title-area">
+                                        <p
+                                            class="sub-title wow fadeInUp"
+                                            data-wow-delay=".1s"
+                                            data-wow-duration=".8s"
+                                        >
+                                            À propos de Prela Automobile AG
+                                        </p>
+                                        <h2
+                                            class="section-title wow move-right"
+                                        >
+                                            Votre partenaire de confiance pour le <span
+                                                >rachat de voiture en Suisse</span
+                                            >
+                                        </h2>
+                                    </div>
+                                    <p class="desc">
+                                        Bienvenue chez Prela Automobile AG – votre concessionnaire automobile à Lucerne.
+                                        Avec plus de 25 ans d'expérience sur le marché automobile suisse, nous vous offrons
+                                        des prix équitables, un traitement rapide et un service personnalisé
+                                        sur lequel vous pouvez compter.
+                                    </p>
+                                    <p class="desc">
+                                        <strong
+                                            >Ce qui nous distingue : nous venons du
+                                            garage automobile professionnel. Cela signifie que nous connaissons
+                                            la vraie valeur de chaque véhicule – et nous vous faisons profiter
+                                            de cet avantage.</strong
+                                        >
+                                    </p>
+                                    <a
+                                        href="/fr/a-propos"
+                                        class="rts-btn btn-primary radius-big"
+                                        >En savoir plus sur nous</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About Area End -->
+
+            <!-- Counter Area Start -->
+            <section class="rts-counter-area jarallax">
+                <div class="container">
+                    <div class="counter-inner">
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".2s"
+                            data-wow-duration="1s"
+                        >
+                            <div class="icon">
+                                <img
+                                    src="/images/counter/icon-01.svg"
+                                    width="74"
+                                    height="74"
+                                    alt="Icône expérience – plus de 25 ans dans le commerce automobile"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="text">
+                                <h3 class="title cw">
+                                    <span class="counter">25</span><span>+</span
+                                    >
+                                </h3>
+                                <p class="desc">Ans d'expérience</p>
+                            </div>
+                        </div>
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".4s"
+                            data-wow-duration="1s"
+                        >
+                            <div class="icon">
+                                <img
+                                    src="/images/counter/icon-02.svg"
+                                    alt="Icône clients satisfaits"
+                                    width="80"
+                                    height="80"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="text">
+                                <h3 class="title cw">
+                                    <span class="counter">1500</span><span
+                                        >+</span
+                                    >
+                                </h3>
+                                <p class="desc">Clients satisfaits</p>
+                            </div>
+                        </div>
+                        <div
+                            class="inner wow zoomIn"
+                            data-wow-delay=".6s"
+                            data-wow-duration="1s"
+                        >
+                            <div class="icon">
+                                <img
+                                    src="/images/counter/icon-03.svg"
+                                    alt="Icône projets – plus de 5000 véhicules traités"
+                                    width="80"
+                                    height="80"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div class="text">
+                                <h3 class="title cw">
+                                    <span class="counter">5000</span><span
+                                        >+</span
+                                    >
+                                </h3>
+                                <p class="desc">Véhicules traités</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Counter Area End -->
+
+            <!-- Brand Area Start -->
+            <section class="rts-brand-area pt--40 pb--20">
+                <div class="container">
+                    <div class="section-title-area2">
+                        <p
+                            class="sub-title wow fadeInUp"
+                            data-wow-delay=".1s"
+                            data-wow-duration="1s"
+                        >
+                            Marques automobiles
+                        </p>
+                        <h2 class="section-title wow move-right">
+                            Nous achetons toutes les <span>marques</span>
+                        </h2>
+                    </div>
+                    <div class="section-inner mt--40">
+                        <BrandSlider lang="fr" />
+                    </div>
+                </div>
+            </section>
+            <!-- Brand Area End -->
+
+            <!-- Why Choose Us Area -->
+            <section class="rts-why-choose-us rts-section-gap">
+                <div class="right-image jarallax jara-mask-1">
+                    <img
+                        src="/images/about/why-choose-us.webp"
+                        width="886"
+                        height="886"
+                        class="jarallax-img"
+                        alt="Pourquoi Prela Automobile – vendre votre voiture en toute simplicité"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+                <div class="container">
+                    <div class="section-inner">
+                        <div class="row justify-content-end">
+                            <div class="col-lg-6">
+                                <div class="content-area">
+                                    <div class="section-title-area">
+                                        <p
+                                            class="sub-title wow fadeInUp"
+                                            data-wow-delay=".1s"
+                                            data-wow-duration=".8s"
+                                        >
+                                            Pourquoi Prela ?
+                                        </p>
+                                        <h2
+                                            class="section-title cw wow move-right"
+                                        >
+                                            Voici pourquoi les clients nous <span>choisissent</span>
+                                        </h2>
+                                    </div>
+                                    <ul class="why-choose-feature-list mt--60">
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".1s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-01.svg"
+                                                    alt="Icône rachat de voiture toutes marques"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="title cw">
+                                                    Nous achetons des voitures – à tout moment et dans tout état !
+                                                </h6>
+                                                <p class="desc">
+                                                    Vous souhaitez <a href="/fr/estimation" style="color: #fff; text-decoration: underline;">vendre votre voiture</a>
+                                                    et obtenir le meilleur prix ? Chez nous, vous obtenez
+                                                    les prix du marché les plus élevés pour votre véhicule.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".2s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-02.svg"
+                                                    alt="Icône garantie du meilleur prix"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="title cw">
+                                                    Le meilleur prix pour votre voiture – immédiatement !
+                                                </h6>
+                                                <p class="desc">
+                                                    Nous offrons les meilleurs prix sur le marché suisse.
+                                                    Estimation équitable, paiement rapide – sans frais cachés.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".3s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-03.svg"
+                                                    alt="Icône gestion des formalités administratives"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="title cw">
+                                                    Vente de voiture sans stress
+                                                </h6>
+                                                <p class="desc">
+                                                    Nous nous occupons de toutes les formalités administratives : radiation,
+                                                    réimmatriculation et tout ce qui va avec – en toute simplicité.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".4s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-04.svg"
+                                                    alt="Icône vendre une voiture facilement"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="title cw">
+                                                    Vendre votre voiture – simple et rapide !
+                                                </h6>
+                                                <p class="desc">
+                                                    Pas d'annonce, pas d'attente d'acheteur. Il suffit de
+                                                    <a href="/fr/estimation" style="color: #fff; text-decoration: underline;">demander une estimation</a>,
+                                                    de recevoir une offre et de vendre immédiatement.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".5s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-01.svg"
+                                                    alt="Icône import export automobile"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="title cw">
+                                                    Exportation de voitures – dans le monde entier !
+                                                </h6>
+                                                <p class="desc">
+                                                    Vous souhaitez importer une voiture ou
+                                                    <a href="/tipps/auto-exportieren" style="color: #fff; text-decoration: underline;">l'exporter depuis la Suisse</a> ?
+                                                    Nous nous occupons des douanes, de la logistique et du transport.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".6s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-02.svg"
+                                                    alt="Icône achat de voiture accidentée"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="title cw">
+                                                    Voiture accidentée ? Aucun problème !
+                                                </h6>
+                                                <p class="desc">
+                                                    Les accidents arrivent. Si votre voiture est endommagée,
+                                                    nous l'achetons quand même – rapidement et équitablement.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".7s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-03.svg"
+                                                    alt="Icône acheter la voiture de vos rêves"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="title cw">
+                                                    Trouvez la voiture de vos rêves !
+                                                </h6>
+                                                <p class="desc">
+                                                    Nous vendons des voitures d'occasion haut de gamme
+                                                    et proposons des essais routiers. Trouvez votre
+                                                    <a href="/tipps/auto-kaufen" style="color: #fff; text-decoration: underline;">véhicule idéal</a>.
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="wow fadeInUp"
+                                            data-wow-delay=".8s"
+                                            data-wow-duration="1s"
+                                        >
+                                            <div class="icon">
+                                                <img
+                                                    src="/images/why-choose/icon-04.svg"
+                                                    alt="Icône enlèvement de véhicule"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="title cw">
+                                                    Nous venons chez vous !
+                                                </h6>
+                                                <p class="desc">
+                                                    Aucun stress de transport. Nous récupérons votre
+                                                    véhicule directement chez vous et rendons
+                                                    la vente encore plus simple.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Why Choose Us Area End -->
+
+            <!-- Testimonials Area Start -->
+            <section class="rts-testimonials-area rts-section-gap">
+                <div class="container">
+                    <div class="section-title-area text-center">
+                        <p
+                            class="sub-title wow fadeInUp"
+                            data-wow-delay=".1s"
+                            data-wow-duration=".8s"
+                        >
+                            Avis clients (4.7 Google Reviews)
+                        </p>
+                        <h2 class="section-title wow move-right">
+                            Ce que disent nos <span>clients</span>
+                        </h2>
+                    </div>
+                    <div class="section-inner mt--80">
+                        <div class="row align-items-center justify-content-end">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="slider-inner text-center">
+                                    <div class="swiper testimonialSlider">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div
+                                                    class="review-wrapper"
+                                                    style="text-align: center; max-width: 800px; margin: 0 auto;"
+                                                >
+                                                    <ul
+                                                        class="star-rating"
+                                                        style="justify-content: center; font-size: 30px; margin-bottom: 20px;"
+                                                    >
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star-half-stroke"></i></li>
+                                                    </ul>
+                                                    <p
+                                                        class="desc"
+                                                        style="font-size: 20px; line-height: 1.6;"
+                                                    >
+                                                        "Nous avons vécu une
+                                                        excellente expérience
+                                                        avec le garage Prela à
+                                                        Sursee, notamment
+                                                        grâce au
+                                                        professionnalisme de
+                                                        M. Valentin Prela.
+                                                        Tout était transparent,
+                                                        équitable, efficace et au-delà
+                                                        de nos attentes. Nous
+                                                        recommandons vivement le garage
+                                                        Prela !"
+                                                    </p>
+                                                    <div
+                                                        class="author-area"
+                                                        style="justify-content: center; margin-top: 30px;"
+                                                    >
+                                                        <h6
+                                                            class="title"
+                                                            style="margin-bottom: 0;"
+                                                        >
+                                                            Anca Muresan
+                                                        </h6>
+                                                        <p class="designation">
+                                                            Local Google Guide
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div
+                                                    class="review-wrapper"
+                                                    style="text-align: center; max-width: 800px; margin: 0 auto;"
+                                                >
+                                                    <ul
+                                                        class="star-rating"
+                                                        style="justify-content: center; font-size: 30px; margin-bottom: 20px;"
+                                                    >
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                    </ul>
+                                                    <p
+                                                        class="desc"
+                                                        style="font-size: 20px; line-height: 1.6;"
+                                                    >
+                                                        "Je suis passé au garage
+                                                        Prela et je peux dire en
+                                                        toute conscience : ma
+                                                        voiture a été réparée
+                                                        ici de manière
+                                                        professionnelle.
+                                                        L'équipe de l'atelier
+                                                        possède d'excellentes
+                                                        compétences techniques,
+                                                        travaille avec beaucoup
+                                                        de précision et est
+                                                        toujours aimable. L'Alfa
+                                                        est de nouveau en
+                                                        parfait état."
+                                                    </p>
+                                                    <div
+                                                        class="author-area"
+                                                        style="justify-content: center; margin-top: 30px;"
+                                                    >
+                                                        <h6
+                                                            class="title"
+                                                            style="margin-bottom: 0;"
+                                                        >
+                                                            Efstathios
+                                                            Efstathiou
+                                                        </h6>
+                                                        <p class="designation">
+                                                            Client Alfa Romeo
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div
+                                                    class="review-wrapper"
+                                                    style="text-align: center; max-width: 800px; margin: 0 auto;"
+                                                >
+                                                    <ul
+                                                        class="star-rating"
+                                                        style="justify-content: center; font-size: 30px; margin-bottom: 20px;"
+                                                    >
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                    </ul>
+                                                    <p
+                                                        class="desc"
+                                                        style="font-size: 20px; line-height: 1.6;"
+                                                    >
+                                                        "Une très bonne
+                                                        expérience avec le
+                                                        garage Prela. Je suis
+                                                        tombé en panne sur
+                                                        l'autoroute et ils m'ont
+                                                        changé une pompe à eau
+                                                        la matinée suivante.
+                                                        Service rapide et prix
+                                                        raisonnable. Je
+                                                        recommande complètement
+                                                        !"
+                                                    </p>
+                                                    <div
+                                                        class="author-area"
+                                                        style="justify-content: center; margin-top: 30px;"
+                                                    >
+                                                        <h6
+                                                            class="title"
+                                                            style="margin-bottom: 0;"
+                                                        >
+                                                            Clement Petit
+                                                        </h6>
+                                                        <p class="designation">
+                                                            Local Guide
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div
+                                                    class="review-wrapper"
+                                                    style="text-align: center; max-width: 800px; margin: 0 auto;"
+                                                >
+                                                    <ul
+                                                        class="star-rating"
+                                                        style="justify-content: center; font-size: 30px; margin-bottom: 20px;"
+                                                    >
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                        <li><i class="fa-solid fa-star"></i></li>
+                                                    </ul>
+                                                    <p
+                                                        class="desc"
+                                                        style="font-size: 20px; line-height: 1.6;"
+                                                    >
+                                                        "Je suis absolument
+                                                        enthousiasmé par le
+                                                        garage Prela à Sursee !
+                                                        Le travail est tout
+                                                        simplement excellent –
+                                                        une haute qualité à un
+                                                        prix vraiment équitable
+                                                        et avantageux. Le
+                                                        personnel est très
+                                                        prévenant, aimable
+                                                        et compétent."
+                                                    </p>
+                                                    <div
+                                                        class="author-area"
+                                                        style="justify-content: center; margin-top: 30px;"
+                                                    >
+                                                        <h6
+                                                            class="title"
+                                                            style="margin-bottom: 0;"
+                                                        >
+                                                            Rene Stoffel
+                                                        </h6>
+                                                        <p class="designation">
+                                                            Client satisfait
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-shape-area">
+                    <img
+                        src="/images/category/shape/shape-01.svg"
+                        alt=""
+                        loading="lazy"
+                    />
+                </div>
+            </section>
+            <!-- Testimonials Area End -->
+
+            <!-- FAQ Section -->
+            <FAQSection lang="fr" />
+
+            <!-- End of Page Form -->
+            <section class="rts-contact-area rts-section-gap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <ContactForm lang="fr" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <Footer lang="fr" />
+        </div>
+    </div>
+</BaseLayout>

@@ -1,19 +1,39 @@
 ---
+import { useT, LOCALE, OG_LOCALE, type Lang } from "../i18n/ui";
+import { CITIES } from "../data/cities";
+
 interface Props {
     title?: string;
     description?: string;
     ogImage?: string;
+    lang?: Lang;
+    /** hreflang alternates for pages that exist in both languages. */
+    alternates?: { lang: string; href: string }[];
 }
 
-const { 
-    title = "Auto verkaufen Schweiz – Bestpreis Garantie", 
+const {
+    title = "Auto verkaufen Schweiz – Bestpreis Garantie",
     description = "Prela Automobile AG – Ihr Autohändler in Luzern. Auto verkaufen zum Bestpreis, kostenlose Autobewertung in 24 Stunden, Autoankauf aller Marken. Über 25 Jahre Erfahrung in der Schweiz.",
-    ogImage = "https://prela-automobile.ch/images/about/03.webp"
+    ogImage = "https://prela-automobile.ch/images/about/03.webp",
+    lang = "de",
+    alternates = [],
 } = Astro.props;
+
+const t = useT(lang);
+const isFr = lang === "fr";
+const htmlLang = LOCALE[lang];
+const home = isFr ? "/fr/" : "/";
+
+// Mobile language toggle (mirrors the header). Derive both-language URLs from
+// the hreflang alternates the page passed in.
+const deAlt = alternates.find((a) => a.lang === "de-CH")?.href;
+const frAlt = alternates.find((a) => a.lang === "fr-CH")?.href;
+const deHref = isFr ? (deAlt ?? "/") : Astro.url.pathname;
+const frHref = isFr ? Astro.url.pathname : (frAlt ?? "/fr/");
 ---
 
 <!doctype html>
-<html lang="de-CH" class="no-js">
+<html lang={htmlLang} class="no-js">
     <head>
         <meta charset="UTF-8" />
         <meta
@@ -43,16 +63,35 @@ const {
         />
 
         <!-- Language Alternates (hreflang) -->
-        <link
-            rel="alternate"
-            hreflang="de-CH"
-            href={`https://prela-automobile.ch${Astro.url.pathname}`}
-        />
-        <link
-            rel="alternate"
-            hreflang="x-default"
-            href={`https://prela-automobile.ch${Astro.url.pathname}`}
-        />
+        {alternates.length > 0 ? (
+            <>
+                {alternates.map((a) => (
+                    <link
+                        rel="alternate"
+                        hreflang={a.lang}
+                        href={`https://prela-automobile.ch${a.href}`}
+                    />
+                ))}
+                <link
+                    rel="alternate"
+                    hreflang="x-default"
+                    href={`https://prela-automobile.ch${(alternates.find((a) => a.lang === "de-CH") ?? alternates[0]).href}`}
+                />
+            </>
+        ) : (
+            <>
+                <link
+                    rel="alternate"
+                    hreflang="de-CH"
+                    href={`https://prela-automobile.ch${Astro.url.pathname}`}
+                />
+                <link
+                    rel="alternate"
+                    hreflang="x-default"
+                    href={`https://prela-automobile.ch${Astro.url.pathname}`}
+                />
+            </>
+        )}
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
@@ -69,7 +108,7 @@ const {
             property="og:image"
             content={ogImage}
         />
-        <meta property="og:locale" content="de_CH" />
+        <meta property="og:locale" content={OG_LOCALE[lang]} />
         <meta property="og:site_name" content="Prela Automobile AG" />
 
         <!-- Twitter -->
@@ -91,9 +130,9 @@ const {
             content={ogImage}
         />
 
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="/images/fav.svg" />
-        <link rel="icon" type="image/svg+xml" href="/images/fav.svg" />
+        <!-- Favicon (small vector + ico fallback; the old /images/fav.svg was a 1.6 MB embedded PNG) -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
 
         <!-- Preconnect to external domains for performance -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -105,7 +144,6 @@ const {
 
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/css/plugins/plugins.css" />
-        <link rel="stylesheet" href="/css/plugins/magnifying-popup.css" />
         <link rel="stylesheet" href="/css/vendor/bootstrap.min.css" />
         <link rel="stylesheet" href="/css/style.css?v=3.1" />
         <link rel="stylesheet" href="/css/ui-baseline.css?v=1.0" />
@@ -229,9 +267,9 @@ const {
                         <input
                             class="search-input autocomplete"
                             type="text"
-                            placeholder="Suche nach Marke oder Modell"
+                            placeholder={isFr ? "Rechercher une marque ou un modèle" : "Suche nach Marke oder Modell"}
                         />
-                        <button type="submit" title="Suchen" aria-label="Suchen">
+                        <button type="submit" title={isFr ? "Rechercher" : "Suchen"} aria-label={isFr ? "Rechercher" : "Suchen"}>
                             <i class="far fa-search"></i>
                         </button>
                     </div>
@@ -242,8 +280,8 @@ const {
                 class="search-close-icon"
                 role="button"
                 tabindex="0"
-                title="Suche schliessen"
-                aria-label="Suche schliessen"
+                title={isFr ? "Fermer la recherche" : "Suche schliessen"}
+                aria-label={isFr ? "Fermer la recherche" : "Suche schliessen"}
             >
                 <i class="far fa-times"></i>
             </div>
@@ -258,8 +296,8 @@ const {
             href="https://wa.me/+41793088000"
             target="_blank"
             class="whatsapp-float"
-            title="Schreiben Sie uns auf WhatsApp"
-            aria-label="Kontaktieren Sie uns auf WhatsApp"
+            title={isFr ? "Écrivez-nous sur WhatsApp" : "Schreiben Sie uns auf WhatsApp"}
+            aria-label={isFr ? "Contactez-nous sur WhatsApp" : "Kontaktieren Sie uns auf WhatsApp"}
         >
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -273,28 +311,41 @@ const {
         <div id="side-bar" class="side-bar header-two">
             <button
                 class="close-icon-menu"
-                title="Menü schliessen"
-                aria-label="Menü schliessen"
+                title={t('aria.closeMenu')}
+                aria-label={t('aria.closeMenu')}
             >X</button>
             <div class="mobile-menu-main">
                 <nav class="nav-main mainmenu-nav mt--30">
                     <ul class="mainmenu metismenu" id="mobile-menu-active">
-                        <li><a href="/" class="main">Startseite</a></li>
-                        <li><a href="/ueber-uns" class="main">Über Uns</a></li>
+                        <li><a href={home} class="main">{t('nav.home')}</a></li>
+                        <li><a href={isFr ? '/fr/a-propos' : '/ueber-uns'} class="main">{t('nav.about')}</a></li>
                         <li class="has-droupdown">
-                            <a href="#" class="main">Tipps & Ratgeber</a>
+                            <a href="#" class="main">{t('nav.tips')}</a>
                             <ul class="submenu">
                                 <li>
-                                    <a href="/tipps/auto-verkaufen">Auto verkaufen</a>
+                                    <a href="/tipps/auto-verkaufen">{t('nav.tips.sell')}</a>
                                 </li>
-                                <li><a href="/tipps/auto-kaufen">Auto kaufen</a></li>
+                                <li><a href="/tipps/auto-kaufen">{t('nav.tips.buy')}</a></li>
                                 <li>
-                                    <a href="/tipps/auto-exportieren">Auto exportieren</a>
+                                    <a href="/tipps/auto-exportieren">{t('nav.tips.export')}</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/kontakt" class="main">Kontakt</a></li>
+                        <li class="has-droupdown">
+                            <a href="#" class="main">Regionen</a>
+                            <ul class="submenu">
+                                {CITIES.map((c) => (
+                                    <li><a href={`/autoankauf-${c.slug}`}>Autoankauf {c.name}</a></li>
+                                ))}
+                            </ul>
+                        </li>
+                        <li><a href={isFr ? '/fr/contact' : '/kontakt'} class="main">{t('nav.contact')}</a></li>
                     </ul>
+
+                    <div class="mobile-lang-toggle lang-toggle" role="group" aria-label="Sprache / Langue">
+                        <a href={deHref} class={`lang-opt${!isFr ? ' active' : ''}`} hreflang="de-CH">DE</a>
+                        <a href={frHref} class={`lang-opt${isFr ? ' active' : ''}`} hreflang="fr-CH">FR</a>
+                    </div>
                 </nav>
             </div>
         </div>
@@ -323,21 +374,48 @@ const {
 
         <!-- Scripts - Optimized loading order -->
         <script is:inline src="/js/plugins/jquery.js"></script>
-        <script is:inline src="/js/plugins/jquery-ui.js" defer></script>
         <script is:inline src="/js/vendor/waw.js" defer></script>
         <script is:inline src="/js/plugins/counter-up.js" defer></script>
         <script is:inline src="/js/plugins/swiper.js" defer></script>
         <script is:inline src="/js/plugins/metismenu.js" defer></script>
         <script is:inline src="/js/vendor/jarallax.js" defer></script>
         <script is:inline src="/js/plugins/smooth-scroll.js" defer></script>
-        <script is:inline src="/js/plugins/magnifying-popup.js" defer></script>
         <script is:inline src="/js/vendor/bootstrap.min.js" defer></script>
         <script is:inline src="/js/vendor/waypoint.js" defer></script>
-        <script is:inline src="/js/main.js?v=1.0.2" defer></script>
+        <script is:inline src="/js/main.js?v=1.0.3" defer></script>
     </body>
 </html>
 
 <style>
+    .mobile-lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        margin: 24px 0 0 20px;
+        padding: 3px;
+        background: #eef2f7;
+        border-radius: 999px;
+    }
+    .mobile-lang-toggle .lang-opt {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        height: 30px;
+        padding: 0 14px;
+        border-radius: 999px;
+        color: #5b6b7d;
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: .3px;
+        text-decoration: none;
+    }
+    .mobile-lang-toggle .lang-opt.active {
+        background: #05539a;
+        color: #fff;
+        pointer-events: none;
+    }
+
     .whatsapp-float {
         position: fixed;
         width: 60px;

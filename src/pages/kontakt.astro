@@ -9,10 +9,11 @@ import ContactForm from "../components/ContactForm.astro";
 <BaseLayout
     title="Kontakt – Autohändler in Luzern"
     description="Kontaktieren Sie Prela Automobile AG in Luzern. Autoankauf, Autobewertung und Autoexport – rufen Sie uns an oder besuchen Sie uns an der Allmendstrasse 10, 6210 Luzern."
+    alternates={[{ lang: 'de-CH', href: '/kontakt' }, { lang: 'fr-CH', href: '/fr/contact' }]}
 >
     <div class="rts-wrapper">
         <div class="rts-wrapper-inner">
-            <Header />
+            <Header altHref="/fr/contact" />
 
             <Breadcrumb
                 title="Kontakt aufnehmen"

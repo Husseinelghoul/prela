@@ -1,0 +1,15 @@
+# Cloudflare Pages redirects — old English slugs → German slugs (301 permanent).
+# Specific rules MUST come before the /tips/* wildcard.
+
+/tips/selling        /tipps/auto-verkaufen     301
+/tips/buying         /tipps/auto-kaufen        301
+/tips/exporting      /tipps/auto-exportieren   301
+/tips/*              /tipps/:splat             301
+
+/about               /ueber-uns                301
+/contact             /kontakt                  301
+/quote               /bewertung                301
+/terms               /agb                      301
+/privacy-policy      /datenschutz              301
+/cookie-policy       /cookie-richtlinie        301
+/thank-you           /danke                    301

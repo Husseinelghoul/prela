@@ -1,0 +1,230 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<BaseLayout
+    title="À propos de Prela Automobile AG – Concessionnaire auto à Sursee"
+    description="Faites connaissance avec Prela Automobile AG – votre concessionnaire auto à Sursee, Lucerne. Entreprise familiale avec plus de 25 ans d'expérience dans le rachat de voiture, la vente et l'exportation de voitures. Prix équitables, service personnalisé."
+    lang="fr"
+    alternates={[
+        { lang: 'de-CH', href: '/ueber-uns' },
+        { lang: 'fr-CH', href: '/fr/a-propos' },
+    ]}
+>
+    <div class="rts-wrapper">
+        <div class="rts-wrapper-inner">
+            <Header lang="fr" altHref="/ueber-uns" />
+
+            <Breadcrumb
+                title="À propos de nous"
+                current="À propos"
+                className="service"
+            />
+
+            <!-- Mission & Vision Section Start -->
+            <section class="rts-about-area rts-section-gap">
+                <div class="container">
+                    <div class="row g-5">
+                        <div class="col-lg-6">
+                            <div class="about-content-area">
+                                <div class="section-title-area">
+                                    <p class="sub-title">Notre mission</p>
+                                    <h2 class="section-title">
+                                        Votre <span>vente de voiture</span> – simplifiée
+                                    </h2>
+                                </div>
+                                <p class="desc">
+                                    Chez Prela Automobile AG, nous voulons rendre le commerce automobile en Suisse
+                                    aussi simple que possible. Que vous souhaitiez <a href="/fr/estimation">vendre votre voiture</a>,
+                                    acheter ou exporter un véhicule – nous garantissons
+                                    transparence et confiance à chaque transaction. Notre objectif est de
+                                    vous offrir la meilleure valeur et un déroulement sans accroc.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-content-area">
+                                <div class="section-title-area">
+                                    <p class="sub-title">Notre vision</p>
+                                    <h2 class="section-title">
+                                        La référence en matière de <span>qualité</span>
+                                    </h2>
+                                </div>
+                                <p class="desc">
+                                    Notre vision est de devenir le concessionnaire auto de référence en Suisse.
+                                    Nous misons sur l'amélioration constante de nos services et souhaitons
+                                    que Prela Automobile AG soit le premier choix de tous ceux qui veulent
+                                    <a href="/tipps/auto-kaufen">acheter une voiture</a> ou en vendre une.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Mission & Vision Section End -->
+
+            <!-- Value Proposition Start -->
+            <section class="rts-service-area rts-section-gap bg-light">
+                <div class="container">
+                    <div class="section-title-area text-center">
+                        <p class="sub-title">Pourquoi Prela ?</p>
+                        <h2 class="section-title">
+                            Nos <span>avantages</span>
+                        </h2>
+                    </div>
+                    <div class="row g-5 mt--20">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="service-wrapper text-center">
+                                <div class="icon mb--20">
+                                    <img
+                                        src="/images/why-choose/icon-01.svg"
+                                        alt="Icône estimation équitable de voiture"
+                                        width="60"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <h5 class="title">Estimation équitable</h5>
+                                <p class="desc">
+                                    Nous utilisons des données de marché actuelles pour vous
+                                    offrir le meilleur prix et le plus équitable pour votre
+                                    véhicule. Que ce soit pour une vente ou une reprise –
+                                    chez nous, le prix est juste.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="service-wrapper text-center">
+                                <div class="icon mb--20">
+                                    <img
+                                        src="/images/why-choose/icon-02.svg"
+                                        alt="Icône exportation de voitures professionnelle"
+                                        width="60"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <h5 class="title">Exportation professionnelle</h5>
+                                <p class="desc">
+                                    Grâce à des années d'expérience dans la logistique
+                                    internationale, nous prenons en charge l'
+                                    <a href="/tipps/auto-exportieren">exportation de voitures</a>
+                                    entièrement pour vous – formalités et transport inclus.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="service-wrapper text-center">
+                                <div class="icon mb--20">
+                                    <img
+                                        src="/images/why-choose/icon-03.svg"
+                                        alt="Icône qualité contrôlée"
+                                        width="60"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <h5 class="title">Qualité contrôlée</h5>
+                                <p class="desc">
+                                    Chaque véhicule de notre stock est minutieusement
+                                    contrôlé. Nous garantissons ainsi les normes de sécurité
+                                    et de qualité les plus élevées.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Value Proposition End -->
+
+            <!-- History of Owners Start -->
+            <section class="rts-about-area rts-section-gap">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="about-image-area">
+                                <img
+                                    src="/images/about/03.webp"
+                                    alt="La famille Prela – fondateurs de Prela Automobile AG Sursee"
+                                    class="radius-10"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="about-content-area">
+                                <div class="section-title-area">
+                                    <p class="sub-title">Notre histoire</p>
+                                    <h2 class="section-title">
+                                        Plus de 25 ans de <span>passion</span>
+                                    </h2>
+                                </div>
+                                <p class="desc">
+                                    Fondée par la famille Prela, notre
+                                    entreprise a débuté comme un petit garage à Sursee – avec
+                                    une grande passion pour les voitures et la technique.
+                                    Au fil des années, nous sommes devenus Prela Automobile AG,
+                                    une composante à part entière du marché automobile suisse.
+                                </p>
+                                <p class="desc">
+                                    Les fondateurs apportent une vaste expérience en
+                                    mécanique et en commerce international. Les relations
+                                    personnelles avec la clientèle ont toujours été prioritaires.
+                                    Aujourd'hui, cette même passion familiale guide
+                                    notre travail – pour que Prela Automobile AG soit synonyme
+                                    de confiance et de qualité.
+                                </p>
+                                <p class="desc">
+                                    <strong
+                                        >Notre atout : nous venons de l'atelier automobile
+                                        professionnel. Cette expertise technique fait de
+                                        nous un concessionnaire auto unique en
+                                        Suisse.</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- History of Owners End -->
+
+            <div class="rts-cta-area area-2">
+                <div class="container">
+                    <div class="cta-inner">
+                        <h2 class="title">
+                            Prêt à découvrir la différence Prela ?
+                        </h2>
+                        <div class="contact">
+                            <a href="callto:+41793088000">
+                                <img
+                                    src="/images/cta/call.svg"
+                                    alt="Icône téléphone"
+                                    loading="lazy"
+                                />
+                                +41 79 308 80 00</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End of Page Form -->
+            <section class="rts-contact-area rts-section-gap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <ContactForm lang="fr" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <Footer lang="fr" />
+        </div>
+    </div>
+</BaseLayout>

@@ -723,6 +723,7 @@
       }(jQuery));
     },
     vedioActivation: function () {
+      if (!$.fn.magnificPopup) return; // plugin removed (unused)
       $(document).ready(function () {
         $('.popup-youtube, .popup-video').magnificPopup({
           type: 'iframe',
@@ -786,9 +787,11 @@
       });
     },
     preloader: function () {
-      window.addEventListener('load', function () {
-        document.querySelector('body').classList.add("loaded")
-      });
+      // Reveal as soon as the DOM is ready — don't gate first paint on every
+      // image/font/script finishing (that was the real "slow to open").
+      var reveal = function () { document.body.classList.add("loaded"); };
+      if (document.readyState !== "loading") { reveal(); }
+      else { document.addEventListener("DOMContentLoaded", reveal); }
     },
     counterUp: function (e) {
       $('.counter').counterUp({
@@ -857,12 +860,14 @@
     });
   });
   /* magnificPopup img view */
-  $('.gallery-image').magnificPopup({
-    type: 'image',
-    gallery: {
-      enabled: true
-    }
-  });
+  if ($.fn.magnificPopup) {
+    $('.gallery-image').magnificPopup({
+      type: 'image',
+      gallery: {
+        enabled: true
+      }
+    });
+  }
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();

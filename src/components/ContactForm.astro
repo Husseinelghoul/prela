@@ -1,12 +1,72 @@
 ---
+import type { Lang } from "../i18n/ui";
 
+interface Props {
+    lang?: Lang;
+}
+
+const { lang = "de" } = Astro.props;
+const isFr = lang === "fr";
+
+const c = isFr
+    ? {
+          title: "Demander une estimation",
+          subtitle: "Recevez une estimation gratuite de votre voiture sous 24 heures.",
+          next: "https://prela-automobile.ch/fr/merci",
+          vehicleInfo: "Informations sur le véhicule",
+          makeModel: "Marque et modèle *",
+          registration: "Première mise en circulation *",
+          mileage: "Kilométrage *",
+          price: "Prix souhaité",
+          contactData: "Coordonnées",
+          lastName: "Nom *",
+          firstName: "Prénom *",
+          phone: "Téléphone *",
+          email: "E-mail",
+          remarks: "Remarques",
+          remarksPlaceholder: "Décrivez l'état, les équipements, les dommages éventuels, etc.",
+          submit: "Demander l'estimation",
+          privacyBefore: "Vos données sont traitées conformément à notre ",
+          privacyLink: "politique de confidentialité",
+          privacyAfter: ".",
+          makeModelPh: "p. ex. BMW M4",
+          registrationPh: "MM.AAAA",
+          mileagePh: "p. ex. 45'000 km",
+      }
+    : {
+          title: "Fahrzeugbewertung anfragen",
+          subtitle: "Erhalten Sie eine kostenlose Bewertung Ihres Autos innerhalb von 24 Stunden.",
+          next: "https://prela-automobile.ch/danke",
+          vehicleInfo: "Fahrzeuginformationen",
+          makeModel: "Marke & Modell *",
+          registration: "Erstzulassung *",
+          mileage: "Kilometerstand *",
+          price: "Gewünschter Preis",
+          contactData: "Kontaktdaten",
+          lastName: "Nachname *",
+          firstName: "Vorname *",
+          phone: "Telefon *",
+          email: "E-Mail",
+          remarks: "Bemerkungen",
+          remarksPlaceholder: "Beschreiben Sie den Zustand, Ausstattung, Unfallschäden etc.",
+          submit: "Bewertung anfordern",
+          privacyBefore: "Ihre Daten werden gemäss unserer ",
+          privacyLink: "Datenschutzerklärung",
+          privacyAfter: " behandelt.",
+          makeModelPh: "z.B. BMW M4",
+          registrationPh: "MM.JJJJ",
+          mileagePh: "z.B. 45'000 km",
+      };
+
+// Legal pages exist in German only (per project scope) — link there from both locales.
+const privacyHref = "/datenschutz";
 ---
 
 <div class="premium-contact-form">
     <div class="form-header text-center">
-        <h3 class="title">Fahrzeugbewertung anfragen</h3>
+        <h3 class="title">{c.title}</h3>
         <p class="subtitle">
-            Erhalten Sie eine kostenlose Bewertung Ihres Autos innerhalb von 24 Stunden.
+            {c.subtitle}
         </p>
     </div>
     <form
@@ -18,53 +78,53 @@
         <input
             type="hidden"
             name="_next"
-            value="https://prela-automobile.ch/danke"
+            value={c.next}
         />
         <div class="form-section">
-            <h6 class="section-tag">Fahrzeuginformationen</h6>
+            <h6 class="section-tag">{c.vehicleInfo}</h6>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form__control">
-                        <label for="make_model">Marke & Modell *</label>
+                        <label for="make_model">{c.makeModel}</label>
                         <input
                             type="text"
                             id="make_model"
                             class="input-form"
                             name="make_model"
-                            placeholder="z.B. BMW M4"
+                            placeholder={c.makeModelPh}
                             required
                         />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
-                        <label for="registration">Erstzulassung *</label>
+                        <label for="registration">{c.registration}</label>
                         <input
                             type="text"
                             id="registration"
                             class="input-form"
                             name="registration"
-                            placeholder="MM.JJJJ"
+                            placeholder={c.registrationPh}
                             required
                         />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
-                        <label for="mileage">Kilometerstand *</label>
+                        <label for="mileage">{c.mileage}</label>
                         <input
                             type="text"
                             id="mileage"
                             class="input-form"
                             name="mileage"
-                            placeholder="z.B. 45'000 km"
+                            placeholder={c.mileagePh}
                             required
                         />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
-                        <label for="price">Gewünschter Preis</label>
+                        <label for="price">{c.price}</label>
                         <input
                             type="text"
                             id="price"
@@ -78,11 +138,11 @@
         </div>
 
         <div class="form-section mt--30">
-            <h6 class="section-tag">Kontaktdaten</h6>
+            <h6 class="section-tag">{c.contactData}</h6>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form__control">
-                        <label for="last_name">Nachname *</label>
+                        <label for="last_name">{c.lastName}</label>
                         <input
                             type="text"
                             id="last_name"
@@ -95,7 +155,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
-                        <label for="first_name">Vorname *</label>
+                        <label for="first_name">{c.firstName}</label>
                         <input
                             type="text"
                             id="first_name"
@@ -108,7 +168,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
-                        <label for="phone_form">Telefon *</label>
+                        <label for="phone_form">{c.phone}</label>
                         <input
                             type="text"
                             id="phone_form"
@@ -121,7 +181,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form__control">
-                        <label for="email_form">E-Mail</label>
+                        <label for="email_form">{c.email}</label>
                         <input
                             type="email"
                             id="email_form"
@@ -133,13 +193,13 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form__control">
-                        <label for="message_form">Bemerkungen</label>
+                        <label for="message_form">{c.remarks}</label>
                         <textarea
                             name="message"
                             id="message_form"
                             cols="30"
                             rows="4"
-                            placeholder="Beschreiben Sie den Zustand, Ausstattung, Unfallschäden etc."
+                            placeholder={c.remarksPlaceholder}
                         ></textarea>
                     </div>
                 </div>
@@ -147,13 +207,11 @@
         </div>
         <div class="form-footer mt--30">
             <button type="submit" class="premium-submit-btn">
-                <span>Bewertung anfordern</span>
+                <span>{c.submit}</span>
                 <i class="fa-light fa-arrow-right"></i>
             </button>
             <p class="privacy-note">
-                Ihre Daten werden gemäss unserer <a href="/datenschutz"
-                    >Datenschutzerklärung</a
-                > behandelt.
+                {c.privacyBefore}<a href={privacyHref}>{c.privacyLink}</a>{c.privacyAfter}
             </p>
         </div>
     </form>

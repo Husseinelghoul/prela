@@ -1,0 +1,8 @@
+{
+  // Cloudflare Pages project config for the Prela Automobile AG static site.
+  // Git-connected Pages reads build settings from the dashboard, but declaring
+  // the output dir here keeps `wrangler pages deploy` and CI in sync.
+  "name": "prela-automobile",
+  "compatibility_date": "2026-07-23",
+  "pages_build_output_dir": "dist"
+}

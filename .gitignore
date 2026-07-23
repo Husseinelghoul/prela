@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local backup of pre-optimization image originals (recoverable from git history)
+scripts/images-full/

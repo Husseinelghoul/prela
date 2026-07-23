@@ -25884,26 +25884,26 @@ li.has-dropdown:hover .submenu {
   right: 0;
 }
 
-/* Loaded Styles */
+/* Loaded Styles — snappy reveal (no artificial 1s hold) */
 .loaded .loader-wrapper .loader-section.section-left {
-  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
   opacity: 0;
 }
 
 .loaded .loader-wrapper .loader-section.section-right {
-  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
   opacity: 0;
 }
 
 .loaded .loader {
   opacity: 0;
-  transition: all 0.3s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .loaded .loader-wrapper {
   visibility: hidden;
   transform: translateY(-100%);
-  transition: all 0.3s 1s ease-out;
+  transition: all 0.3s 0.2s ease-out;
 }
 
 .loader:after {
